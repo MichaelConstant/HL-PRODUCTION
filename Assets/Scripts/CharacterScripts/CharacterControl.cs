@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterControl : MonoBehaviour
 {
@@ -17,7 +18,11 @@ public class CharacterControl : MonoBehaviour
 
     public float BasicShootInterval;
     public float BasicAttackInterval;
-    public GameObject bullet;
+    public GameObject bullet0;
+    public GameObject bullet1;
+    public GameObject bullet2;
+    public GameObject bullet3;
+    public GameObject bulletUltra;
     public Transform bulletSpawn;
 
     protected Vector2 AttackVector;
@@ -46,10 +51,31 @@ public class CharacterControl : MonoBehaviour
     {
         rb.velocity = new Vector2(directionX * movementSpeed, directionY * movementSpeed);
     }
-    protected void Shoot()
+
+    protected void CommonShoot()
     {
         canShoot = false;
-        Instantiate(bullet, bulletSpawn.transform.position, transform.rotation);
+        Instantiate(bullet0, bulletSpawn.transform.position, transform.rotation);
+        StartCoroutine(ShootInterval());
+    }
+    protected void PlayerShoot()
+    {
+        canShoot = false;
+        switch(PlayerControl.MeleeLevelStatic)
+        {
+            case 0:
+                Instantiate(bullet0, bulletSpawn.transform.position, transform.rotation);
+                break;
+            case 1:
+                Instantiate(bullet1, bulletSpawn.transform.position, transform.rotation);
+                break;
+            case 2:
+                Instantiate(bullet2, bulletSpawn.transform.position, transform.rotation);
+                break;
+            case 3:
+                Instantiate(bullet3, bulletSpawn.transform.position, transform.rotation);
+                break;
+        }
         StartCoroutine(ShootInterval());
     }
     protected void Attack()

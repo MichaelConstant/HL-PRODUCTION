@@ -95,7 +95,6 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -220,7 +219,6 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -313,8 +311,24 @@ MonoBehaviour:
   movementSpeed: 1
   BasicShootInterval: 0.5
   BasicAttackInterval: 1
-  bullet: {fileID: 8573897042248982977, guid: 664b32a95e69ed44cbabd45af76205a5, type: 3}
+  bullet0: {fileID: 8573897042248982977, guid: 664b32a95e69ed44cbabd45af76205a5, type: 3}
+  bullet1: {fileID: 8573897042248982977, guid: 98126c93f56652243a12ac355a37ee72, type: 3}
+  bullet2: {fileID: 8573897042248982977, guid: e914d3cb0aefd804988707be5570e57f, type: 3}
+  bullet3: {fileID: 8573897042248982977, guid: 43703bb46b475ad468e1f372121d4998, type: 3}
+  bulletUltra: {fileID: 8573897042248982977, guid: 0e52ce7ed17978543b554d2df1b49392, type: 3}
   bulletSpawn: {fileID: 229624869}
-  HP: 10
-  RangeEnergyDecreaseAmount: 0.05
-  MeleeEnergyDecreaseAmount: 0.05
+  MeleeEnergyUI: {fileID: 0}
+  MeleeLevelUI: {fileID: 0}
+  RangeEnergyUI: {fileID: 0}
+  RangeEnergy: 0
+  MeleeEnergy: 0
+  RangeEnergyPerHit: 0.25
+  MeleeEnergyPerHit: 1
+  RangeEnergyDecreaseAmount: 0
+  MeleeEnergyDecreaseAmount: 0.01
+  RangeLevel: 0
+  MeleeLevel: 0
+  RangeEnergyMax: 10
+  MeleeEnergyMax: 5
+  MeleeLevelMax: 3
+  RangeLevelMax: 1

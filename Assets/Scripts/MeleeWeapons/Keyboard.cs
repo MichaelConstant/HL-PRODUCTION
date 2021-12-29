@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Keyboard : MonoBehaviour
 {
@@ -20,18 +21,21 @@ public class Keyboard : MonoBehaviour
         if(collision.gameObject.GetComponent<EnemyBullet>()==true)
         {
             Destroy(collision.gameObject);
-            if (PlayerControl.MeleeEnergy < PlayerControl.MeleeEnergyMax)
+            if (PlayerControl.MeleeEnergyStatic < PlayerControl.MeleeEnergyMaxStatic)
             {
-                PlayerControl.MeleeEnergy += 1;
+                PlayerControl.MeleeEnergyStatic += PlayerControl.MeleeEnergyPerHitStatic;
             }
-            if(PlayerControl.MeleeEnergy >= PlayerControl.MeleeEnergyMax && PlayerControl.MeleeLevel < PlayerControl.MeleeLevelMax)
+            if(PlayerControl.MeleeEnergyStatic >= PlayerControl.MeleeEnergyMaxStatic && PlayerControl.MeleeLevelStatic < PlayerControl.MeleeLevelMaxStatic)
             {
-                PlayerControl.MeleeEnergy = PlayerControl.MeleeEnergy - PlayerControl.MeleeEnergyMax;
-                PlayerControl.MeleeLevel += 1;
+                PlayerControl.MeleeLevelStatic += 1;
+                if (PlayerControl.MeleeLevelStatic < PlayerControl.MeleeLevelMaxStatic)
+                {
+                    PlayerControl.MeleeEnergyStatic = PlayerControl.MeleeEnergyStatic - PlayerControl.MeleeEnergyMaxStatic + PlayerControl.MeleeEnergyMaxStatic * 0.05f;
+                }
             }
-            if (PlayerControl.MeleeEnergy >= PlayerControl.MeleeEnergyMax && PlayerControl.MeleeLevel >= PlayerControl.MeleeLevelMax)
+            if (PlayerControl.MeleeEnergyStatic >= PlayerControl.MeleeEnergyMaxStatic && PlayerControl.MeleeLevelStatic >= PlayerControl.MeleeLevelMaxStatic)
             {
-                PlayerControl.MeleeEnergy = PlayerControl.MeleeEnergyMax;
+                PlayerControl.MeleeEnergyStatic = PlayerControl.MeleeEnergyMaxStatic;
             }
         }
     }

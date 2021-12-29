@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossControl : CharacterControl
 {
@@ -17,7 +18,7 @@ public class BossControl : CharacterControl
         if (canShoot)
         {
             canShoot = false;
-            Shoot();
+            CommonShoot();
         }
     }
 }

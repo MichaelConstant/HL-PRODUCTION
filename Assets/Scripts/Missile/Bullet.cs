@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Bullet : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.transform.parent = GameObject.FindGameObjectWithTag("Player").transform;
         BulletVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, 2)) - gameObject.transform.position);
         GetComponent<Rigidbody2D>().AddForce(BulletVector.normalized * BulletSpeed);
     }
@@ -31,11 +33,26 @@ public class Bullet : MonoBehaviour
         {
             if((collision.gameObject.GetComponent<BossControl>() != null))
             {
-                if(PlayerControl.RangeEnergy<10)
+                if(gameObject.tag!="Ultra")
                 {
-                    PlayerControl.RangeEnergy += 1;
+                    if (PlayerControl.RangeEnergyStatic < PlayerControl.RangeEnergyMaxStatic)
+                    {
+                        PlayerControl.RangeEnergyStatic += 1;
+                    }
+                    if (PlayerControl.RangeEnergyStatic >= PlayerControl.RangeEnergyMaxStatic && PlayerControl.RangeLevelStatic < PlayerControl.RangeLevelMaxStatic)
+                    {
+                        PlayerControl.RangeLevelStatic += 1;
+                        if (PlayerControl.RangeLevelStatic < PlayerControl.RangeLevelMaxStatic)
+                        {
+                            PlayerControl.RangeEnergyStatic = PlayerControl.RangeEnergyStatic - PlayerControl.RangeEnergyMaxStatic + PlayerControl.RangeEnergyMaxStatic * 0.05f;
+                        }
+                    }
+                    if (PlayerControl.RangeEnergyStatic >= PlayerControl.RangeEnergyMaxStatic && PlayerControl.RangeLevelStatic >= PlayerControl.RangeLevelMaxStatic)
+                    {
+                        PlayerControl.RangeEnergyStatic = PlayerControl.RangeEnergyMaxStatic;
+                        gameObject.GetComponentInParent<PlayerControl>().RangeUltraText.SetActive(true);
+                    }
                 }
-                Debug.Log(PlayerControl.RangeEnergy);
             }
             Destroy(gameObject);
         }
