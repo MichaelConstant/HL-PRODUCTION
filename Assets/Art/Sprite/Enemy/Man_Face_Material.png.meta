@@ -47,6 +47,51 @@ TextureImporter:
   - first:
       213: -964376724019678896
     second: Shader1_14
+  - first:
+      213: 3221872907880339554
+    second: Man_Face_Material_0
+  - first:
+      213: 460282999287406394
+    second: Man_Face_Material_1
+  - first:
+      213: -4085246679880016711
+    second: Man_Face_Material_2
+  - first:
+      213: -1381947913108611334
+    second: Man_Face_Material_3
+  - first:
+      213: -982379461622877760
+    second: Man_Face_Material_4
+  - first:
+      213: 7296762789143587759
+    second: Man_Face_Material_5
+  - first:
+      213: 597504464457933931
+    second: Man_Face_Material_6
+  - first:
+      213: -773263559180549795
+    second: Man_Face_Material_7
+  - first:
+      213: 636068522894079623
+    second: Man_Face_Material_8
+  - first:
+      213: -8845072898253033942
+    second: Man_Face_Material_9
+  - first:
+      213: -7869749970281134254
+    second: Man_Face_Material_10
+  - first:
+      213: -3988526744443228324
+    second: Man_Face_Material_11
+  - first:
+      213: -5010913788596791500
+    second: Man_Face_Material_12
+  - first:
+      213: 5840713567638642875
+    second: Man_Face_Material_13
+  - first:
+      213: 3230446315950400030
+    second: Man_Face_Material_14
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -136,7 +181,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Shader1_0
+      name: Man_Face_Material_0
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5b529deac8f54cc0800000000000000
-      internalID: -3727299566126343331
+      spriteID: 26899a9e65466bc20800000000000000
+      internalID: 3221872907880339554
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shader1_1
+      name: Man_Face_Material_1
       rect:
         serializedVersion: 2
         x: 80
@@ -171,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7c7243d643f9e200800000000000000
-      internalID: 209966343167048830
+      spriteID: a3f5dacf2f0436600800000000000000
+      internalID: 460282999287406394
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shader1_2
+      name: Man_Face_Material_2
       rect:
         serializedVersion: 2
         x: 160
@@ -192,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c0e7b6cca2d543d0800000000000000
-      internalID: -3222938318803574592
+      spriteID: 9bc58e90ac94e47c0800000000000000
+      internalID: -4085246679880016711
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shader1_3
+      name: Man_Face_Material_3
       rect:
         serializedVersion: 2
         x: 240
@@ -213,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72b44c01159bc0370800000000000000
-      internalID: 8290204771907029799
+      spriteID: afe9115e1b552dce0800000000000000
+      internalID: -1381947913108611334
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shader1_4
+      name: Man_Face_Material_4
       rect:
         serializedVersion: 2
         x: 320
@@ -234,14 +279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99076e059eeeb0320800000000000000
-      internalID: 2525374701923365017
+      spriteID: 0c13453a513ed52f0800000000000000
+      internalID: -982379461622877760
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shader1_5
+      name: Man_Face_Material_5
       rect:
         serializedVersion: 2
         x: 400
@@ -255,14 +300,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d41115f73cf7776c0800000000000000
-      internalID: -4145704454339882675
+      spriteID: fab2139c81f434560800000000000000
+      internalID: 7296762789143587759
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shader1_6
+      name: Man_Face_Material_6
       rect:
         serializedVersion: 2
         x: 480
@@ -276,14 +321,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3792c749921b417d0800000000000000
-      internalID: -2948537063877891725
+      spriteID: b64a9bb0523ca4800800000000000000
+      internalID: 597504464457933931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shader1_7
+      name: Man_Face_Material_7
       rect:
         serializedVersion: 2
         x: 560
@@ -297,14 +342,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac1f12815a44ccee0800000000000000
-      internalID: -1239540321568558646
+      spriteID: d510a4dc3e0d445f0800000000000000
+      internalID: -773263559180549795
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shader1_8
+      name: Man_Face_Material_8
       rect:
         serializedVersion: 2
         x: 640
@@ -318,14 +363,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0785469350250030800000000000000
-      internalID: 3460207432079607566
+      spriteID: 786b8e793f4c3d800800000000000000
+      internalID: 636068522894079623
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shader1_9
+      name: Man_Face_Material_9
       rect:
         serializedVersion: 2
         x: 720
@@ -339,14 +384,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e727eebe3b7f3930800000000000000
-      internalID: 4125151293115672552
+      spriteID: a2e613fef0dff3580800000000000000
+      internalID: -8845072898253033942
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shader1_10
+      name: Man_Face_Material_10
       rect:
         serializedVersion: 2
         x: 800
@@ -360,14 +405,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40205b5a909069c40800000000000000
-      internalID: 5518608330428580356
+      spriteID: 2578046091809c290800000000000000
+      internalID: -7869749970281134254
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shader1_11
+      name: Man_Face_Material_11
       rect:
         serializedVersion: 2
         x: 880
@@ -381,14 +426,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21565f48b35a3f7d0800000000000000
-      internalID: -2885781261162027758
+      spriteID: c5fe05cde08e5a8c0800000000000000
+      internalID: -3988526744443228324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shader1_12
+      name: Man_Face_Material_12
       rect:
         serializedVersion: 2
         x: 960
@@ -402,14 +447,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15331918c68455720800000000000000
-      internalID: 2834251171367039825
+      spriteID: 437d49e4578a57ab0800000000000000
+      internalID: -5010913788596791500
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shader1_13
+      name: Man_Face_Material_13
       rect:
         serializedVersion: 2
         x: 1040
@@ -423,14 +468,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1f74d33f9fcc8720800000000000000
-      internalID: 2849880946894995231
+      spriteID: bb0e7e95b026e0150800000000000000
+      internalID: 5840713567638642875
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shader1_14
+      name: Man_Face_Material_14
       rect:
         serializedVersion: 2
         x: 1120
@@ -444,8 +489,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 051f62f9a78dd92f0800000000000000
-      internalID: -964376724019678896
+      spriteID: e1261380fc9d4dc20800000000000000
+      internalID: 3230446315950400030
       vertices: []
       indices: 
       edges: []
