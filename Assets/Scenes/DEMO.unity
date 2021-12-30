@@ -996,6 +996,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2968534430873209962, guid: 4c4bca1a9ecf5a54bb4d6b4ecac5a5a6, type: 3}
+      propertyPath: m_Size.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2968534430873209962, guid: 4c4bca1a9ecf5a54bb4d6b4ecac5a5a6, type: 3}
+      propertyPath: m_Size.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2968534430873209962, guid: 4c4bca1a9ecf5a54bb4d6b4ecac5a5a6, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8066550731790582604, guid: 4c4bca1a9ecf5a54bb4d6b4ecac5a5a6, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1028,25 +1040,17 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8066550731790582604, guid: 4c4bca1a9ecf5a54bb4d6b4ecac5a5a6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8066550731790582604, guid: 4c4bca1a9ecf5a54bb4d6b4ecac5a5a6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8066550731790582604, guid: 4c4bca1a9ecf5a54bb4d6b4ecac5a5a6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8107988818614733195, guid: 4c4bca1a9ecf5a54bb4d6b4ecac5a5a6, type: 3}
       propertyPath: m_Name
-      value: The Duke Of Flies_1
+      value: Project_Manager_Shader
       objectReference: {fileID: 0}
     - target: {fileID: 8107988818614733195, guid: 4c4bca1a9ecf5a54bb4d6b4ecac5a5a6, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107988818614733195, guid: 4c4bca1a9ecf5a54bb4d6b4ecac5a5a6, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c4bca1a9ecf5a54bb4d6b4ecac5a5a6, type: 3}

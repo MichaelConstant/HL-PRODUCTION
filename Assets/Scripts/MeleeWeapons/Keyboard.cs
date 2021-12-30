@@ -25,7 +25,7 @@ public class Keyboard : MonoBehaviour
             {
                 PlayerControl.MeleeEnergyStatic += PlayerControl.MeleeEnergyPerHitStatic;
             }
-            if(PlayerControl.MeleeEnergyStatic >= PlayerControl.MeleeEnergyMaxStatic && PlayerControl.MeleeLevelStatic < PlayerControl.MeleeLevelMaxStatic)
+            if (PlayerControl.MeleeEnergyStatic >= PlayerControl.MeleeEnergyMaxStatic && PlayerControl.MeleeLevelStatic < PlayerControl.MeleeLevelMaxStatic)
             {
                 PlayerControl.MeleeLevelStatic += 1;
                 if (PlayerControl.MeleeLevelStatic < PlayerControl.MeleeLevelMaxStatic)
@@ -36,6 +36,7 @@ public class Keyboard : MonoBehaviour
             if (PlayerControl.MeleeEnergyStatic >= PlayerControl.MeleeEnergyMaxStatic && PlayerControl.MeleeLevelStatic >= PlayerControl.MeleeLevelMaxStatic)
             {
                 PlayerControl.MeleeEnergyStatic = PlayerControl.MeleeEnergyMaxStatic;
+
             }
         }
     }

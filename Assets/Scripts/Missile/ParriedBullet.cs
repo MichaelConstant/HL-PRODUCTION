@@ -1,21 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Bullet : MonoBehaviour
+public class ParriedBullet : Bullet
 {
-    public float BulletDamage;
-    public float BulletSpeed;
-    void Awake()
-    {
-
-    }
-
+    private Vector2 ParriedBulletVector;
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
