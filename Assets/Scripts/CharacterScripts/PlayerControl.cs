@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerControl : CharacterControl
 {
-	#region VARS
-	public Image MeleeEnergyUI;
+    public Image MeleeEnergyUI;
     public Text MeleeLevelUI;
 
     public Image RangeEnergyUI;
@@ -53,9 +52,9 @@ public class PlayerControl : CharacterControl
     [Header("远程/近战等级上限")]
     public int MeleeLevelMax;
     public int RangeLevelMax;
-	#endregion
-	// Start is called before the first frame update
-	void Start()
+
+    // Start is called before the first frame update
+    void Start()
     {
         RangeEnergyStatic = RangeEnergy;
         MeleeEnergyStatic = MeleeEnergy;
@@ -75,6 +74,7 @@ public class PlayerControl : CharacterControl
         RangeLevelMaxStatic = RangeLevelMax;
         MeleeLevelMaxStatic = MeleeLevelMax;
     }
+
     // Update is called once per frame
     void Update()
     {

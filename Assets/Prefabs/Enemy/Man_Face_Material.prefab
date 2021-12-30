@@ -145,6 +145,7 @@ MonoBehaviour:
   bulletUltra: {fileID: 0}
   bulletSpawn: {fileID: 8066550731790582604}
   EnemyHP: 10
+  anim: {fileID: 0}
 --- !u!95 &2997384052600278213
 Animator:
   serializedVersion: 3
