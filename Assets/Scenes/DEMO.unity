@@ -998,11 +998,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2968534430873209962, guid: 4c4bca1a9ecf5a54bb4d6b4ecac5a5a6, type: 3}
       propertyPath: m_Size.x
-      value: 8
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 2968534430873209962, guid: 4c4bca1a9ecf5a54bb4d6b4ecac5a5a6, type: 3}
       propertyPath: m_Size.y
-      value: 8
+      value: 0.64
       objectReference: {fileID: 0}
     - target: {fileID: 2968534430873209962, guid: 4c4bca1a9ecf5a54bb4d6b4ecac5a5a6, type: 3}
       propertyPath: m_WasSpriteAssigned
@@ -1042,7 +1042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8107988818614733195, guid: 4c4bca1a9ecf5a54bb4d6b4ecac5a5a6, type: 3}
       propertyPath: m_Name
-      value: Project_Manager_Shader
+      value: Man_Face_Material
       objectReference: {fileID: 0}
     - target: {fileID: 8107988818614733195, guid: 4c4bca1a9ecf5a54bb4d6b4ecac5a5a6, type: 3}
       propertyPath: m_IsActive
