@@ -137,5 +137,7 @@ MonoBehaviour:
   BulletDamage: 5
   BulletSpeed: 50
   BulletLifeSpan: 50
+  BulletEffect: {fileID: 8573897042248982977, guid: ae27ee7279da7a942a9c4f752a3f4b34, type: 3}
+  spawnTimeval: 0
   Bullet_0: {fileID: 2416510990529685242, guid: ed119dab9f5cd7344892738ecf862a9b, type: 3}
   Bullet_1: {fileID: 2416510990529685242, guid: ed119dab9f5cd7344892738ecf862a9b, type: 3}
