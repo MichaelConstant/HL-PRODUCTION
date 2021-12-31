@@ -135,9 +135,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletDamage: 1
-  BulletSpeed: 50
+  BulletSpeed: 200
   BulletLifeSpan: 2
   BulletEffect: {fileID: 8573897042248982977, guid: ae27ee7279da7a942a9c4f752a3f4b34, type: 3}
-  spawnTimeval: 0.15
+  spawnTimeval: 0.05
   Bullet_0: {fileID: 21300000, guid: 40b1a8d8b86b6cb43a0b249ed61a4e22, type: 3}
   Bullet_1: {fileID: 21300000, guid: 9913856fe05be894fa87ec4e20546c28, type: 3}
