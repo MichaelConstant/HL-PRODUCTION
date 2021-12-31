@@ -7,11 +7,12 @@ TagManager:
   - Ultra
   - Terrain
   - Enemy
+  - Level
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Room
   - Water
   - UI
   - 

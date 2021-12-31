@@ -21,20 +21,14 @@ public class BulletEffect : Bullet
         {
             sr.sprite = Bullet_1;
         }
+        Destroy(gameObject, BulletLifeSpan);
     }
     // Update is called once per frame
     void Update()
     {
-        if (sr.color.a <= 0)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            float fadePerSecond = (sr.color.a / BulletLifeSpan);
-            Color tempColor = sr.color;
-            tempColor.a -= fadePerSecond * Time.deltaTime;
-            sr.color = tempColor;
-        }
+        float fadePerSecond = (sr.color.a / BulletLifeSpan);
+        Color tempColor = sr.color;
+        tempColor.a -= fadePerSecond * Time.deltaTime;
+        sr.color = tempColor;
     }
 }
