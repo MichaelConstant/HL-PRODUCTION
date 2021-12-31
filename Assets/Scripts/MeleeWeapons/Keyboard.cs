@@ -28,15 +28,11 @@ public class Keyboard : MonoBehaviour
             if (PlayerControl.MeleeEnergyStatic >= PlayerControl.MeleeEnergyMaxStatic && PlayerControl.MeleeLevelStatic < PlayerControl.MeleeLevelMaxStatic)
             {
                 PlayerControl.MeleeLevelStatic += 1;
-                if (PlayerControl.MeleeLevelStatic < PlayerControl.MeleeLevelMaxStatic)
-                {
-                    PlayerControl.MeleeEnergyStatic = PlayerControl.MeleeEnergyStatic - PlayerControl.MeleeEnergyMaxStatic + PlayerControl.MeleeEnergyMaxStatic * 0.05f;
-                }
+                PlayerControl.MeleeEnergyStatic = PlayerControl.MeleeEnergyStatic - PlayerControl.MeleeEnergyMaxStatic + PlayerControl.MeleeEnergyMaxStatic * PlayerControl.MeleeEnergyProtectPercentStatic;
             }
             if (PlayerControl.MeleeEnergyStatic >= PlayerControl.MeleeEnergyMaxStatic && PlayerControl.MeleeLevelStatic >= PlayerControl.MeleeLevelMaxStatic)
             {
                 PlayerControl.MeleeEnergyStatic = PlayerControl.MeleeEnergyMaxStatic;
-
             }
         }
     }

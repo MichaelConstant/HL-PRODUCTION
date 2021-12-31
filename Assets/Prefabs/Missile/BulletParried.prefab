@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8573897042248982976}
   - component: {fileID: 5629593363000503212}
   - component: {fileID: -4785841593767648546}
-  - component: {fileID: -6853371378558760408}
+  - component: {fileID: -3859285278299108361}
   m_Layer: 0
   m_Name: BulletParried
   m_TagString: Untagged
@@ -122,7 +122,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.04
---- !u!114 &-6853371378558760408
+--- !u!114 &-3859285278299108361
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,7 +131,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8573897042248982977}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f655d34d950c4034dbd51462d1798780, type: 3}
+  m_Script: {fileID: 11500000, guid: 458559089cdadad4085519b404cbfe00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletSpeed: 50
+  BulletDamage: 0
+  BulletSpeed: 0
+  BulletLifeSpan: 0

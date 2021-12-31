@@ -10,12 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8573897042248982847}
   - component: {fileID: 8573897042248982976}
-  - component: {fileID: 5629593363000503212}
-  - component: {fileID: -4785841593767648546}
-  - component: {fileID: 8093712839685859921}
+  - component: {fileID: 251886363918709506}
   m_Layer: 0
-  m_Name: BulletUltra
-  m_TagString: Ultra
+  m_Name: BulletEffect
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2416510990529685242, guid: ed119dab9f5cd7344892738ecf862a9b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 40b1a8d8b86b6cb43a0b249ed61a4e22, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,44 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &5629593363000503212
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8573897042248982977}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!58 &-4785841593767648546
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8573897042248982977}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.005}
-  serializedVersion: 2
-  m_Radius: 0.13
---- !u!114 &8093712839685859921
+--- !u!114 &251886363918709506
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,11 +92,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8573897042248982977}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6a8eae939295ef44a413b2c0ad4a201, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d2bca652895cfa428abf1ed996806da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletDamage: 5
-  BulletSpeed: 50
-  BulletLifeSpan: 50
-  Bullet_0: {fileID: 2416510990529685242, guid: ed119dab9f5cd7344892738ecf862a9b, type: 3}
-  Bullet_1: {fileID: 2416510990529685242, guid: ed119dab9f5cd7344892738ecf862a9b, type: 3}
+  BulletDamage: 0
+  BulletSpeed: 0
+  BulletLifeSpan: 0.1
+  Bullet_0: {fileID: 21300000, guid: 40b1a8d8b86b6cb43a0b249ed61a4e22, type: 3}
+  Bullet_1: {fileID: 21300000, guid: 9913856fe05be894fa87ec4e20546c28, type: 3}

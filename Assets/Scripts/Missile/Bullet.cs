@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
 {
     public float BulletDamage;
     public float BulletSpeed;
+    public float BulletLifeSpan;
     void Awake()
     {
 

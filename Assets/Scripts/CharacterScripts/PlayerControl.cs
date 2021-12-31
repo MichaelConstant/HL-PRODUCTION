@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerControl : CharacterControl
 {
-    public Image MeleeEnergyUI;
+	#region VARS
+	public Image MeleeEnergyUI;
     public Text MeleeLevelUI;
 
     public Image RangeEnergyUI;
@@ -53,6 +54,14 @@ public class PlayerControl : CharacterControl
     public int MeleeLevelMax;
     public int RangeLevelMax;
 
+    public static float RangeEnergyProtectPercentStatic;
+    public static float MeleeEnergyProtectPercentStatic;
+
+    [Header("能量等级升级时的保底百分比，数值为0-1（0%-100%）")]
+    public float RangeEnergyProtectPercent;
+    public float MeleeEnergyProtectPercent;
+
+    #endregion
     // Start is called before the first frame update
     void Start()
     {
@@ -73,8 +82,10 @@ public class PlayerControl : CharacterControl
 
         RangeLevelMaxStatic = RangeLevelMax;
         MeleeLevelMaxStatic = MeleeLevelMax;
-    }
 
+        RangeEnergyProtectPercentStatic = RangeEnergyProtectPercent;
+        MeleeEnergyProtectPercentStatic = MeleeEnergyProtectPercent;
+    }
     // Update is called once per frame
     void Update()
     {

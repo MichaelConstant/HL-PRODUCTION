@@ -6,12 +6,11 @@ public class Man_Face_Material : MonoBehaviour
 {
     private float nextFire = 0.0F;
     // Start is called before the first frame update
-
-       void Update()
+    void Update()
+    {
+        if (Time.time > nextFire)
         {
-            if (Time.time > nextFire)
-            {
-                nextFire = Time.time + 1f;
+            nextFire = Time.time + 1f;
             Jump();
         }
     }

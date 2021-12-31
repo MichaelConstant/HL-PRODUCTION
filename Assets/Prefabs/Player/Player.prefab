@@ -42,7 +42,7 @@ Animator:
   m_GameObject: {fileID: 229624868}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 013048802e361e94483249d14aca4b8f, type: 2}
+  m_Controller: {fileID: 9100000, guid: c45f4fa06a47e2146b9fe5290a32b4b1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -248,7 +248,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 56d978849f95eec44b65d53a7911db0d, type: 3}
+  m_Sprite: {fileID: -4306664327176459293, guid: fd34ad7ae2a58274f9dab46648864a1d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -312,23 +312,22 @@ MonoBehaviour:
   BasicShootInterval: 0.5
   BasicAttackInterval: 1
   bullet0: {fileID: 8573897042248982977, guid: 664b32a95e69ed44cbabd45af76205a5, type: 3}
-  bullet1: {fileID: 8573897042248982977, guid: 98126c93f56652243a12ac355a37ee72, type: 3}
-  bullet2: {fileID: 8573897042248982977, guid: e914d3cb0aefd804988707be5570e57f, type: 3}
-  bullet3: {fileID: 8573897042248982977, guid: 43703bb46b475ad468e1f372121d4998, type: 3}
+  bullet1: {fileID: 8573897042248982977, guid: 664b32a95e69ed44cbabd45af76205a5, type: 3}
+  bullet2: {fileID: 8573897042248982977, guid: 664b32a95e69ed44cbabd45af76205a5, type: 3}
+  bullet3: {fileID: 8573897042248982977, guid: 664b32a95e69ed44cbabd45af76205a5, type: 3}
   bulletUltra: {fileID: 8573897042248982977, guid: 0e52ce7ed17978543b554d2df1b49392, type: 3}
   bulletSpawn: {fileID: 229624869}
   MeleeEnergyUI: {fileID: 0}
   MeleeLevelUI: {fileID: 0}
   RangeEnergyUI: {fileID: 0}
-  RangeEnergy: 0
-  MeleeEnergy: 0
+  RangeUltraText: {fileID: 0}
   RangeEnergyPerHit: 0.25
   MeleeEnergyPerHit: 1
   RangeEnergyDecreaseAmount: 0
   MeleeEnergyDecreaseAmount: 0.01
-  RangeLevel: 0
-  MeleeLevel: 0
   RangeEnergyMax: 10
   MeleeEnergyMax: 5
   MeleeLevelMax: 3
   RangeLevelMax: 1
+  RangeEnergyProtectPercent: 0
+  MeleeEnergyProtectPercent: 0.05
