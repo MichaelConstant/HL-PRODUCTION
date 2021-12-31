@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3221872907880339554, guid: 78d0e958c2a0bc94ba5fce45ab52711e, type: 3}
+  m_Sprite: {fileID: 339849433082949742, guid: e5dd9c67d0589ed4e8380be656b1c760, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.65, y: 0.64}
+  m_Size: {x: 0.8, y: 0.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -145,7 +145,6 @@ MonoBehaviour:
   bulletUltra: {fileID: 0}
   bulletSpawn: {fileID: 8066550731790582604}
   EnemyHP: 10
-  anim: {fileID: 0}
 --- !u!95 &2997384052600278213
 Animator:
   serializedVersion: 3
@@ -156,7 +155,7 @@ Animator:
   m_GameObject: {fileID: 8107988818614733195}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f3998b0e58305b347a824570db3c54a8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

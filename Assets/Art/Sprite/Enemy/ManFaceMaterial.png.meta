@@ -92,6 +92,51 @@ TextureImporter:
   - first:
       213: 3230446315950400030
     second: Man_Face_Material_14
+  - first:
+      213: 5496875331743440111
+    second: ManFaceMaterial_0
+  - first:
+      213: 6387606086194996269
+    second: ManFaceMaterial_1
+  - first:
+      213: -4442649636951302575
+    second: ManFaceMaterial_2
+  - first:
+      213: 8899440279362873436
+    second: ManFaceMaterial_3
+  - first:
+      213: 41116600134987435
+    second: ManFaceMaterial_4
+  - first:
+      213: 6027389890818931147
+    second: ManFaceMaterial_5
+  - first:
+      213: -548575242955467869
+    second: ManFaceMaterial_6
+  - first:
+      213: -1750281482130559486
+    second: ManFaceMaterial_7
+  - first:
+      213: 1284466180077990443
+    second: ManFaceMaterial_8
+  - first:
+      213: 1508368259112414931
+    second: ManFaceMaterial_9
+  - first:
+      213: 1765044193643795384
+    second: ManFaceMaterial_10
+  - first:
+      213: 8426456337770078084
+    second: ManFaceMaterial_11
+  - first:
+      213: 5183832413303112296
+    second: ManFaceMaterial_12
+  - first:
+      213: -612863635009533562
+    second: ManFaceMaterial_13
+  - first:
+      213: 339849433082949742
+    second: ManFaceMaterial_14
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -181,7 +226,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Man_Face_Material_0
+      name: ManFaceMaterial_0
       rect:
         serializedVersion: 2
         x: 0
@@ -195,14 +240,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26899a9e65466bc20800000000000000
-      internalID: 3221872907880339554
+      spriteID: fecdc239df2d84c40800000000000000
+      internalID: 5496875331743440111
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Man_Face_Material_1
+      name: ManFaceMaterial_1
       rect:
         serializedVersion: 2
         x: 80
@@ -216,14 +261,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3f5dacf2f0436600800000000000000
-      internalID: 460282999287406394
+      spriteID: d24a6c474e555a850800000000000000
+      internalID: 6387606086194996269
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Man_Face_Material_2
+      name: ManFaceMaterial_2
       rect:
         serializedVersion: 2
         x: 160
@@ -237,14 +282,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bc58e90ac94e47c0800000000000000
-      internalID: -4085246679880016711
+      spriteID: 15edfff71b98852c0800000000000000
+      internalID: -4442649636951302575
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Man_Face_Material_3
+      name: ManFaceMaterial_3
       rect:
         serializedVersion: 2
         x: 240
@@ -258,14 +303,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afe9115e1b552dce0800000000000000
-      internalID: -1381947913108611334
+      spriteID: c582a3768c9218b70800000000000000
+      internalID: 8899440279362873436
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Man_Face_Material_4
+      name: ManFaceMaterial_4
       rect:
         serializedVersion: 2
         x: 320
@@ -279,14 +324,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c13453a513ed52f0800000000000000
-      internalID: -982379461622877760
+      spriteID: baeea697453129000800000000000000
+      internalID: 41116600134987435
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Man_Face_Material_5
+      name: ManFaceMaterial_5
       rect:
         serializedVersion: 2
         x: 400
@@ -300,14 +345,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fab2139c81f434560800000000000000
-      internalID: 7296762789143587759
+      spriteID: bc9fa05db2795a350800000000000000
+      internalID: 6027389890818931147
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Man_Face_Material_6
+      name: ManFaceMaterial_6
       rect:
         serializedVersion: 2
         x: 480
@@ -321,14 +366,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b64a9bb0523ca4800800000000000000
-      internalID: 597504464457933931
+      spriteID: 3a3d01719b11368f0800000000000000
+      internalID: -548575242955467869
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Man_Face_Material_7
+      name: ManFaceMaterial_7
       rect:
         serializedVersion: 2
         x: 560
@@ -342,14 +387,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d510a4dc3e0d445f0800000000000000
-      internalID: -773263559180549795
+      spriteID: 20ee9a0f340c5b7e0800000000000000
+      internalID: -1750281482130559486
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Man_Face_Material_8
+      name: ManFaceMaterial_8
       rect:
         serializedVersion: 2
         x: 640
@@ -363,14 +408,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 786b8e793f4c3d800800000000000000
-      internalID: 636068522894079623
+      spriteID: b223d857f2753d110800000000000000
+      internalID: 1284466180077990443
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Man_Face_Material_9
+      name: ManFaceMaterial_9
       rect:
         serializedVersion: 2
         x: 720
@@ -384,14 +429,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2e613fef0dff3580800000000000000
-      internalID: -8845072898253033942
+      spriteID: 3deaed2a0fccee410800000000000000
+      internalID: 1508368259112414931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Man_Face_Material_10
+      name: ManFaceMaterial_10
       rect:
         serializedVersion: 2
         x: 800
@@ -405,14 +450,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2578046091809c290800000000000000
-      internalID: -7869749970281134254
+      spriteID: 8b3110fa752be7810800000000000000
+      internalID: 1765044193643795384
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Man_Face_Material_11
+      name: ManFaceMaterial_11
       rect:
         serializedVersion: 2
         x: 880
@@ -426,14 +471,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5fe05cde08e5a8c0800000000000000
-      internalID: -3988526744443228324
+      spriteID: 48fdf18d469c0f470800000000000000
+      internalID: 8426456337770078084
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Man_Face_Material_12
+      name: ManFaceMaterial_12
       rect:
         serializedVersion: 2
         x: 960
@@ -447,14 +492,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 437d49e4578a57ab0800000000000000
-      internalID: -5010913788596791500
+      spriteID: 86286126d1ca0f740800000000000000
+      internalID: 5183832413303112296
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Man_Face_Material_13
+      name: ManFaceMaterial_13
       rect:
         serializedVersion: 2
         x: 1040
@@ -468,14 +513,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb0e7e95b026e0150800000000000000
-      internalID: 5840713567638642875
+      spriteID: 689808365cbae77f0800000000000000
+      internalID: -612863635009533562
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Man_Face_Material_14
+      name: ManFaceMaterial_14
       rect:
         serializedVersion: 2
         x: 1120
@@ -489,8 +534,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1261380fc9d4dc20800000000000000
-      internalID: 3230446315950400030
+      spriteID: e60f600424367b400800000000000000
+      internalID: 339849433082949742
       vertices: []
       indices: 
       edges: []
