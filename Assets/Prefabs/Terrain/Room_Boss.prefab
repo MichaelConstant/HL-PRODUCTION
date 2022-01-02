@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2733124807370377629}
-  - component: {fileID: -7592990575198021451}
-  - component: {fileID: -3596191291719819204}
+  - component: {fileID: -4625693251549880508}
+  - component: {fileID: -5857834376468731816}
+  - component: {fileID: -6297999237513642542}
   m_Layer: 3
-  m_Name: Room_1
+  m_Name: Room_Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +37,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &-7592990575198021451
+--- !u!50 &-4625693251549880508
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -57,7 +58,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &-3596191291719819204
+--- !u!61 &-5857834376468731816
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -81,8 +82,20 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 4.55, y: 3}
   m_EdgeRadius: 0
+--- !u!114 &-6297999237513642542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216181833879360731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0417f8c8738409429971388bd63887a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5837734136886145026
 PrefabInstance:
   m_ObjectHideFlags: 0

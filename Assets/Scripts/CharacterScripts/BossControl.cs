@@ -9,7 +9,7 @@ public class BossControl : CharacterControl
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("BOSS HP: " + EnemyHP);
+
     }
 
     // Update is called once per frame
