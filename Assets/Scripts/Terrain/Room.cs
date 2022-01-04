@@ -7,6 +7,7 @@ public class Room : MonoBehaviour
     Vector3 CamPos;
     Vector3 RoomPos;
     private Vector3 cameraVector3 = Vector3.zero;
+    bool spawned = false;
 
     public GameObject Enemy_1;
     public GameObject Enemy_2;
@@ -25,34 +26,48 @@ public class Room : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        CamPos = new Vector3(Camera.main.transform.position.x,Camera.main.transform.position.y,-2.5f);
-        RoomPos = new Vector3(this.transform.position.x, this.transform.position.y, -2.5f);
+        CamPos = new Vector3(Camera.main.transform.position.x,Camera.main.transform.position.y, Camera.main.transform.position.z);
+        RoomPos = new Vector3(this.transform.position.x, this.transform.position.y, Camera.main.transform.position.z);
         if (collision.GetComponent<PlayerControl>()!=null)
         {
             Camera.main.transform.position = Vector3.SmoothDamp(CamPos, RoomPos, ref cameraVector3, 0.1f);
+        }
+        if (GameObject.FindGameObjectWithTag("Enemy") == null)
+        {
+            Door[] Doors = GetComponentsInChildren<Door>();
+            for (int i = 0; i < Doors.Length; i++)
+            {
+                Doors[i].GetComponentInChildren<Collider2D>().enabled = false;
+            }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<PlayerControl>() != null)
+        if(spawned == false)
         {
-            collision.transform.position += (Vector3)collision.GetComponent<Rigidbody2D>().velocity.normalized * 0.75f;
-            if (gameObject.name != "Room_Start(Clone)")
+            if (collision.GetComponent<PlayerControl>() != null)
             {
-                GenerateEnemies();
-                Door[] Doors = GetComponentsInChildren<Door>();
-                Debug.Log(Doors.Length);
-                for(int i=0;i< Doors.Length;i++)
+                Debug.Log("not cleaned");
+                Debug.Log("player enter");
+                collision.transform.position += (Vector3)collision.GetComponent<Rigidbody2D>().velocity.normalized * 0.5f;
+                if (gameObject.name != "Room_Start(Clone)")
                 {
-                    Doors[i].GetComponentInChildren<Collider2D>().enabled = true;
+                    GenerateEnemies();
+                    Debug.Log("enemy spawn");
+                    spawned = true;
+                    Door[] Doors = GetComponentsInChildren<Door>();
+                    for (int i = 0; i < Doors.Length; i++)
+                    {
+                        Doors[i].GetComponentInChildren<Collider2D>().enabled = true;
+                    }
                 }
             }
         }
@@ -60,10 +75,9 @@ public class Room : MonoBehaviour
 
     public void GenerateEnemies()
     {
-
         for (int i=0;i<spawnNum;i++)
         {
-            int type = Random.Range(1, 3);
+            int type = Random.Range(1, 4);
             switch (type)
             {
                 case 1:
@@ -74,6 +88,9 @@ public class Room : MonoBehaviour
                     break;
                 case 3:
                     Instantiate(Enemy_3, gameObject.transform.position, Quaternion.identity);
+                    break;
+                default:
+                    Instantiate(Enemy_1, gameObject.transform.position, Quaternion.identity);
                     break;
             }
         }

@@ -94,18 +94,18 @@ public class PlayerControl : CharacterControl
 
         Move(xInput, yInput);
 
-        if (Input.GetMouseButton(0) && canShoot)
+        if (Input.GetMouseButton(0))
         {
             PlayerShoot();
             MeleeEnergyDecreaseOfShooting();
         }
 
-        if (Input.GetMouseButton(1) && canAttack)
+        if (Input.GetMouseButton(1))
         {
             Attack();
         }
 
-        if (Input.GetKeyDown(KeyCode.E)&& RangeLevelStatic==1)
+        if (Input.GetKeyDown(KeyCode.E) && RangeLevelStatic==1)
         {
             Instantiate(bulletUltra, bulletSpawn.transform.position, transform.rotation);
             RangeLevelStatic = 0;

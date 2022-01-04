@@ -15,10 +15,14 @@ public class BossControl : CharacterControl
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (canShoot)
+        CommonShoot();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(EnemyHP<=0)
         {
-            canShoot = false;
-            CommonShoot();
+            Destroy(gameObject);
         }
     }
 }

@@ -54,38 +54,48 @@ public class CharacterControl : MonoBehaviour
 
     protected void CommonShoot()
     {
-        canShoot = false;
-        Instantiate(bullet0, bulletSpawn.transform.position, transform.rotation);
-        StartCoroutine(ShootInterval());
+        if (canShoot)
+        {
+            canShoot = false;
+            Instantiate(bullet0, bulletSpawn.transform.position, transform.rotation);
+            StartCoroutine(ShootInterval());
+        }
+        
     }
     protected void PlayerShoot()
     {
-        canShoot = false;
-        switch(PlayerControl.MeleeLevelStatic)
+        if (canShoot)
         {
-            case 0:
-                Instantiate(bullet0, bulletSpawn.transform.position, transform.rotation);
-                break;
-            case 1:
-                Instantiate(bullet1, bulletSpawn.transform.position, transform.rotation);
-                break;
-            case 2:
-                Instantiate(bullet2, bulletSpawn.transform.position, transform.rotation);
-                break;
-            case 3:
-                Instantiate(bullet3, bulletSpawn.transform.position, transform.rotation);
-                break;
+            canShoot = false;
+            switch (PlayerControl.MeleeLevelStatic)
+            {
+                case 0:
+                    Instantiate(bullet0, bulletSpawn.transform.position, transform.rotation);
+                    break;
+                case 1:
+                    Instantiate(bullet1, bulletSpawn.transform.position, transform.rotation);
+                    break;
+                case 2:
+                    Instantiate(bullet2, bulletSpawn.transform.position, transform.rotation);
+                    break;
+                case 3:
+                    Instantiate(bullet3, bulletSpawn.transform.position, transform.rotation);
+                    break;
+            }
+            StartCoroutine(ShootInterval());
         }
-        StartCoroutine(ShootInterval());
     }
     protected void Attack()
     {
-        canAttack = false;
-        AttackVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, 2.5f)) - gameObject.transform.position);
-        GetComponentInChildren<Animator>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-        GetComponentInChildren<Animator>().transform.Rotate(0, 0, angle_360(AttackVector));
-        anim.Play("Attack");
-        StartCoroutine(AttackInterval());
+        if (canAttack)
+        {
+            canAttack = false;
+            AttackVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);
+            GetComponentInChildren<Animator>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            GetComponentInChildren<Animator>().transform.Rotate(0, 0, angle_360(AttackVector));
+            anim.Play("Attack");
+            StartCoroutine(AttackInterval());
+        }
     }
 
     private IEnumerator ShootInterval()

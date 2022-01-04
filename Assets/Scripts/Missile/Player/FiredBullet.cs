@@ -32,7 +32,7 @@ public class FiredBullet : Bullet
             sr.sprite = Bullet_1;
         }
         gameObject.transform.parent = GameObject.FindGameObjectWithTag("Player").transform;
-        BulletVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, 2)) - gameObject.transform.position);
+        BulletVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);
         GetComponent<Rigidbody2D>().AddForce(BulletVector.normalized * BulletSpeed);
         Destroy(gameObject, BulletLifeSpan);
     }
@@ -75,6 +75,7 @@ public class FiredBullet : Bullet
                         gameObject.GetComponentInParent<PlayerControl>().RangeUltraText.SetActive(true);
                     }
                 }
+                collision.gameObject.GetComponent<BossControl>().EnemyHP--;
             }
             Destroy(gameObject);
         }

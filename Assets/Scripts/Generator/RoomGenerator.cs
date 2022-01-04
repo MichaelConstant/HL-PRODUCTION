@@ -102,7 +102,6 @@ public class RoomGenerator : MonoBehaviour
                 GameObject.FindWithTag("LastSpawn").tag = "Spawned";
             }
 
-
             GenerateRoom(RoomList[i].RoomType, RoomList[i].RoomLocation);
 
             for (int j=0;j<4;j++)
@@ -149,7 +148,6 @@ public class RoomGenerator : MonoBehaviour
                 return Location;
         }
     }
-
     public void RandomChangePos()
     {
         direction = (Direction)Random.Range(0, 4);
@@ -170,7 +168,6 @@ public class RoomGenerator : MonoBehaviour
                 break;
         }
     }
-
     public void GenerateRoom(int roomType, Vector3 generatePoint)
     {
         switch (roomType)
@@ -197,7 +194,6 @@ public class RoomGenerator : MonoBehaviour
                 break;
         }
     }
-
     public void GenerateDoor(int doorDirection, Vector3 generatePoint)
     {
         switch (doorDirection)
@@ -220,7 +216,6 @@ public class RoomGenerator : MonoBehaviour
                 break;
         }
     }
-
     public void GenerateBlock(int doorDirection, Vector3 generatePoint)
     {
         switch (doorDirection)
