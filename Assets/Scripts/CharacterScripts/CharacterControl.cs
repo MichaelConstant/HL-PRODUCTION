@@ -81,7 +81,7 @@ public class CharacterControl : MonoBehaviour
     protected void Attack()
     {
         canAttack = false;
-        AttackVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, 2)) - gameObject.transform.position);
+        AttackVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, 2.5f)) - gameObject.transform.position);
         GetComponentInChildren<Animator>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
         GetComponentInChildren<Animator>().transform.Rotate(0, 0, angle_360(AttackVector));
         anim.Play("Attack");

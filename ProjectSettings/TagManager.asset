@@ -8,6 +8,9 @@ TagManager:
   - Terrain
   - Enemy
   - Level
+  - Start
+  - LastSpawn
+  - Spawned
   layers:
   - Default
   - TransparentFX

@@ -33,6 +33,11 @@ public class RoomGenerator : MonoBehaviour
     public GameObject Door_Left;
     public GameObject Door_Right;
 
+    public GameObject Block_Up;
+    public GameObject Block_Down;
+    public GameObject Block_Left;
+    public GameObject Block_Right;
+
     public int RoomNum;
 
     [Header("位置控制")]
@@ -47,6 +52,10 @@ public class RoomGenerator : MonoBehaviour
     void Start()
     {
         #region 生成房间列表
+
+        RoomList.Add(new Room(0, GeneratePoint.position));
+        RandomChangePos();
+
         for (int i=0;i<RoomNum;i++)
         {
             var tempPos= GeneratePoint.position;
@@ -62,6 +71,7 @@ public class RoomGenerator : MonoBehaviour
             }
 
             RandomChangePos();
+
         }
         #endregion
 
@@ -75,30 +85,42 @@ public class RoomGenerator : MonoBehaviour
         //    }
         //}
         //endRoom.RoomType = 3;
-        RoomList[0].RoomType = 0;
         RoomList[RoomNum - 1].RoomType = 3;
 
         #endregion
 
         #region 生成房间和门
-        foreach (var room in RoomList)
+        for (int i=0;i<RoomNum;i++)
         {
-            if (room.RoomType != 0 && room.RoomType != 3)
+            if (RoomList[i].RoomType != 0 && RoomList[i].RoomType != 3)
             {
-                room.RoomType = (Random.Range(1, 3));
+                RoomList[i].RoomType = (Random.Range(1, 3));
             }
 
-            GenerateRoom(room.RoomType, room.RoomLocation);
-
-            for (int i=0;i<4;i++)
+            if(i!=0)
             {
-                if (RoomList.Exists(Room => Room.RoomLocation == ChangePos(i, room.RoomLocation)))
+                GameObject.FindWithTag("LastSpawn").tag = "Spawned";
+            }
+
+
+            GenerateRoom(RoomList[i].RoomType, RoomList[i].RoomLocation);
+
+            for (int j=0;j<4;j++)
+            {
+                if (RoomList.Exists(Room => Room.RoomLocation == ChangePos(j, RoomList[i].RoomLocation)))
                 {
-                    GenerateDoor(i, room.RoomLocation);
+                    GenerateDoor(j, RoomList[i].RoomLocation);
+                }
+                else
+                {
+                    GenerateBlock(j, RoomList[i].RoomLocation);
                 }
             }
         }
+
         #endregion
+
+
     }
 
     // Update is called once per frame
@@ -154,16 +176,24 @@ public class RoomGenerator : MonoBehaviour
         switch (roomType)
         {
             case 0:
-                Instantiate(Room_Start, generatePoint, Quaternion.identity);
+                GameObject RoomStart = Instantiate(Room_Start, generatePoint, Quaternion.identity);
+                RoomStart.transform.parent = gameObject.transform;
+                RoomStart.tag = "LastSpawn";
                 break;
             case 1:
-                Instantiate(Room_Common, generatePoint, Quaternion.identity);
+                GameObject RoomCommon = Instantiate(Room_Common, generatePoint, Quaternion.identity);
+                RoomCommon.transform.parent = gameObject.transform;
+                RoomCommon.tag = "LastSpawn";
                 break;
             case 2:
-                Instantiate(Room_Treasure, generatePoint, Quaternion.identity);
+                GameObject RoomTreasure = Instantiate(Room_Treasure, generatePoint, Quaternion.identity);
+                RoomTreasure.transform.parent = gameObject.transform;
+                RoomTreasure.tag = "LastSpawn";
                 break;
             case 3:
-                Instantiate(Room_Boss, generatePoint, Quaternion.identity);
+                GameObject RoomBoss = Instantiate(Room_Boss, generatePoint, Quaternion.identity);
+                RoomBoss.transform.parent = gameObject.transform;
+                RoomBoss.tag = "LastSpawn";
                 break;
         }
     }
@@ -173,16 +203,43 @@ public class RoomGenerator : MonoBehaviour
         switch (doorDirection)
         {
             case 0:
-                Instantiate(Door_Up, generatePoint, Quaternion.identity);
+                GameObject DoorUp = Instantiate(Door_Up, generatePoint, Quaternion.identity);
+                DoorUp.transform.parent = GameObject.FindWithTag("LastSpawn").transform;
                 break;
             case 1:
-                Instantiate(Door_Down, generatePoint, Quaternion.identity);
+                GameObject DoorDown = Instantiate(Door_Down, generatePoint, Quaternion.identity);
+                DoorDown.transform.parent = GameObject.FindWithTag("LastSpawn").transform;
                 break;
             case 2:
-                Instantiate(Door_Left, generatePoint, Quaternion.identity);
+                GameObject DoorLeft = Instantiate(Door_Left, generatePoint, Quaternion.identity);
+                DoorLeft.transform.parent = GameObject.FindWithTag("LastSpawn").transform;
                 break;
             case 3:
-                Instantiate(Door_Right, generatePoint, Quaternion.identity);
+                GameObject DoorRight = Instantiate(Door_Right, generatePoint, Quaternion.identity);
+                DoorRight.transform.parent = GameObject.FindWithTag("LastSpawn").transform;
+                break;
+        }
+    }
+
+    public void GenerateBlock(int doorDirection, Vector3 generatePoint)
+    {
+        switch (doorDirection)
+        {
+            case 0:
+                GameObject BlockUp = Instantiate(Block_Up, generatePoint, Quaternion.identity);
+                BlockUp.transform.parent = GameObject.FindWithTag("LastSpawn").transform;
+                break;
+            case 1:
+                GameObject BlockDown = Instantiate(Block_Down, generatePoint, Quaternion.identity);
+                BlockDown.transform.parent = GameObject.FindWithTag("LastSpawn").transform;
+                break;
+            case 2:
+                GameObject BlockLeft = Instantiate(Block_Left, generatePoint, Quaternion.identity);
+                BlockLeft.transform.parent = GameObject.FindWithTag("LastSpawn").transform;
+                break;
+            case 3:
+                GameObject BlockRight = Instantiate(Block_Right, generatePoint, Quaternion.identity);
+                BlockRight.transform.parent = GameObject.FindWithTag("LastSpawn").transform;
                 break;
         }
     }

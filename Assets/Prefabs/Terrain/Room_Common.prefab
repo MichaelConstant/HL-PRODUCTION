@@ -82,7 +82,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.55, y: 3}
+  m_Size: {x: 4.65, y: 3.1}
   m_EdgeRadius: 0
 --- !u!114 &-6491560601677124487
 MonoBehaviour:
@@ -96,6 +96,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0417f8c8738409429971388bd63887a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Enemy_1: {fileID: 8107988818614733195, guid: 4c4bca1a9ecf5a54bb4d6b4ecac5a5a6, type: 3}
+  Enemy_2: {fileID: 8107988818614733195, guid: 4c4bca1a9ecf5a54bb4d6b4ecac5a5a6, type: 3}
+  Enemy_3: {fileID: 8107988818614733195, guid: 4c4bca1a9ecf5a54bb4d6b4ecac5a5a6, type: 3}
+  spawnNum: 1
+  Reward_1: {fileID: 0}
+  Reward_2: {fileID: 0}
+  Reward_3: {fileID: 0}
 --- !u!1001 &5837734136886145026
 PrefabInstance:
   m_ObjectHideFlags: 0
