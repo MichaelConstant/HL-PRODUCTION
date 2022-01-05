@@ -76,7 +76,7 @@ public class RoomGenerator : MonoBehaviour
         }
         #endregion
         #region BOSS房判定 Define Boss Room
-        //Room endRoom = RoomList[RoomNum-1];
+        //Room endRoom = RoomList[RoomNum - 1];
         //foreach (var room in RoomList)
         //{
         //    if (room.RoomLocation.sqrMagnitude > endRoom.RoomLocation.sqrMagnitude)

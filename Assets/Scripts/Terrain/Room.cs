@@ -55,13 +55,10 @@ public class Room : MonoBehaviour
         {
             if (collision.GetComponent<PlayerControl>() != null)
             {
-                Debug.Log("not cleaned");
-                Debug.Log("player enter");
-                collision.transform.position += (Vector3)collision.GetComponent<Rigidbody2D>().velocity.normalized * 0.5f;
+                collision.transform.position += (Vector3)collision.GetComponent<Rigidbody2D>().velocity.normalized * 0.75f;
                 if (gameObject.name != "Room_Start(Clone)")
                 {
                     GenerateEnemies();
-                    Debug.Log("enemy spawn");
                     spawned = true;
                     Door[] Doors = GetComponentsInChildren<Door>();
                     for (int i = 0; i < Doors.Length; i++)
@@ -72,7 +69,6 @@ public class Room : MonoBehaviour
             }
         }
     }
-
     public void GenerateEnemies()
     {
         for (int i=0;i<spawnNum;i++)
