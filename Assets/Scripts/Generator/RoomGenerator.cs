@@ -40,24 +40,24 @@ public class RoomGenerator : MonoBehaviour
     public GameObject Block_Left;
     public GameObject Block_Right;
 
-    public int RoomNum;
+    public int CommonRoomNum;
+    public int TreasureRoomNum;
 
     [Header("位置控制")]
     public Transform GeneratePoint;
     public float xOffset;
     public float yOffset;
-    public LayerMask RoomLayer;
 
     public List<Room> RoomList = new List<Room>();
 
     // Start is called before the first frame update
     void Start()
     {
-        #region 生成房间列表 Generate Room List
+        #region 生成普通房间列表 Generate Common Room List
         RoomList.Add(new Room(0, GeneratePoint.position));
         RandomChangePos();
 
-        for (int i=0;i<RoomNum-1;i++)
+        for (int i=1;i< CommonRoomNum; i++)
         {
             var tempPos= GeneratePoint.position;
 
@@ -68,33 +68,39 @@ public class RoomGenerator : MonoBehaviour
             }
             else
             {
-                RoomList.Add(new Room(1, GeneratePoint.position));
+                if (i == CommonRoomNum - 1)
+                {
+                    RoomList.Add(new Room(3, GeneratePoint.position));
+                }
+                else
+                {
+                    RoomList.Add(new Room(1, GeneratePoint.position));
+                }
             }
-
             RandomChangePos();
-
         }
         #endregion
-        #region BOSS房判定 Define Boss Room
-        //Room endRoom = RoomList[RoomNum - 1];
+        #region BOSS房判定，仅保留作为以后可能的参考 Define Boss Room (Not in use)
+        //Room endRoom = RoomList[CommonRoomNum - 1];
         //foreach (var room in RoomList)
         //{
         //    if (room.RoomLocation.sqrMagnitude > endRoom.RoomLocation.sqrMagnitude)
         //    {
         //        endRoom = room;
+        //        endRoom.RoomType = 2;
         //    }
         //}
-        //endRoom.RoomType = 3;
-        RoomList[RoomNum - 1].RoomType = 3;
         #endregion
-        #region 生成房间和门
-        for (int i=0;i<RoomNum;i++)
-        {
-            if (RoomList[i].RoomType != 0 && RoomList[i].RoomType != 3)
-            {
-                RoomList[i].RoomType = (Random.Range(1, 3));
-            }
 
+        #region 添加宝藏房房间列表
+
+
+
+        #endregion
+
+        #region 生成房间和门
+        for (int i=0;i< RoomList.Count; i++)
+        {
             if(i!=0)
             {
                 GameObject.FindWithTag("LastSpawn").tag = "Spawned";

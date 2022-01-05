@@ -200,7 +200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 123214006}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2.5}
+  m_LocalPosition: {x: 0, y: 0, z: -2.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -991,10 +991,11 @@ MonoBehaviour:
   Block_Down: {fileID: 7216181833879360731, guid: f5ae7150cc9d7034fb296745e56f9d75, type: 3}
   Block_Left: {fileID: 7216181833879360731, guid: 886bee4aac9b6bd40bc0c633e5b875e6, type: 3}
   Block_Right: {fileID: 7216181833879360731, guid: 02a9498564fa4e54193837f6c70ca741, type: 3}
-  RoomNum: 10
+  CommonRoomNum: 10
+  TreasureRoomNum: 1
   GeneratePoint: {fileID: 1896723046}
-  xOffset: 4.7
-  yOffset: 3.2
+  xOffset: 4.85
+  yOffset: 3.3
   RoomLayer:
     serializedVersion: 2
     m_Bits: 8

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -5590320831469073615}
   - component: {fileID: 8588845714759749080}
   - component: {fileID: -6491560601677124487}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Room_Common
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,13 +96,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0417f8c8738409429971388bd63887a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnNum: 2
   Enemy_1: {fileID: 8738409695519997439, guid: ba393655cc274b84f911a0a19e3469c7, type: 3}
   Enemy_2: {fileID: 8738409695519997439, guid: bf0fb267dce55d94196ac826f03210b6, type: 3}
   Enemy_3: {fileID: 8738409695519997439, guid: 9a1b49c7298738f41a888f8628fb3051, type: 3}
-  spawnNum: 2
-  Reward_1: {fileID: 0}
-  Reward_2: {fileID: 0}
-  Reward_3: {fileID: 0}
+  rewardNum: 5
+  Reward_1: {fileID: 4695096031042041005, guid: f2c385db002d29d4791be37097cb2223, type: 3}
+  Reward_2: {fileID: 6743168511544822323, guid: 3c7a6de5743c2d5468719e319be415c2, type: 3}
+  Reward_3: {fileID: 4695096031042041005, guid: f2c385db002d29d4791be37097cb2223, type: 3}
 --- !u!1001 &5837734136886145026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -156,7 +157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3925944603218366308, guid: 054494ac780e1d54cbb8666ea6be50e4, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 054494ac780e1d54cbb8666ea6be50e4, type: 3}
@@ -210,7 +211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3925944603218366308, guid: 054494ac780e1d54cbb8666ea6be50e4, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 054494ac780e1d54cbb8666ea6be50e4, type: 3}
@@ -272,7 +273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3925944603218366308, guid: 054494ac780e1d54cbb8666ea6be50e4, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 054494ac780e1d54cbb8666ea6be50e4, type: 3}
@@ -330,7 +331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3925944603218366308, guid: 054494ac780e1d54cbb8666ea6be50e4, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 054494ac780e1d54cbb8666ea6be50e4, type: 3}
