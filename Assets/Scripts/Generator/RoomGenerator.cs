@@ -23,6 +23,8 @@ public class RoomGenerator : MonoBehaviour
     }
 
     [Header("房间信息")]
+    public Transform LevelManager;
+
     public GameObject Room_Start;
     public GameObject Room_Common;
     public GameObject Room_Treasure;
@@ -51,12 +53,11 @@ public class RoomGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        #region 生成房间列表
-
+        #region 生成房间列表 Generate Room List
         RoomList.Add(new Room(0, GeneratePoint.position));
         RandomChangePos();
 
-        for (int i=0;i<RoomNum;i++)
+        for (int i=0;i<RoomNum-1;i++)
         {
             var tempPos= GeneratePoint.position;
 
@@ -74,8 +75,7 @@ public class RoomGenerator : MonoBehaviour
 
         }
         #endregion
-
-        #region 初始房、BOSS房判定
+        #region BOSS房判定 Define Boss Room
         //Room endRoom = RoomList[RoomNum-1];
         //foreach (var room in RoomList)
         //{
@@ -86,9 +86,7 @@ public class RoomGenerator : MonoBehaviour
         //}
         //endRoom.RoomType = 3;
         RoomList[RoomNum - 1].RoomType = 3;
-
         #endregion
-
         #region 生成房间和门
         for (int i=0;i<RoomNum;i++)
         {
@@ -116,36 +114,33 @@ public class RoomGenerator : MonoBehaviour
                 }
             }
         }
-
         #endregion
-
-
     }
-
     // Update is called once per frame
     void Update()
     {
         
     }
-
     public Vector3 ChangePos(int direction,Vector3 Location)
     {
+        direction=Mathf.Clamp(direction, 0, 3);
+        Vector3 changedPos = Location;
         switch ((Direction)direction)
         {
             case Direction.up:
-                Location += new Vector3(0, yOffset, 0);
-                return Location;
+                changedPos = Location + new Vector3(0, yOffset, 0);
+                return changedPos;
             case Direction.down:
-                Location += new Vector3(0, -yOffset, 0);
-                return Location;
+                changedPos = Location + new Vector3(0, -yOffset, 0);
+                return changedPos;
             case Direction.left:
-                Location += new Vector3(-xOffset, 0, 0);
-                return Location;
+                changedPos = Location + new Vector3(-xOffset, 0, 0);
+                return changedPos;
             case Direction.right:
-                Location += new Vector3(xOffset, 0, 0);
-                return Location;
+                changedPos = Location + new Vector3(xOffset, 0, 0);
+                return changedPos;
             default:
-                return Location;
+                return changedPos;
         }
     }
     public void RandomChangePos()
@@ -174,65 +169,65 @@ public class RoomGenerator : MonoBehaviour
         {
             case 0:
                 GameObject RoomStart = Instantiate(Room_Start, generatePoint, Quaternion.identity);
-                RoomStart.transform.parent = gameObject.transform;
+                RoomStart.transform.parent = LevelManager.transform;
                 RoomStart.tag = "LastSpawn";
                 break;
             case 1:
                 GameObject RoomCommon = Instantiate(Room_Common, generatePoint, Quaternion.identity);
-                RoomCommon.transform.parent = gameObject.transform;
+                RoomCommon.transform.parent = LevelManager.transform;
                 RoomCommon.tag = "LastSpawn";
                 break;
             case 2:
                 GameObject RoomTreasure = Instantiate(Room_Treasure, generatePoint, Quaternion.identity);
-                RoomTreasure.transform.parent = gameObject.transform;
+                RoomTreasure.transform.parent = LevelManager.transform;
                 RoomTreasure.tag = "LastSpawn";
                 break;
             case 3:
                 GameObject RoomBoss = Instantiate(Room_Boss, generatePoint, Quaternion.identity);
-                RoomBoss.transform.parent = gameObject.transform;
+                RoomBoss.transform.parent = LevelManager.transform;
                 RoomBoss.tag = "LastSpawn";
                 break;
         }
     }
     public void GenerateDoor(int doorDirection, Vector3 generatePoint)
     {
-        switch (doorDirection)
+        switch ((Direction)doorDirection)
         {
-            case 0:
+            case Direction.up:
                 GameObject DoorUp = Instantiate(Door_Up, generatePoint, Quaternion.identity);
                 DoorUp.transform.parent = GameObject.FindWithTag("LastSpawn").transform;
                 break;
-            case 1:
+            case Direction.down:
                 GameObject DoorDown = Instantiate(Door_Down, generatePoint, Quaternion.identity);
                 DoorDown.transform.parent = GameObject.FindWithTag("LastSpawn").transform;
                 break;
-            case 2:
+            case Direction.left:
                 GameObject DoorLeft = Instantiate(Door_Left, generatePoint, Quaternion.identity);
                 DoorLeft.transform.parent = GameObject.FindWithTag("LastSpawn").transform;
                 break;
-            case 3:
+            case Direction.right:
                 GameObject DoorRight = Instantiate(Door_Right, generatePoint, Quaternion.identity);
                 DoorRight.transform.parent = GameObject.FindWithTag("LastSpawn").transform;
                 break;
         }
     }
-    public void GenerateBlock(int doorDirection, Vector3 generatePoint)
+    public void GenerateBlock(int blockDirection, Vector3 generatePoint)
     {
-        switch (doorDirection)
+        switch ((Direction)blockDirection)
         {
-            case 0:
+            case Direction.up:
                 GameObject BlockUp = Instantiate(Block_Up, generatePoint, Quaternion.identity);
                 BlockUp.transform.parent = GameObject.FindWithTag("LastSpawn").transform;
                 break;
-            case 1:
+            case Direction.down:
                 GameObject BlockDown = Instantiate(Block_Down, generatePoint, Quaternion.identity);
                 BlockDown.transform.parent = GameObject.FindWithTag("LastSpawn").transform;
                 break;
-            case 2:
+            case Direction.left:
                 GameObject BlockLeft = Instantiate(Block_Left, generatePoint, Quaternion.identity);
                 BlockLeft.transform.parent = GameObject.FindWithTag("LastSpawn").transform;
                 break;
-            case 3:
+            case Direction.right:
                 GameObject BlockRight = Instantiate(Block_Right, generatePoint, Quaternion.identity);
                 BlockRight.transform.parent = GameObject.FindWithTag("LastSpawn").transform;
                 break;

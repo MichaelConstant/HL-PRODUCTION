@@ -33,7 +33,7 @@ public class Room : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        CamPos = new Vector3(Camera.main.transform.position.x,Camera.main.transform.position.y, Camera.main.transform.position.z);
+        CamPos = Camera.main.transform.position;
         RoomPos = new Vector3(this.transform.position.x, this.transform.position.y, Camera.main.transform.position.z);
         if (collision.GetComponent<PlayerControl>()!=null)
         {
