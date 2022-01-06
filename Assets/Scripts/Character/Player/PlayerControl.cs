@@ -5,8 +5,11 @@ using UnityEngine.UI;
 
 public class PlayerControl : CharacterControl
 {
-	#region VARS
-	public Image MeleeEnergyUI;
+    #region VARS
+    public int KeyCounts;
+    public int CoinCounts;
+
+    public Image MeleeEnergyUI;
     public Text MeleeLevelUI;
 
     public Image RangeEnergyUI;

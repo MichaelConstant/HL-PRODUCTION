@@ -991,14 +991,14 @@ MonoBehaviour:
   Block_Down: {fileID: 7216181833879360731, guid: f5ae7150cc9d7034fb296745e56f9d75, type: 3}
   Block_Left: {fileID: 7216181833879360731, guid: 886bee4aac9b6bd40bc0c633e5b875e6, type: 3}
   Block_Right: {fileID: 7216181833879360731, guid: 02a9498564fa4e54193837f6c70ca741, type: 3}
+  lockedDoor_Up: {fileID: 7216181833879360731, guid: 7979dc6f1a59eba418c3f3c50b557bdd, type: 3}
+  lockedDoor_Down: {fileID: 7216181833879360731, guid: 9abe580c66b30474baafa224f217262d, type: 3}
+  lockedDoor_Left: {fileID: 7216181833879360731, guid: 40fb0d1ac2bc3ae46800a3e8f324189d, type: 3}
+  lockedDoor_Right: {fileID: 7216181833879360731, guid: 5a1873a6bfca6914eb1a71d63506e81c, type: 3}
   CommonRoomNum: 10
-  TreasureRoomNum: 1
   GeneratePoint: {fileID: 1896723046}
-  xOffset: 4.85
-  yOffset: 3.3
-  RoomLayer:
-    serializedVersion: 2
-    m_Bits: 8
+  xOffset: 4.8
+  yOffset: 3.25
 --- !u!4 &1896723046
 Transform:
   m_ObjectHideFlags: 0

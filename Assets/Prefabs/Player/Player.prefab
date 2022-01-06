@@ -317,6 +317,8 @@ MonoBehaviour:
   bullet3: {fileID: 8573897042248982977, guid: 664b32a95e69ed44cbabd45af76205a5, type: 3}
   bulletUltra: {fileID: 8573897042248982977, guid: 0e52ce7ed17978543b554d2df1b49392, type: 3}
   bulletSpawn: {fileID: 229624869}
+  KeyCounts: 10
+  CoinCounts: 10
   MeleeEnergyUI: {fileID: 0}
   MeleeLevelUI: {fileID: 0}
   RangeEnergyUI: {fileID: 0}

@@ -11,6 +11,7 @@ TagManager:
   - Start
   - LastSpawn
   - Spawned
+  - LockedDoor
   layers:
   - Default
   - TransparentFX

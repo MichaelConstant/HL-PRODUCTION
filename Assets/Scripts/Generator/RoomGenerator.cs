@@ -40,8 +40,12 @@ public class RoomGenerator : MonoBehaviour
     public GameObject Block_Left;
     public GameObject Block_Right;
 
+    public GameObject lockedDoor_Up;
+    public GameObject lockedDoor_Down;
+    public GameObject lockedDoor_Left;
+    public GameObject lockedDoor_Right;
+
     public int CommonRoomNum;
-    public int TreasureRoomNum;
 
     [Header("位置控制")]
     public Transform GeneratePoint;
@@ -57,7 +61,9 @@ public class RoomGenerator : MonoBehaviour
         RoomList.Add(new Room(0, GeneratePoint.position));
         RandomChangePos();
 
-        for (int i=1;i< CommonRoomNum; i++)
+        int rand = Random.Range(1,7);
+
+        for (int i = 1; i < rand; i++)
         {
             var tempPos= GeneratePoint.position;
 
@@ -68,9 +74,34 @@ public class RoomGenerator : MonoBehaviour
             }
             else
             {
-                if (i == CommonRoomNum - 1)
+                if (i == rand - 1)
                 {
                     RoomList.Add(new Room(3, GeneratePoint.position));
+                }
+                else
+                {
+                    RoomList.Add(new Room(1, GeneratePoint.position));
+                }
+            }
+            RandomChangePos();
+        }
+
+        GeneratePoint.position = new Vector3(0, 0, 0);
+
+        for (int i = 0; i < CommonRoomNum- rand; i++)
+        {
+            var tempPos = GeneratePoint.position;
+
+            if (RoomList.Exists(Room => Room.RoomLocation == GeneratePoint.position))
+            {
+                i--;
+                GeneratePoint.position = tempPos;
+            }
+            else
+            {
+                if (i == CommonRoomNum - rand - 1)
+                {
+                    RoomList.Add(new Room(2, GeneratePoint.position));
                 }
                 else
                 {
@@ -92,12 +123,6 @@ public class RoomGenerator : MonoBehaviour
         //}
         #endregion
 
-        #region 添加宝藏房房间列表
-
-
-
-        #endregion
-
         #region 生成房间和门
         for (int i=0;i< RoomList.Count; i++)
         {
@@ -113,6 +138,10 @@ public class RoomGenerator : MonoBehaviour
                 if (RoomList.Exists(Room => Room.RoomLocation == ChangePos(j, RoomList[i].RoomLocation)))
                 {
                     GenerateDoor(j, RoomList[i].RoomLocation);
+                    if(RoomList[i].RoomType==2)
+                    {
+                        GenerateLockedDoor(j, RoomList[i].RoomLocation);
+                    }
                 }
                 else
                 {
@@ -214,6 +243,28 @@ public class RoomGenerator : MonoBehaviour
             case Direction.right:
                 GameObject DoorRight = Instantiate(Door_Right, generatePoint, Quaternion.identity);
                 DoorRight.transform.parent = GameObject.FindWithTag("LastSpawn").transform;
+                break;
+        }
+    }
+    public void GenerateLockedDoor(int lockedDoorDirection, Vector3 generatePoint)
+    {
+        switch ((Direction)lockedDoorDirection)
+        {
+            case Direction.up:
+                GameObject lockedDoorUp = Instantiate(lockedDoor_Up, generatePoint, Quaternion.identity);
+                lockedDoorUp.transform.parent = GameObject.FindWithTag("LastSpawn").transform;
+                break;
+            case Direction.down:
+                GameObject lockedDoorDown = Instantiate(lockedDoor_Down, generatePoint, Quaternion.identity);
+                lockedDoorDown.transform.parent = GameObject.FindWithTag("LastSpawn").transform;
+                break;
+            case Direction.left:
+                GameObject lockedDoorLeft = Instantiate(lockedDoor_Left, generatePoint, Quaternion.identity);
+                lockedDoorLeft.transform.parent = GameObject.FindWithTag("LastSpawn").transform;
+                break;
+            case Direction.right:
+                GameObject lockedDoorRight = Instantiate(lockedDoor_Right, generatePoint, Quaternion.identity);
+                lockedDoorRight.transform.parent = GameObject.FindWithTag("LastSpawn").transform;
                 break;
         }
     }
