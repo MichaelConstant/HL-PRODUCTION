@@ -23,11 +23,7 @@ public class LockedDoor : MonoBehaviour
             if(collision.gameObject.GetComponent<PlayerControl>().KeyCounts>=1)
             {
                 collision.gameObject.GetComponent<PlayerControl>().KeyCounts--;
-                for(int i=0;i<100;i++)
-                {
-                    Destroy(GameObject.FindWithTag("LockedDoor"));
-                }
-                Destroy(gameObject);
+                RoomGenerator.OpenTheGay();
             }
         }
     }

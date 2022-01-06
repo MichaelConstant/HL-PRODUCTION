@@ -290,4 +290,11 @@ public class RoomGenerator : MonoBehaviour
                 break;
         }
     }
+    public static void OpenTheGay()
+    {
+        for (int i = 0; i < 100; i++)
+        {
+            Destroy(GameObject.FindWithTag("LockedDoor"));
+        }
+    }
 }

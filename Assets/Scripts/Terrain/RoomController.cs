@@ -65,7 +65,6 @@ public class RoomController : MonoBehaviour
             }
         }
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(spawned == false)
@@ -73,7 +72,7 @@ public class RoomController : MonoBehaviour
             if (collision.GetComponent<PlayerControl>() != null)
             {
                 Vector3 pushVector = new Vector3(collision.GetComponent<Rigidbody2D>().velocity.x, collision.GetComponent<Rigidbody2D>().velocity.y, 0);
-                collision.transform.position += pushVector.normalized*0.5f;
+                collision.transform.position += pushVector.normalized*0.75f;
                 GenerateEnemies();
                 spawned = true;
                 Door[] Doors = GetComponentsInChildren<Door>();
