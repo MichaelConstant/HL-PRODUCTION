@@ -53,7 +53,6 @@ public class CharacterControl : MonoBehaviour
     {
         rb.velocity = new Vector2(directionX * movementSpeed * Time.deltaTime, directionY * movementSpeed * Time.deltaTime);
     }
-
     protected void CommonShoot()
     {
         if (canShoot)
@@ -63,18 +62,6 @@ public class CharacterControl : MonoBehaviour
             StartCoroutine(ShootInterval());
         }
         
-    }
-    protected void Attack()
-    {
-        if (canAttack)
-        {
-            canAttack = false;
-            AttackVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);
-            GetComponentInChildren<BulletSpawn>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-            GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, angle_360(AttackVector));
-            anim.Play("Attack");
-            StartCoroutine(AttackInterval());
-        }
     }
     protected IEnumerator ShootInterval()
     {

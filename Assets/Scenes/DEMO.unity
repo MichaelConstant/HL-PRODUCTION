@@ -334,6 +334,10 @@ PrefabInstance:
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2553428388168037733, guid: 018ffccc72c95254e963b584977181b4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5651610884779649425, guid: 018ffccc72c95254e963b584977181b4, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -398,14 +402,14 @@ PrefabInstance:
       propertyPath: RangeUltraText
       value: 
       objectReference: {fileID: 606466048}
+    - target: {fileID: 7431250051107753080, guid: 018ffccc72c95254e963b584977181b4, type: 3}
+      propertyPath: BasicShootInterval
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 7708714669899403262, guid: 018ffccc72c95254e963b584977181b4, type: 3}
       propertyPath: m_LocalPosition.z
       value: -3
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: ef88f356cbfe68945b6293d0dd61ab81, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 018ffccc72c95254e963b584977181b4, type: 3}
 --- !u!1 &606466048

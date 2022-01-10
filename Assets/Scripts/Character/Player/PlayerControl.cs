@@ -241,6 +241,18 @@ public class PlayerControl : CharacterControl
             StartCoroutine(ShootInterval());
         }
     }
+    void Attack()
+    {
+        if (canAttack)
+        {
+            canAttack = false;
+            AttackVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);
+            GetComponentInChildren<BulletSpawn>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, angle_360(AttackVector));
+            GetComponentInChildren<BulletSpawn>().GetComponentInChildren<Animator>().Play("Attack");
+            StartCoroutine(AttackInterval());
+        }
+    }
     void PlayerUltraShoot()
     {
         AttackVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);
