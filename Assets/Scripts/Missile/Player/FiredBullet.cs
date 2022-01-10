@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class FiredBullet : Bullet
 {
-    private Vector2 BulletVector;
-
     [Header("生成残影物体")]
     public GameObject BulletEffect;
 
@@ -31,9 +29,7 @@ public class FiredBullet : Bullet
         {
             sr.sprite = Bullet_1;
         }
-        gameObject.transform.parent = GameObject.FindGameObjectWithTag("Player").transform;
-        BulletVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);
-        GetComponent<Rigidbody2D>().AddForce(BulletVector.normalized * BulletSpeed);
+        GetComponent<Rigidbody2D>().AddForce(transform.up * BulletSpeed);
         Destroy(gameObject, BulletLifeSpan);
     }
     // Update is called once per frame
@@ -51,9 +47,9 @@ public class FiredBullet : Bullet
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((collision.gameObject.GetComponent<BossControl>() != null) || (collision.gameObject.tag == "Terrain"))
+        if ((collision.gameObject.GetComponent<CharacterControl>() != null) || (collision.gameObject.tag == "Terrain"))
         {
-            if (collision.gameObject.GetComponent<BossControl>() != null)
+            if (collision.gameObject.GetComponent<CharacterControl>() != null)
             {
                 if (gameObject.tag != "Ultra")
                 {
@@ -66,7 +62,7 @@ public class FiredBullet : Bullet
                         PlayerControl.RangeLevelStatic += 1;
                         if (PlayerControl.RangeLevelStatic < PlayerControl.RangeLevelMaxStatic)
                         {
-                            PlayerControl.RangeEnergyStatic = PlayerControl.RangeEnergyStatic - PlayerControl.RangeEnergyMaxStatic + PlayerControl.RangeEnergyMaxStatic * 0.05f;
+                            PlayerControl.RangeEnergyStatic = PlayerControl.RangeEnergyStatic - PlayerControl.RangeEnergyMaxStatic + PlayerControl.RangeEnergyMaxStatic * PlayerControl.MeleeEnergyProtectPercentStatic;
                         }
                     }
                     if (PlayerControl.RangeEnergyStatic >= PlayerControl.RangeEnergyMaxStatic && PlayerControl.RangeLevelStatic >= PlayerControl.RangeLevelMaxStatic)
@@ -75,7 +71,7 @@ public class FiredBullet : Bullet
                         gameObject.GetComponentInParent<PlayerControl>().RangeUltraText.SetActive(true);
                     }
                 }
-                collision.gameObject.GetComponent<BossControl>().EnemyHP--;
+                collision.gameObject.GetComponent<CharacterControl>().HP--;
             }
             Destroy(gameObject);
         }

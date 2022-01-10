@@ -52,16 +52,33 @@ public class RoomGenerator : MonoBehaviour
     public float xOffset;
     public float yOffset;
 
+    public string Seed;
+
     public List<Room> RoomList = new List<Room>();
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         #region 生成普通房间列表 Generate Common Room List
         RoomList.Add(new Room(0, GeneratePoint.position));
         RandomChangePos();
 
-        int rand = Random.Range(1,7);
+
+
+        //var randTemp = new System.Random(Seed.GetHashCode());
+        //var rand = randTemp.Next(4, 7);
+
+        //var randTemp = new System.Random(Seed.GetHashCode()).Next(1, 5);
+        //Debug.Log(randTemp);
+        //Seed = randTemp.ToString();
+        //randTemp = new System.Random(Seed.GetHashCode()).Next(1, 5);
+        //Debug.Log(randTemp);
+        //Seed = randTemp.ToString();
+        //randTemp = new System.Random(Seed.GetHashCode()).Next(1, 5);
+        //Debug.Log(randTemp);
+        //Seed = randTemp.ToString();
+
+        int rand = Random.Range(4,7);
 
         for (int i = 1; i < rand; i++)
         {

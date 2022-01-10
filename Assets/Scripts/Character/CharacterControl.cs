@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CharacterControl : MonoBehaviour
 {
     public float movementSpeed;
+    public float HP;
 
     protected Rigidbody2D rb;
     protected Animator anim;
@@ -13,6 +14,7 @@ public class CharacterControl : MonoBehaviour
 
     protected float xInput;
     protected float yInput;
+
     protected bool canShoot;
     protected bool canAttack;
 
@@ -49,7 +51,7 @@ public class CharacterControl : MonoBehaviour
     }
     protected void Move(float directionX, float directionY)
     {
-        rb.velocity = new Vector2(directionX * movementSpeed, directionY * movementSpeed);
+        rb.velocity = new Vector2(directionX * movementSpeed * Time.deltaTime, directionY * movementSpeed * Time.deltaTime);
     }
 
     protected void CommonShoot()
@@ -62,53 +64,29 @@ public class CharacterControl : MonoBehaviour
         }
         
     }
-    protected void PlayerShoot()
-    {
-        if (canShoot)
-        {
-            canShoot = false;
-            switch (PlayerControl.MeleeLevelStatic)
-            {
-                case 0:
-                    Instantiate(bullet0, bulletSpawn.transform.position, transform.rotation);
-                    break;
-                case 1:
-                    Instantiate(bullet1, bulletSpawn.transform.position, transform.rotation);
-                    break;
-                case 2:
-                    Instantiate(bullet2, bulletSpawn.transform.position, transform.rotation);
-                    break;
-                case 3:
-                    Instantiate(bullet3, bulletSpawn.transform.position, transform.rotation);
-                    break;
-            }
-            StartCoroutine(ShootInterval());
-        }
-    }
     protected void Attack()
     {
         if (canAttack)
         {
             canAttack = false;
             AttackVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);
-            GetComponentInChildren<Animator>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-            GetComponentInChildren<Animator>().transform.Rotate(0, 0, angle_360(AttackVector));
+            GetComponentInChildren<BulletSpawn>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, angle_360(AttackVector));
             anim.Play("Attack");
             StartCoroutine(AttackInterval());
         }
     }
-
-    private IEnumerator ShootInterval()
+    protected IEnumerator ShootInterval()
     {
         yield return new WaitForSeconds(BasicShootInterval);
         canShoot = true;
     }
-    private IEnumerator AttackInterval()
+    protected IEnumerator AttackInterval()
     {
         yield return new WaitForSeconds(BasicAttackInterval);
         canAttack = true;
     }
-    private float angle_360(Vector2 Vector)
+    protected float angle_360(Vector2 Vector)
     {
         float x = Vector.x;
         float y = Vector.y;

@@ -98,15 +98,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 0
-  BasicShootInterval: 0.5
-  BasicAttackInterval: 0.5
+  HP: 5
+  BasicShootInterval: 1
+  BasicAttackInterval: 1
   bullet0: {fileID: 7155485969590187701, guid: f728ce6f3273e2c40b5d2d0525730f26, type: 3}
   bullet1: {fileID: 7155485969590187701, guid: f728ce6f3273e2c40b5d2d0525730f26, type: 3}
   bullet2: {fileID: 7155485969590187701, guid: f728ce6f3273e2c40b5d2d0525730f26, type: 3}
   bullet3: {fileID: 7155485969590187701, guid: f728ce6f3273e2c40b5d2d0525730f26, type: 3}
   bulletUltra: {fileID: 7155485969590187701, guid: f728ce6f3273e2c40b5d2d0525730f26, type: 3}
   bulletSpawn: {fileID: 8738409695519997425}
-  EnemyHP: 4
 --- !u!50 &7984308495055826829
 Rigidbody2D:
   serializedVersion: 4

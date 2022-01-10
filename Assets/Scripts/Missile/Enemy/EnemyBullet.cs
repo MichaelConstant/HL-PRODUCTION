@@ -17,7 +17,7 @@ public class EnemyBullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Target = GameObject.Find("Player");
+        Target = GameObject.FindWithTag("Player");
         BulletVector = (Target.transform.position - gameObject.transform.position);
         GetComponent<Rigidbody2D>().AddForce(BulletVector.normalized * BulletSpeed);
     }
@@ -30,8 +30,12 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((collision.gameObject.tag == "Terrain")||(collision.gameObject.GetComponent<PlayerControl>() != null))
+        if (collision.gameObject.tag == "Terrain" || collision.gameObject.GetComponent<PlayerControl>() != null)
         {
+            if(collision.gameObject.GetComponent<PlayerControl>() != null)
+            {
+                collision.gameObject.GetComponent<PlayerControl>().HP--;
+            }
             Destroy(gameObject);
         }
     }

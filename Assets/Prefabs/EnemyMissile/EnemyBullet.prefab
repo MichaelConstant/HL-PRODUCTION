@@ -45,7 +45,6 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -135,5 +134,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdde9706f4febe4448a3c779e624f87e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BulletDamage: 1
   BulletSpeed: 25
-  Target: {fileID: 5651610884779649431, guid: 018ffccc72c95254e963b584977181b4, type: 3}
