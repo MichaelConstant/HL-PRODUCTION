@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2622358292749909626}
   - component: {fileID: 2622358292749909627}
   - component: {fileID: 2622358292749909629}
-  - component: {fileID: 2622358292749909625}
   m_Layer: 7
   m_Name: ManFaceMaterialAnim
   m_TagString: Untagged
@@ -103,18 +102,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2622358292749909625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2622358292749909574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc6925862d41df2468b7f313ce62245e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2622358293703611761
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,12 +111,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2622358293703611760}
-  - component: {fileID: 2622358293703611762}
   - component: {fileID: 2622358293703611763}
   - component: {fileID: 2622358293703611765}
+  - component: {fileID: 1192955868}
   m_Layer: 7
   m_Name: ManFaceMaterial
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,32 +136,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2622358293703611762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2622358293703611761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b22d87b97e9932440ac59941e8c3ac83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bigPhlegm: {fileID: 6570642098983685159, guid: f315331d3cb511a4ea9d80b49d0cce90, type: 3}
-  bossUI: {fileID: 0}
-  timeToJump: 2
-  idleMinTime: 2
-  idleMaxTime: 3
-  pourMinTime: 2
-  pourMaxTime: 6
-  bulletPower: 2
-  maxHealth: 40
-  currentHealth: 40
-  healthBar: {fileID: 0}
-  playerPos: {fileID: 0}
-  waitTime: 4
-  MoveSpeed: 6
 --- !u!50 &2622358293703611763
 Rigidbody2D:
   serializedVersion: 4
@@ -212,3 +173,22 @@ CircleCollider2D:
   m_Offset: {x: 0.007912129, y: 0}
   serializedVersion: 2
   m_Radius: 0.32065734
+--- !u!114 &1192955868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2622358293703611761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c263f661db1b3724e98f2babe4671e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_bossState: 1
+  waitTime: 3
+  m_moveSpeed: 5
+  bossUI: {fileID: 0}
+  IdleToJumpRate: 7
+  JumpToPourRate: 2
+  JumpToIdleRate: 4

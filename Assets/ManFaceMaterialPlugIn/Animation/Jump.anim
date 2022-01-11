@@ -47,7 +47,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.71666664
-        value: {x: 0, y: 0.35, z: 0}
+        value: {x: 0, y: 0.34, z: 0}
         inSlope: {x: Infinity, y: Infinity, z: Infinity}
         outSlope: {x: Infinity, y: Infinity, z: Infinity}
         tangentMode: 0
@@ -235,7 +235,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.71666664
-        value: 0.35
+        value: 0.34
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -318,14 +318,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.3
-    functionName: JumpInParent
+    functionName: JumpMovement
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.8666667
-    functionName: StopJumpInParent
+  - time: 0.96666664
+    functionName: SetJumpState
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

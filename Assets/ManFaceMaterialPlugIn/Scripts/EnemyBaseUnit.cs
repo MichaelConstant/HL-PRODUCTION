@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemyBaseUnit : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     public Vector2 getDirection(Transform targetPos)
     {
         Vector2 direction = (targetPos.transform.position - this.transform.position).normalized;
@@ -15,6 +13,4 @@ public class EnemyBaseUnit : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
-    // Update is called once per frame
-
 }
