@@ -161,49 +161,49 @@ public class PlayerControl : CharacterControl
                 {
                     case 0:
                         GetComponentInChildren<BulletSpawn>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-                        GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, angle_360(AttackVector) - 5);
+                        GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, Angle_360(AttackVector) - 5);
                         GameObject bullet = Instantiate(bullet0, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
                         bullet.transform.parent = transform;
 
                         GetComponentInChildren<BulletSpawn>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-                        GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, angle_360(AttackVector) + 5);
+                        GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, Angle_360(AttackVector) + 5);
                         bullet = Instantiate(bullet0, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
                         bullet.transform.parent = transform;
                         break;
                     case 1:
                         GetComponentInChildren<BulletSpawn>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-                        GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, angle_360(AttackVector) - 15);
+                        GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, Angle_360(AttackVector) - 15);
                         bullet = Instantiate(bullet0, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
                         bullet.transform.parent = transform;
 
                         GetComponentInChildren<BulletSpawn>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-                        GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, angle_360(AttackVector));
+                        GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, Angle_360(AttackVector));
                         bullet = Instantiate(bullet0, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
                         bullet.transform.parent = transform;
 
                         GetComponentInChildren<BulletSpawn>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-                        GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, angle_360(AttackVector) + 15);
+                        GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, Angle_360(AttackVector) + 15);
                         bullet = Instantiate(bullet0, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
                         bullet.transform.parent = transform;
                         break;
                     case 2:
                         GetComponentInChildren<BulletSpawn>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-                        GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, angle_360(AttackVector) - 5);
+                        GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, Angle_360(AttackVector) - 5);
                         bullet = Instantiate(bullet0, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
                         bullet.transform.parent = transform;
 
                         GetComponentInChildren<BulletSpawn>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-                        GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, angle_360(AttackVector) + 5);
+                        GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, Angle_360(AttackVector) + 5);
                         bullet = Instantiate(bullet0, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
                         bullet.transform.parent = transform;
 
                         GetComponentInChildren<BulletSpawn>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-                        GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, angle_360(AttackVector) - 15);
+                        GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, Angle_360(AttackVector) - 15);
                         bullet = Instantiate(bullet0, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
                         bullet.transform.parent = transform;
 
                         GetComponentInChildren<BulletSpawn>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-                        GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, angle_360(AttackVector) + 15);
+                        GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, Angle_360(AttackVector) + 15);
                         bullet = Instantiate(bullet0, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
                         bullet.transform.parent = transform;
                         break;
@@ -216,7 +216,7 @@ public class PlayerControl : CharacterControl
                 AttackVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);
 
                 GetComponentInChildren<BulletSpawn>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-                GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, angle_360(AttackVector));
+                GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, Angle_360(AttackVector));
 
                 switch (PlayerControl.MeleeLevelStatic)
                 {
@@ -248,7 +248,7 @@ public class PlayerControl : CharacterControl
             canAttack = false;
             AttackVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);
             GetComponentInChildren<BulletSpawn>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-            GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, angle_360(AttackVector));
+            GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, Angle_360(AttackVector));
             GetComponentInChildren<BulletSpawn>().GetComponentInChildren<Animator>().Play("Attack");
             StartCoroutine(AttackInterval());
         }
@@ -257,7 +257,7 @@ public class PlayerControl : CharacterControl
     {
         AttackVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);
         GetComponentInChildren<BulletSpawn>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-        GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, angle_360(AttackVector));
+        GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, Angle_360(AttackVector));
         GameObject bullet = Instantiate(bulletUltra, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
         bullet.transform.parent = transform;
     }
@@ -304,6 +304,6 @@ public class PlayerControl : CharacterControl
     }
     public void Dead()
     {
-        SceneManager.LoadScene("DEMO");
+        SceneManager.LoadScene("Studio");
     }
 }

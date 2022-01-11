@@ -15,23 +15,19 @@ public class StudioPause : MonoBehaviour
     }
     private void Update()
     {
-        if(MenuOpen == false)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (MenuOpen == false)
             {
                 Menu.SetActive(true);
                 MenuOpen = true;
             }
-        }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            else
             {
                 Menu.SetActive(false);
                 MenuOpen = false;
             }
         }
-        
     }
     public void MainMenu()
     {

@@ -73,7 +73,7 @@ public class CharacterControl : MonoBehaviour
         yield return new WaitForSeconds(BasicAttackInterval);
         canAttack = true;
     }
-    protected float angle_360(Vector2 Vector)
+    protected float Angle_360(Vector2 Vector)
     {
         float x = Vector.x;
         float y = Vector.y;
