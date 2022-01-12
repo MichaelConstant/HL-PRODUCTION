@@ -98,7 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 0
-  HP: 5
+  maxHP: 5
+  currentHP: 5
   BasicShootInterval: 1
   BasicAttackInterval: 1
   bullet0: {fileID: 7155485969590187701, guid: f728ce6f3273e2c40b5d2d0525730f26, type: 3}

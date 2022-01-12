@@ -8,19 +8,29 @@ public class PlayerControl : CharacterControl
 {
     #region 变量
 
-    public int KeyCounts;
-    public int CoinCounts;
+    Vector3 AimVector;
+
+    bool alive = true;
+    bool isMoving = false;
+
+    public int KeyCounts = 1;
+    public Text keyText;
+    public int CoinCounts = 1;
+    public Text coinText;
+
+    public Image HPUI;
 
     public Image MeleeEnergyUI;
     public Text MeleeLevelUI;
+    public Text MeleeLevelHint;
 
     public Image RangeEnergyUI;
     public GameObject RangeUltraText;
 
+    #region 能量系统相关
     public static float RangeEnergyStatic;
     public static float MeleeEnergyStatic;
 
-    #region 能量系统相关
     public static bool onRage = false;
 
     [Header("远程/近战初始能量，默认为0")]
@@ -69,10 +79,16 @@ public class PlayerControl : CharacterControl
     public static float RangeEnergyProtectPercentStatic;
     public static float MeleeEnergyProtectPercentStatic;
     #endregion
+
     #endregion
     // Start is called before the first frame update
     void Start()
     {
+        alive = true;
+
+        keyText.text = "Key: " + KeyCounts;
+        coinText.text = "Coin: " + CoinCounts;
+
         RangeEnergyStatic = RangeEnergy;
         MeleeEnergyStatic = MeleeEnergy;
 
@@ -93,58 +109,82 @@ public class PlayerControl : CharacterControl
 
         RangeEnergyProtectPercentStatic = RangeEnergyProtectPercent;
         MeleeEnergyProtectPercentStatic = MeleeEnergyProtectPercent;
-
-        HP = 10;
     }
     // Update is called once per frame
     void Update()
     {
         MeleeEnergyUI.fillAmount = (float)MeleeEnergyStatic / MeleeEnergyMaxStatic;
         RangeEnergyUI.fillAmount = (float)RangeEnergyStatic / RangeEnergyMaxStatic;
+        HPUI.fillAmount = (float)currentHP / maxHP;
 
-        xInput = Input.GetAxisRaw("Horizontal");
-        yInput = Input.GetAxisRaw("Vertical");
+        xInput = (int)Input.GetAxisRaw("Horizontal");
+        yInput = (int)Input.GetAxisRaw("Vertical");
+
+        if(xInput !=0 || yInput != 0)
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
+        anim.SetBool("isMoving", isMoving);
+
+        AimVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);
+        float Angle = Angle_360(AimVector);
+        if(Angle>=-60 || Angle <= 60)
+        {
+            anim.SetInteger("State", 1);
+        }
+        else if (Angle >= -90 || Angle < -60)
+        {
+            anim.SetInteger("State", 2);
+        }
+        else if (Angle >= -60 || Angle <= 60)
+        {
+
+        }
+
+
 
         if (Input.GetMouseButton(0))
-        {
-            PlayerShoot();
-        }
-
+            {
+                PlayerShoot();
+            }
         if (Input.GetMouseButton(1))
-        {
-            Attack();
-        }
-
-        if (Input.GetKeyDown(KeyCode.E) && RangeLevelStatic==1)
-        {
-            PlayerUltraShoot();
-            RangeLevelStatic = 0;
-            RangeEnergyStatic = 0;
-            RangeUltraText.SetActive(false);
-        }
-
+            {
+                Attack();
+            }
+        if (Input.GetKeyDown(KeyCode.E) && RangeLevelStatic == 1)
+            {
+                PlayerUltraShoot();
+                RangeLevelStatic = 0;
+                RangeEnergyStatic = 0;
+                RangeUltraText.SetActive(false);
+            }
         if (Input.GetKeyDown(KeyCode.Q) && MeleeLevelStatic >= 1)
-        {
-            onRage = true;
-            MeleeEnergyDecreaseAmount = 0.1f;
-        }
+            {
+                onRage = true;
+                MeleeEnergyDecreaseAmount = 0.1f;
+            }
     }
 
     void FixedUpdate()
     {
-        Move(xInput, yInput);
-
+        if (alive)
+        {
+            Move(xInput, yInput);
+        }
         if (canDecrease == true)
         {
             MeleeEnergyDecrease();
-            MeleeLevelUI.text = "LV: " + MeleeLevelStatic;
         }
-
-        if(HP<=0)
+        if (currentHP <= 0)
         {
-            Time.timeScale = 0;
-            Debug.Log("You are dead!");
-            Invoke("Dead", 3);
+            alive = false;
+            xInput = yInput = 0;
+            anim.Play("Dead");
+            Invoke("Dead", 2);
         }
     }
     void PlayerShoot()
@@ -276,7 +316,8 @@ public class PlayerControl : CharacterControl
         if(MeleeEnergyStatic <= 0 && MeleeLevelStatic > 0)
         {
             MeleeLevelStatic -= 1;
-            MeleeLevelUI.text = "LV: "+ MeleeLevelStatic;
+            MeleeLevelUI.text = "LV: " + (MeleeLevelStatic + 1);
+            MeleeLevelHint.text = "Pree Q to RAGE LV." + (MeleeLevelStatic + 1);
             MeleeEnergyStatic += MeleeEnergyMaxStatic;
         }
         if (MeleeEnergyStatic <= 0 && MeleeLevelStatic == 0)

@@ -63,7 +63,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1704560757
 Transform:
   m_ObjectHideFlags: 0
@@ -253,6 +253,7 @@ GameObject:
   - component: {fileID: 5651610884779649424}
   - component: {fileID: 7431250051107753080}
   - component: {fileID: 2553428388168037733}
+  - component: {fileID: 4030589366467838353}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -376,8 +377,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 50
-  HP: 3
-  BasicShootInterval: 0.5
+  maxHP: 6
+  currentHP: 6
+  BasicShootInterval: 0.1
   BasicAttackInterval: 1
   bullet0: {fileID: 8573897042248982977, guid: 664b32a95e69ed44cbabd45af76205a5, type: 3}
   bullet1: {fileID: 8573897042248982977, guid: 664b32a95e69ed44cbabd45af76205a5, type: 3}
@@ -386,9 +388,13 @@ MonoBehaviour:
   bulletUltra: {fileID: 8573897042248982977, guid: 0e52ce7ed17978543b554d2df1b49392, type: 3}
   bulletSpawn: {fileID: 3550809071369655795}
   KeyCounts: 10
+  keyText: {fileID: 0}
   CoinCounts: 10
+  coinText: {fileID: 0}
+  HPUI: {fileID: 0}
   MeleeEnergyUI: {fileID: 0}
   MeleeLevelUI: {fileID: 0}
+  MeleeLevelHint: {fileID: 0}
   RangeEnergyUI: {fileID: 0}
   RangeUltraText: {fileID: 0}
   RangeEnergyPerHit: 0.25
@@ -420,3 +426,26 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4030589366467838353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5651610884779649431}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7f5b7787cfccd34bbbfb3637532f2f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 50
+  maxHP: 6
+  currentHP: 6
+  BasicShootInterval: 1
+  BasicAttackInterval: 1
+  bullet0: {fileID: 0}
+  bullet1: {fileID: 0}
+  bullet2: {fileID: 0}
+  bullet3: {fileID: 0}
+  bulletUltra: {fileID: 0}
+  bulletSpawn: {fileID: 0}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2622358292749909629}
   m_Layer: 7
   m_Name: ManFaceMaterialAnim
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7699229984203183708, guid: ca4c51209ea311147a7d251509a06138, type: 3}
+  m_Sprite: {fileID: -964376724019678896, guid: 9d7acd5fb4a36314bbc7a60e1f5817fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -113,10 +113,9 @@ GameObject:
   - component: {fileID: 2622358293703611760}
   - component: {fileID: 2622358293703611763}
   - component: {fileID: 2622358293703611765}
-  - component: {fileID: 1192955868}
   m_Layer: 7
   m_Name: ManFaceMaterial
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,22 +172,3 @@ CircleCollider2D:
   m_Offset: {x: 0.007912129, y: 0}
   serializedVersion: 2
   m_Radius: 0.32065734
---- !u!114 &1192955868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2622358293703611761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c263f661db1b3724e98f2babe4671e53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_bossState: 1
-  waitTime: 3
-  m_moveSpeed: 5
-  bossUI: {fileID: 0}
-  IdleToJumpRate: 7
-  JumpToPourRate: 2
-  JumpToIdleRate: 4

@@ -1,55 +1,55 @@
 fileFormatVersion: 2
-guid: 2ece42f8a631bc44ea4659e80b2a72b4
+guid: 5cfb18d2c7fdc3e47891e6e2b7b87cd8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7087272554901873947
-    second: Bullet_Destroy_0
+      213: 5124703568298543490
+    second: Enemy_Error_0
   - first:
-      213: -4729834719695376517
-    second: Bullet_Destroy_1
+      213: -701937032775067892
+    second: Enemy_Error_1
   - first:
-      213: -4872952896452402586
-    second: Bullet_Destroy_2
+      213: -3475068840451686462
+    second: Enemy_Error_2
   - first:
-      213: 7799366703924893141
-    second: Bullet_Destroy_3
+      213: -8152498771016686181
+    second: Enemy_Error_3
   - first:
-      213: -4305684818484423506
-    second: Bullet_Destroy_4
+      213: 1575496475038849145
+    second: Enemy_Error_4
   - first:
-      213: -3184621749003171589
-    second: Bullet_Destroy_5
+      213: 5051227889075077298
+    second: Enemy_Error_5
   - first:
-      213: 8758216570145872316
-    second: Bullet_Destroy_6
+      213: 591882938445570984
+    second: Enemy_Error_6
   - first:
-      213: -8198834405422375577
-    second: Bullet_Destroy_7
+      213: -3121637451028200352
+    second: Enemy_Error_7
   - first:
-      213: -158284686155870719
-    second: Bullet_Destroy_8
+      213: 8019018277438902638
+    second: Enemy_Error_8
   - first:
-      213: 7018953196779444565
-    second: Bullet_Destroy_9
+      213: -1711251630531687000
+    second: Enemy_Error_9
   - first:
-      213: -2729596852720058632
-    second: Bullet_Destroy_10
+      213: -5687180049744054012
+    second: Enemy_Error_10
   - first:
-      213: -6026239037801689284
-    second: Bullet_Destroy_11
+      213: -1638754412067071943
+    second: Enemy_Error_11
   - first:
-      213: -5299606199297230455
-    second: Bullet_Destroy_12
+      213: 7320964506539040995
+    second: Enemy_Error_12
   - first:
-      213: -8506370783000389021
-    second: Bullet_Destroy_13
+      213: 6998659386617734989
+    second: Enemy_Error_13
   - first:
-      213: 8491754882198155279
-    second: Bullet_Destroy_14
+      213: -4498347056626836404
+    second: Enemy_Error_14
   - first:
-      213: 917248804275963231
-    second: Bullet_Destroy_15
+      213: -7929916077927781223
+    second: Enemy_Error_15
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bullet_Destroy_0
+      name: Enemy_Error_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 192
-        width: 64
-        height: 64
+        x: 18
+        y: 23
+        width: 28
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b152d45b6dc0b5260800000000000000
-      internalID: 7087272554901873947
+      spriteID: 2898c975eba9e1740800000000000000
+      internalID: 5124703568298543490
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bullet_Destroy_1
+      name: Enemy_Error_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 192
-        width: 64
-        height: 64
+        x: 86
+        y: 23
+        width: 28
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7f6f36d1604c5eb0800000000000000
-      internalID: -4729834719695376517
+      spriteID: c0710cadcf73246f0800000000000000
+      internalID: -701937032775067892
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bullet_Destroy_2
+      name: Enemy_Error_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 192
-        width: 64
-        height: 64
+        x: 154
+        y: 23
+        width: 28
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6626ebf982bcf5cb0800000000000000
-      internalID: -4872952896452402586
+      spriteID: 2cf39d22d4316cfc0800000000000000
+      internalID: -3475068840451686462
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bullet_Destroy_3
+      name: Enemy_Error_3
       rect:
         serializedVersion: 2
-        x: 192
-        y: 192
-        width: 64
-        height: 64
+        x: 222
+        y: 23
+        width: 28
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,20 +216,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d5d374c1baec3c60800000000000000
-      internalID: 7799366703924893141
+      spriteID: b95edb1cf818cde80800000000000000
+      internalID: -8152498771016686181
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bullet_Destroy_4
+      name: Enemy_Error_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
-        width: 64
-        height: 64
+        x: 290
+        y: 23
+        width: 28
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,20 +237,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea4917758722f34c0800000000000000
-      internalID: -4305684818484423506
+      spriteID: 978129b52b94dd510800000000000000
+      internalID: 1575496475038849145
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bullet_Destroy_5
+      name: Enemy_Error_5
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
+        x: 358
+        y: 23
+        width: 28
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,20 +258,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf8cea26463fdc3d0800000000000000
-      internalID: -3184621749003171589
+      spriteID: 2b0cdd7a001991640800000000000000
+      internalID: 5051227889075077298
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bullet_Destroy_6
+      name: Enemy_Error_6
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
-        width: 64
-        height: 64
+        x: 426
+        y: 23
+        width: 28
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,20 +279,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb91c79419f6b8970800000000000000
-      internalID: 8758216570145872316
+      spriteID: 8a3a9a6856ac63800800000000000000
+      internalID: 591882938445570984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bullet_Destroy_7
+      name: Enemy_Error_7
       rect:
         serializedVersion: 2
-        x: 192
-        y: 128
-        width: 64
-        height: 64
+        x: 494
+        y: 23
+        width: 28
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,20 +300,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76d5c8c2c83e73e80800000000000000
-      internalID: -8198834405422375577
+      spriteID: 06488e50747bda4d0800000000000000
+      internalID: -3121637451028200352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bullet_Destroy_8
+      name: Enemy_Error_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
-        width: 64
-        height: 64
+        x: 562
+        y: 23
+        width: 28
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -321,20 +321,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10e8b44aae8adcdf0800000000000000
-      internalID: -158284686155870719
+      spriteID: e615c1203a6494f60800000000000000
+      internalID: 8019018277438902638
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bullet_Destroy_9
+      name: Enemy_Error_9
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
+        x: 630
+        y: 23
+        width: 28
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -342,20 +342,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55991259eb4586160800000000000000
-      internalID: 7018953196779444565
+      spriteID: 8adc9d865b96048e0800000000000000
+      internalID: -1711251630531687000
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bullet_Destroy_10
+      name: Enemy_Error_10
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
-        width: 64
-        height: 64
+        x: 698
+        y: 23
+        width: 28
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -363,20 +363,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8feb89ddf168e1ad0800000000000000
-      internalID: -2729596852720058632
+      spriteID: 409315170e31311b0800000000000000
+      internalID: -5687180049744054012
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bullet_Destroy_11
+      name: Enemy_Error_11
       rect:
         serializedVersion: 2
-        x: 192
-        y: 64
-        width: 64
-        height: 64
+        x: 766
+        y: 23
+        width: 28
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -384,20 +384,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3f0d34068f7e5ca0800000000000000
-      internalID: -6026239037801689284
+      spriteID: 93853a27b89f149e0800000000000000
+      internalID: -1638754412067071943
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bullet_Destroy_12
+      name: Enemy_Error_12
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
+        x: 834
+        y: 23
+        width: 28
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -405,20 +405,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9893e618d340476b0800000000000000
-      internalID: -5299606199297230455
+      spriteID: 3e0a0893e6a499560800000000000000
+      internalID: 7320964506539040995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bullet_Destroy_13
+      name: Enemy_Error_13
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
+        x: 902
+        y: 23
+        width: 28
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -426,20 +426,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36a108f67dc43f980800000000000000
-      internalID: -8506370783000389021
+      spriteID: d47ad43b1ab302160800000000000000
+      internalID: 6998659386617734989
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bullet_Destroy_14
+      name: Enemy_Error_14
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
+        x: 970
+        y: 23
+        width: 28
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -447,20 +447,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f003c19f216c8d570800000000000000
-      internalID: 8491754882198155279
+      spriteID: c4c555d6f29a291c0800000000000000
+      internalID: -4498347056626836404
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bullet_Destroy_15
+      name: Enemy_Error_15
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
+        x: 1038
+        y: 23
+        width: 28
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -468,8 +468,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f55458d7de8babc00800000000000000
-      internalID: 917248804275963231
+      spriteID: 99ca474775743f190800000000000000
+      internalID: -7929916077927781223
       vertices: []
       indices: 
       edges: []

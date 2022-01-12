@@ -71,7 +71,7 @@ public class FiredBullet : Bullet
                         gameObject.GetComponentInParent<PlayerControl>().RangeUltraText.SetActive(true);
                     }
                 }
-                collision.gameObject.GetComponent<CharacterControl>().HP--;
+                collision.gameObject.GetComponent<CharacterControl>().currentHP--;
             }
             Destroy(gameObject);
         }

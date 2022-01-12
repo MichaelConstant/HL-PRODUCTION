@@ -14,12 +14,20 @@ public class PlayerControlForStudio : CharacterControl
     // Update is called once per frame
     void Update()
     {
-        xInput = Input.GetAxisRaw("Horizontal");
-        yInput = Input.GetAxisRaw("Vertical");
+        xInput = (int)Input.GetAxisRaw("Horizontal");
+        yInput = (int)Input.GetAxisRaw("Vertical");
     }
 
     void FixedUpdate()
     {
         Move(xInput, yInput);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            SceneManager.LoadScene(2);
+        }
     }
 }

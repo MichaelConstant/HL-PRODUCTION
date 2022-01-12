@@ -6,14 +6,15 @@ using UnityEngine.UI;
 public class CharacterControl : MonoBehaviour
 {
     public float movementSpeed;
-    public float HP;
+    public float maxHP;
+    public float currentHP;
 
     protected Rigidbody2D rb;
     protected Animator anim;
     protected SpriteRenderer sr;
 
-    protected float xInput;
-    protected float yInput;
+    protected int xInput;
+    protected int yInput;
 
     protected bool canShoot;
     protected bool canAttack;
@@ -35,7 +36,8 @@ public class CharacterControl : MonoBehaviour
         canAttack = true;
         rb =GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        anim=GetComponentInChildren<Animator>();
+        anim = GetComponentInChildren<Animator>();
+        currentHP = maxHP;
     }
 
     // Start is called before the first frame update
@@ -49,7 +51,7 @@ public class CharacterControl : MonoBehaviour
     {
         
     }
-    protected void Move(float directionX, float directionY)
+    protected void Move(int directionX, int directionY)
     {
         rb.velocity = new Vector2(directionX * movementSpeed * Time.deltaTime, directionY * movementSpeed * Time.deltaTime);
     }

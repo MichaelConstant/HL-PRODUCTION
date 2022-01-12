@@ -34,7 +34,7 @@ public class EnemyBullet : MonoBehaviour
         {
             if(collision.gameObject.GetComponent<PlayerControl>() != null)
             {
-                collision.gameObject.GetComponent<PlayerControl>().HP--;
+                collision.gameObject.GetComponent<PlayerControl>().currentHP--;
             }
             Destroy(gameObject);
         }

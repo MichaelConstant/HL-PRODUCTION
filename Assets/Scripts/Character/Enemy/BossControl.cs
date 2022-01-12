@@ -19,7 +19,7 @@ public class BossControl : CharacterControl
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(HP<=0)
+        if(currentHP<=0)
         {
             Destroy(gameObject);
         }

@@ -83,6 +83,13 @@ public class RoomController : MonoBehaviour
             }
         }
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.GetComponent<FiredBullet>()!=null|| collision.GetComponent<ParriedBullet>() != null || collision.GetComponent<EnemyBullet>() != null)
+        {
+            Destroy(collision.gameObject);
+        }
+    }
     public void GenerateEnemies()
     {
         for (int i=0;i<spawnNum;i++)
