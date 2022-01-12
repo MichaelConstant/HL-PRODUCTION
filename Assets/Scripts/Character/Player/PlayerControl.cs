@@ -132,19 +132,33 @@ public class PlayerControl : CharacterControl
 
         AimVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);
         float Angle = Angle_360(AimVector);
-        if(Angle>=-60 || Angle <= 60)
+        Debug.Log(Angle);
+
+        if((Angle <= 0 && Angle >= -45) || (Angle >= 0 && Angle <= 45))
         {
             anim.SetInteger("State", 1);
         }
-        else if (Angle >= -90 || Angle < -60)
+        else if (Angle > 45 && Angle <= 90)
         {
             anim.SetInteger("State", 2);
         }
-        else if (Angle >= -60 || Angle <= 60)
+        else if (Angle >= -90 && Angle < -45)
         {
-
+            anim.SetInteger("State", 3);
         }
-
+        
+        else if (Angle <= -135 || Angle >= 135)
+        {
+            anim.SetInteger("State", 4);
+        }
+        else if (Angle > 90 && Angle < 135)
+        {
+            anim.SetInteger("State", 5);
+        }
+        else if (Angle > -135 && Angle < -90)
+        {
+            anim.SetInteger("State", 6);
+        }
 
 
         if (Input.GetMouseButton(0))
