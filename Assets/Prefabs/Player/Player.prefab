@@ -379,7 +379,7 @@ MonoBehaviour:
   movementSpeed: 50
   maxHP: 6
   currentHP: 6
-  BasicShootInterval: 0.1
+  BasicShootInterval: 0.5
   BasicAttackInterval: 1
   bullet0: {fileID: 8573897042248982977, guid: 664b32a95e69ed44cbabd45af76205a5, type: 3}
   bullet1: {fileID: 8573897042248982977, guid: 664b32a95e69ed44cbabd45af76205a5, type: 3}

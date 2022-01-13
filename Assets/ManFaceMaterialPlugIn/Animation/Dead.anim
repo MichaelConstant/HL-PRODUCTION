@@ -21,15 +21,6 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
         time: 0.78333336
         value: 1
         inSlope: 0
@@ -57,8 +48,6 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 7699229984203183708, guid: ca4c51209ea311147a7d251509a06138, type: 3}
-    - time: 0.033333335
       value: {fileID: 2667810791449335414, guid: e9f1a81236205b144926b6fd0e7da99e, type: 3}
     - time: 0.5833333
       value: {fileID: -2385870990052740909, guid: e9f1a81236205b144926b6fd0e7da99e, type: 3}
@@ -92,7 +81,6 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 7699229984203183708, guid: ca4c51209ea311147a7d251509a06138, type: 3}
     - {fileID: 2667810791449335414, guid: e9f1a81236205b144926b6fd0e7da99e, type: 3}
     - {fileID: -2385870990052740909, guid: e9f1a81236205b144926b6fd0e7da99e, type: 3}
     - {fileID: 7765115961232319415, guid: e9f1a81236205b144926b6fd0e7da99e, type: 3}
@@ -122,15 +110,6 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
         time: 0.78333336
         value: 1
         inSlope: 0
@@ -158,11 +137,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 1.1666666
-    functionName: DestroyItself
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

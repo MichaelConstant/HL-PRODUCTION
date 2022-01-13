@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6570642098983685157}
   - component: {fileID: 6570642098983685158}
   - component: {fileID: 1717967754}
-  - component: {fileID: 9032457248655879684}
+  - component: {fileID: 7280409358620332310}
   m_Layer: 0
   m_Name: bigPhlegm
   m_TagString: Untagged
@@ -97,10 +97,10 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.23}
-  m_Size: {x: 0.69, y: 0.16}
+  m_Offset: {x: 0, y: -0.245}
+  m_Size: {x: 0.75, y: 0.19}
   m_Direction: 1
---- !u!114 &9032457248655879684
+--- !u!114 &7280409358620332310
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,3 +112,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f4a467fb7803f4eb47516cce9990bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BulletDamage: 1
+  BulletSpeed: 0

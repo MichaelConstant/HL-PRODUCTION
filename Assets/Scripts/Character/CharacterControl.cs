@@ -70,10 +70,18 @@ public class CharacterControl : MonoBehaviour
         yield return new WaitForSeconds(BasicShootInterval);
         canShoot = true;
     }
-    protected IEnumerator AttackInterval()
+    protected IEnumerator Attack()
     {
-        yield return new WaitForSeconds(BasicAttackInterval);
-        canAttack = true;
+        if (canAttack)
+        {
+            canAttack = false;
+            AttackVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);
+            GetComponentInChildren<BulletSpawn>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, Angle_360(AttackVector));
+            GetComponentInChildren<BulletSpawn>().GetComponentInChildren<Animator>().Play("Attack");
+            yield return new WaitForSeconds(BasicAttackInterval);
+            canAttack = true;
+        }
     }
     protected float Angle_360(Vector2 Vector)
     {

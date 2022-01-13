@@ -132,7 +132,6 @@ public class PlayerControl : CharacterControl
 
         AimVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);
         float Angle = Angle_360(AimVector);
-        Debug.Log(Angle);
 
         if((Angle <= 0 && Angle >= -45) || (Angle >= 0 && Angle <= 45))
         {
@@ -146,7 +145,6 @@ public class PlayerControl : CharacterControl
         {
             anim.SetInteger("State", 3);
         }
-        
         else if (Angle <= -135 || Angle >= 135)
         {
             anim.SetInteger("State", 4);
@@ -166,7 +164,7 @@ public class PlayerControl : CharacterControl
             }
         if (Input.GetMouseButton(1))
             {
-                Attack();
+                StartCoroutine(Attack());
             }
         if (Input.GetKeyDown(KeyCode.E) && RangeLevelStatic == 1)
             {
@@ -190,7 +188,7 @@ public class PlayerControl : CharacterControl
         }
         if (canDecrease == true)
         {
-            MeleeEnergyDecrease();
+            StartCoroutine(MeleeEnergyDecrease());
         }
         if (currentHP <= 0)
         {
@@ -295,18 +293,6 @@ public class PlayerControl : CharacterControl
             StartCoroutine(ShootInterval());
         }
     }
-    void Attack()
-    {
-        if (canAttack)
-        {
-            canAttack = false;
-            AttackVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);
-            GetComponentInChildren<BulletSpawn>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-            GetComponentInChildren<BulletSpawn>().transform.Rotate(0, 0, Angle_360(AttackVector));
-            GetComponentInChildren<BulletSpawn>().GetComponentInChildren<Animator>().Play("Attack");
-            StartCoroutine(AttackInterval());
-        }
-    }
     void PlayerUltraShoot()
     {
         AttackVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);
@@ -315,19 +301,14 @@ public class PlayerControl : CharacterControl
         GameObject bullet = Instantiate(bulletUltra, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
         bullet.transform.parent = transform;
     }
-    private IEnumerator MeleeEnergyDecreaseInterval()
-    {
-        yield return new WaitForSeconds(0.1f);
-        canDecrease = true;
-    }
-    private void MeleeEnergyDecrease()
+    private IEnumerator MeleeEnergyDecrease()
     {
         canDecrease = false;
         if (MeleeEnergyStatic > 0)
         {
             MeleeEnergyStatic -= MeleeEnergyDecreaseAmount;
         }
-        if(MeleeEnergyStatic <= 0 && MeleeLevelStatic > 0)
+        if (MeleeEnergyStatic <= 0 && MeleeLevelStatic > 0)
         {
             MeleeLevelStatic -= 1;
             MeleeLevelUI.text = "LV: " + (MeleeLevelStatic + 1);
@@ -339,7 +320,8 @@ public class PlayerControl : CharacterControl
             onRage = false;
             MeleeEnergyDecreaseAmount = 0.01f;
         }
-        StartCoroutine(MeleeEnergyDecreaseInterval());
+        yield return new WaitForSeconds(0.1f);
+        canDecrease = true;
     }
     private void MeleeEnergyDecreaseOfShooting()
     {
