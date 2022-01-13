@@ -78,13 +78,13 @@ public class RoomGenerator : MonoBehaviour
         //Debug.Log(randTemp);
         //Seed = randTemp.ToString();
 
-        int rand = Random.Range(4,7);
+        int rand = Random.Range(4, 7);
 
         for (int i = 1; i < rand; i++)
         {
-            var tempPos= GeneratePoint.position;
+            var tempPos = GeneratePoint.position;
 
-            if(RoomList.Exists(Room=>Room.RoomLocation == GeneratePoint.position))
+            if (RoomList.Exists(Room => Room.RoomLocation == GeneratePoint.position))
             {
                 i--;
                 GeneratePoint.position = tempPos;
@@ -105,7 +105,7 @@ public class RoomGenerator : MonoBehaviour
 
         GeneratePoint.position = new Vector3(0, 0, 0);
 
-        for (int i = 0; i < CommonRoomNum- rand; i++)
+        for (int i = 0; i < CommonRoomNum - rand; i++)
         {
             var tempPos = GeneratePoint.position;
 
@@ -141,21 +141,21 @@ public class RoomGenerator : MonoBehaviour
         #endregion
 
         #region 生成房间和门
-        for (int i=0;i< RoomList.Count; i++)
+        for (int i = 0; i < RoomList.Count; i++)
         {
-            if(i!=0)
+            if (i != 0)
             {
                 GameObject.FindWithTag("LastSpawn").tag = "Spawned";
             }
 
             GenerateRoom(RoomList[i].RoomType, RoomList[i].RoomLocation);
 
-            for (int j=0;j<4;j++)
+            for (int j = 0; j < 4; j++)
             {
                 if (RoomList.Exists(Room => Room.RoomLocation == ChangePos(j, RoomList[i].RoomLocation)))
                 {
                     GenerateDoor(j, RoomList[i].RoomLocation);
-                    if(RoomList[i].RoomType==2)
+                    if (RoomList[i].RoomType == 2)
                     {
                         GenerateLockedDoor(j, RoomList[i].RoomLocation);
                     }
@@ -168,14 +168,10 @@ public class RoomGenerator : MonoBehaviour
         }
         #endregion
     }
-    // Update is called once per frame
-    void Update()
+
+    public Vector3 ChangePos(int direction, Vector3 Location)
     {
-        
-    }
-    public Vector3 ChangePos(int direction,Vector3 Location)
-    {
-        direction=Mathf.Clamp(direction, 0, 3);
+        direction = Mathf.Clamp(direction, 0, 3);
         Vector3 changedPos = Location;
         switch ((Direction)direction)
         {
@@ -198,7 +194,7 @@ public class RoomGenerator : MonoBehaviour
     public void RandomChangePos()
     {
         direction = (Direction)Random.Range(0, 4);
-        
+
         switch (direction)
         {
             case Direction.up:

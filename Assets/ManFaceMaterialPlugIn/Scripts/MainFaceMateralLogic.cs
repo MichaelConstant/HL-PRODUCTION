@@ -20,7 +20,7 @@ public class MainFaceMateralLogic :EnemyBaseUnit
 
     public BossState m_bossState = BossState.Idle;
     public float m_moveSpeed;
-    public GameObject bossUI;
+    //public GameObject bossUI;
     public int IdleToJumpRate;
     public int JumpToPourRate;
     public int JumpToIdleRate;
@@ -28,7 +28,7 @@ public class MainFaceMateralLogic :EnemyBaseUnit
 
     public float maxHealth;
     public float currentHealth;
-    public HealthBar healthBar;
+    //public HealthBar healthBar;
     void Start()
     {
         m_player = GameObject.FindGameObjectWithTag("Player");
@@ -36,13 +36,16 @@ public class MainFaceMateralLogic :EnemyBaseUnit
         anim = GetComponent<Animator>();
 
         //Open Boss's HP UI
-        bossUI.SetActive(true);
+        //bossUI.SetActive(true);
         //Wait for some time
 
     }
 
     public void SetBossState(BossState bossState)
     {
+        // Check and hash animations... but...
+        anim.Play(bossState.ToString());
+
         m_bossState = bossState;
         if (m_bossState == BossState.Idle)
         {

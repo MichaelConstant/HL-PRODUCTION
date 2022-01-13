@@ -160,7 +160,6 @@ public class PlayerControl : CharacterControl
             anim.SetInteger("State", 6);
         }
 
-
         if (Input.GetMouseButton(0))
             {
                 PlayerShoot();
@@ -197,6 +196,7 @@ public class PlayerControl : CharacterControl
         {
             alive = false;
             xInput = yInput = 0;
+            anim.SetInteger("State", 0);
             anim.Play("Dead");
             Invoke("Dead", 2);
         }

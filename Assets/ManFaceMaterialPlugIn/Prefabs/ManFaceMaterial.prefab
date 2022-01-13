@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2622358292749909626}
   - component: {fileID: 2622358292749909627}
   - component: {fileID: 2622358292749909629}
+  - component: {fileID: 6251919401797735520}
   m_Layer: 7
   m_Name: ManFaceMaterialAnim
   m_TagString: Enemy
@@ -102,6 +103,26 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6251919401797735520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2622358292749909574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc6925862d41df2468b7f313ce62245e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_bossState: 1
+  m_moveSpeed: 6
+  IdleToJumpRate: 6
+  JumpToPourRate: 2
+  JumpToIdleRate: 3
+  bigPhlegm: {fileID: 6570642098983685159, guid: f315331d3cb511a4ea9d80b49d0cce90, type: 3}
+  maxHealth: 100
+  currentHealth: 60
 --- !u!1 &2622358293703611761
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,6 +190,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.007912129, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.32065734
+  m_Radius: 0.32
