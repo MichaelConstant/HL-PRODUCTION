@@ -53,7 +53,7 @@ public class CharacterControl : MonoBehaviour
     }
     protected void Move(int directionX, int directionY)
     {
-        rb.velocity = new Vector2(directionX * movementSpeed * Time.deltaTime, directionY * movementSpeed * Time.deltaTime);
+        rb.velocity = (new Vector2(directionX * Time.deltaTime, directionY * Time.deltaTime)).normalized * movementSpeed;
     }
     protected void CommonShoot()
     {

@@ -117,67 +117,71 @@ public class PlayerControl : CharacterControl
         RangeEnergyUI.fillAmount = (float)RangeEnergyStatic / RangeEnergyMaxStatic;
         HPUI.fillAmount = (float)currentHP / maxHP;
 
-        xInput = (int)Input.GetAxisRaw("Horizontal");
-        yInput = (int)Input.GetAxisRaw("Vertical");
+        if (alive)
+        {
+            xInput = (int)Input.GetAxisRaw("Horizontal");
+            yInput = (int)Input.GetAxisRaw("Vertical");
 
-        if(xInput !=0 || yInput != 0)
-        {
-            isMoving = true;
-        }
-        else
-        {
-            isMoving = false;
-        }
-        anim.SetBool("isMoving", isMoving);
+            if (xInput != 0 || yInput != 0)
+            {
+                isMoving = true;
+            }
+            else
+            {
+                isMoving = false;
+            }
 
-        AimVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);
-        float Angle = Angle_360(AimVector);
+            anim.SetBool("isMoving", isMoving);
 
-        if((Angle <= 0 && Angle >= -45) || (Angle >= 0 && Angle <= 45))
-        {
-            anim.SetInteger("State", 1);
-        }
-        else if (Angle > 45 && Angle <= 90)
-        {
-            anim.SetInteger("State", 2);
-        }
-        else if (Angle >= -90 && Angle < -45)
-        {
-            anim.SetInteger("State", 3);
-        }
-        else if (Angle <= -135 || Angle >= 135)
-        {
-            anim.SetInteger("State", 4);
-        }
-        else if (Angle > 90 && Angle < 135)
-        {
-            anim.SetInteger("State", 5);
-        }
-        else if (Angle > -135 && Angle < -90)
-        {
-            anim.SetInteger("State", 6);
-        }
+            AimVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);
+            float Angle = Angle_360(AimVector);
 
-        if (Input.GetMouseButton(0))
+            if ((Angle <= 0 && Angle >= -45) || (Angle >= 0 && Angle <= 45))
+            {
+                anim.SetInteger("State", 1);
+            }
+            else if (Angle > 45 && Angle <= 90)
+            {
+                anim.SetInteger("State", 2);
+            }
+            else if (Angle >= -90 && Angle < -45)
+            {
+                anim.SetInteger("State", 3);
+            }
+            else if (Angle <= -135 || Angle >= 135)
+            {
+                anim.SetInteger("State", 4);
+            }
+            else if (Angle > 90 && Angle < 135)
+            {
+                anim.SetInteger("State", 5);
+            }
+            else if (Angle > -135 && Angle < -90)
+            {
+                anim.SetInteger("State", 6);
+            }
+
+            if (Input.GetMouseButton(0))
             {
                 PlayerShoot();
             }
-        if (Input.GetMouseButton(1))
+            if (Input.GetMouseButton(1))
             {
                 StartCoroutine(Attack());
             }
-        if (Input.GetKeyDown(KeyCode.E) && RangeLevelStatic == 1)
+            if (Input.GetKeyDown(KeyCode.E) && RangeLevelStatic == 1)
             {
                 PlayerUltraShoot();
                 RangeLevelStatic = 0;
                 RangeEnergyStatic = 0;
                 RangeUltraText.SetActive(false);
             }
-        if (Input.GetKeyDown(KeyCode.Q) && MeleeLevelStatic >= 1)
+            if (Input.GetKeyDown(KeyCode.Q) && MeleeLevelStatic >= 1)
             {
                 onRage = true;
                 MeleeEnergyDecreaseAmount = 0.1f;
             }
+        }
     }
 
     void FixedUpdate()
@@ -193,10 +197,11 @@ public class PlayerControl : CharacterControl
         if (currentHP <= 0)
         {
             alive = false;
+            isMoving = false;
             xInput = yInput = 0;
             anim.SetInteger("State", 0);
             anim.Play("Dead");
-            Invoke("Dead", 2);
+            StartCoroutine(Dead());
         }
     }
     void PlayerShoot()
@@ -339,8 +344,14 @@ public class PlayerControl : CharacterControl
             }
         }
     }
-    public void Dead()
+    public IEnumerator Dead()
     {
+        yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("Studio");
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
     }
 }

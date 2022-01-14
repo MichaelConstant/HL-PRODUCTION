@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f1fa032d231c44f8bbfa81e8266127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 50
+  movementSpeed: 1.5
   maxHP: 6
   currentHP: 6
   BasicShootInterval: 0.5
