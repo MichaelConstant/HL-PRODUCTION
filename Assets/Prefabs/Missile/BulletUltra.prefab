@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8093712839685859921}
   m_Layer: 0
   m_Name: BulletUltra
-  m_TagString: Ultra
+  m_TagString: UltraBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 101
   m_Sprite: {fileID: 2416510990529685242, guid: ed119dab9f5cd7344892738ecf862a9b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -134,10 +134,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a8eae939295ef44a413b2c0ad4a201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletDamage: 5
+  BulletDamage: 3
   BulletSpeed: 50
   BulletLifeSpan: 50
   BulletEffect: {fileID: 8573897042248982977, guid: 27c450de1b0c2a3478c7d5f2359582f5, type: 3}
-  spawnTimeval: 0
+  spawnTimeval: 1
   Bullet_0: {fileID: 2416510990529685242, guid: ed119dab9f5cd7344892738ecf862a9b, type: 3}
   Bullet_1: {fileID: 2416510990529685242, guid: ed119dab9f5cd7344892738ecf862a9b, type: 3}

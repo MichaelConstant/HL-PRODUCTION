@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ultra
   - Terrain
   - Enemy
   - Level
@@ -12,6 +11,9 @@ TagManager:
   - LastSpawn
   - Spawned
   - LockedDoor
+  - BossHp
+  - GameUI
+  - UltraBullet
   layers:
   - Default
   - TransparentFX

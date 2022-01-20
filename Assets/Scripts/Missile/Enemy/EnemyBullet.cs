@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
+    public enum BulletType { CommonBullet, TerrainBullet };
+    public BulletType bulletType;
+
     private Vector2 BulletVector;
-    public float BulletDamage;
+
+    public int BulletDamage;
     public float BulletSpeed;
+
     private GameObject Target;
 
     void Awake()
@@ -32,11 +37,18 @@ public class EnemyBullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Terrain" || collision.gameObject.GetComponent<PlayerControl>() != null)
         {
-            if(collision.gameObject.GetComponent<PlayerControl>() != null)
+            if (collision.gameObject.GetComponent<PlayerControl>() != null)
             {
-                collision.gameObject.GetComponent<PlayerControl>().currentHP--;
+                collision.gameObject.GetComponent<PlayerControl>().currentHP -= BulletDamage;
             }
-            Destroy(gameObject);
+            switch (bulletType)
+            {
+                case BulletType.CommonBullet:
+                    Destroy(gameObject);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

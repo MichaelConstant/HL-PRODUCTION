@@ -47,31 +47,31 @@ public class FiredBullet : Bullet
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((collision.gameObject.GetComponent<CharacterControl>() != null) || (collision.gameObject.tag == "Terrain"))
+        if ((collision.gameObject.tag == "Enemy") || (collision.gameObject.tag == "Terrain"))
         {
-            if (collision.gameObject.GetComponent<CharacterControl>() != null)
+            if (collision.gameObject.tag == "Enemy")
             {
-                if (gameObject.tag != "Ultra")
+                if (gameObject.tag != "UltraBullet")
                 {
-                    if (PlayerControl.RangeEnergyStatic < PlayerControl.RangeEnergyMaxStatic)
+                    if (PlayerControl.RangeEnergy_Static < PlayerControl.RangeEnergyMax_Static)
                     {
-                        PlayerControl.RangeEnergyStatic += 1;
+                        PlayerControl.RangeEnergy_Static += 1;
                     }
-                    if (PlayerControl.RangeEnergyStatic >= PlayerControl.RangeEnergyMaxStatic && PlayerControl.RangeLevelStatic < PlayerControl.RangeLevelMaxStatic)
+                    if (PlayerControl.RangeEnergy_Static >= PlayerControl.RangeEnergyMax_Static && PlayerControl.RangeLevel_Static < PlayerControl.RangeLevelMax_Static)
                     {
-                        PlayerControl.RangeLevelStatic += 1;
-                        if (PlayerControl.RangeLevelStatic < PlayerControl.RangeLevelMaxStatic)
+                        PlayerControl.RangeLevel_Static += 1;
+                        if (PlayerControl.RangeLevel_Static < PlayerControl.RangeLevelMax_Static)
                         {
-                            PlayerControl.RangeEnergyStatic = PlayerControl.RangeEnergyStatic - PlayerControl.RangeEnergyMaxStatic + PlayerControl.RangeEnergyMaxStatic * PlayerControl.MeleeEnergyProtectPercentStatic;
+                            PlayerControl.RangeEnergy_Static = PlayerControl.RangeEnergy_Static - PlayerControl.RangeEnergyMax_Static + PlayerControl.RangeEnergyMax_Static * PlayerControl.MeleeEnergyProtectPercent_Static;
                         }
                     }
-                    if (PlayerControl.RangeEnergyStatic >= PlayerControl.RangeEnergyMaxStatic && PlayerControl.RangeLevelStatic >= PlayerControl.RangeLevelMaxStatic)
+                    if (PlayerControl.RangeEnergy_Static >= PlayerControl.RangeEnergyMax_Static && PlayerControl.RangeLevel_Static >= PlayerControl.RangeLevelMax_Static)
                     {
-                        PlayerControl.RangeEnergyStatic = PlayerControl.RangeEnergyMaxStatic;
+                        PlayerControl.RangeEnergy_Static = PlayerControl.RangeEnergyMax_Static;
                         gameObject.GetComponentInParent<PlayerControl>().RangeUltraText.SetActive(true);
                     }
                 }
-                collision.gameObject.GetComponent<CharacterControl>().currentHP--;
+                collision.gameObject.GetComponent<CharacterControl>().currentHP -= BulletDamage;
             }
             Destroy(gameObject);
         }
