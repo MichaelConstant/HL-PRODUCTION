@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomType: 5
-  spawnNum: 0
+  spawnNum: 1
   rewardNum: 3
 --- !u!1001 &5837734136886145026
 PrefabInstance:

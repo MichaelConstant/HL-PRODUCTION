@@ -89,7 +89,7 @@ public class ManFaceMateral : CharacterControl
     }
     private IEnumerator Jump()
     {
-        rb.AddForce((Vector2)transform.up * 100f + AttackVector.normalized * movementSpeed);
+        rb.AddForce((Vector2)transform.up * 100f + AttackVector.normalized * movementSpeed_Final);
         rb.gravityScale = 0.4f;
         anim.Play("Jump");
         yield return new WaitForSeconds(0.98f);

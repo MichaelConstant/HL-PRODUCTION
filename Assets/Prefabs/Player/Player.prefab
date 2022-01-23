@@ -1210,7 +1210,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &5651610884779649424
@@ -1241,12 +1241,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f1fa032d231c44f8bbfa81e8266127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 1.5
+  movementSpeed_Final: 0
+  movementSpeed_Basic: 1.5
+  movementSpeed_Ratio: 1
   maxHP: 6
   currentHP: 6
-  meleeDamage: 1
-  BasicShootInterval: 0.5
-  BasicAttackInterval: 1
+  meleeDamage_Final: 0
+  meleeDamage_Basic: 0
+  meleeDamage_Ratio: 0
+  rangeDamage_Final: 0
+  rangeDamage_Basic: 1
+  rangeDamage_Ratio: 1
+  ShootInterval_Final: 0
+  ShootInterval_Basic: 0.5
+  ShootInterval_Ratio: 1
+  AttackInterval_Final: 0
+  AttackInterval_Basic: 1
+  AttackInterval_Ratio: 1
   isAlive: 1
   isMoving: 0
   canMove: 1
@@ -1276,11 +1287,15 @@ MonoBehaviour:
   RangeEnergyUI: {fileID: 9099896063285837789}
   RangeUltraText: {fileID: 3079915704715420719}
   onRage: 0
+  RangeEnergy: 0
+  MeleeEnergy: 0
   RangeEnergyPerHit: 0.25
   MeleeEnergyPerHit: 1
   RangeEnergyDecreaseAmount: 0
   MeleeEnergyDecreaseAmount: 0.01
-  RangeEnergyMax: 1
+  RangeLevel: 0
+  MeleeLevel: 0
+  RangeEnergyMax: 5
   MeleeEnergyMax: 5
   MeleeLevelMax: 2
   RangeLevelMax: 1

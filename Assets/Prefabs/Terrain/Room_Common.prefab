@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomType: 1
   spawnNum: 4
-  rewardNum: 5
+  rewardNum: 1
 --- !u!1 &8995142417096460009
 GameObject:
   m_ObjectHideFlags: 0

@@ -53,22 +53,22 @@ public class FiredBullet : Bullet
             {
                 if (gameObject.tag != "UltraBullet")
                 {
-                    if (PlayerControl.RangeEnergy_Static < PlayerControl.RangeEnergyMax_Static)
+                    if (Player.RangeEnergy < Player.RangeEnergyMax)
                     {
-                        PlayerControl.RangeEnergy_Static += 1;
+                        Player.RangeEnergy += 1;
                     }
-                    if (PlayerControl.RangeEnergy_Static >= PlayerControl.RangeEnergyMax_Static && PlayerControl.RangeLevel_Static < PlayerControl.RangeLevelMax_Static)
+                    if (Player.RangeEnergy >= Player.RangeEnergyMax && Player.RangeLevel < Player.RangeLevelMax)
                     {
-                        PlayerControl.RangeLevel_Static += 1;
-                        if (PlayerControl.RangeLevel_Static < PlayerControl.RangeLevelMax_Static)
+                        Player.RangeLevel += 1;
+                        if (Player.RangeLevel < Player.RangeLevelMax)
                         {
-                            PlayerControl.RangeEnergy_Static = PlayerControl.RangeEnergy_Static - PlayerControl.RangeEnergyMax_Static + PlayerControl.RangeEnergyMax_Static * PlayerControl.MeleeEnergyProtectPercent_Static;
+                            Player.RangeEnergy = Player.RangeEnergy - Player.RangeEnergyMax + Player.RangeEnergyMax * Player.MeleeEnergyProtectPercent;
                         }
                     }
-                    if (PlayerControl.RangeEnergy_Static >= PlayerControl.RangeEnergyMax_Static && PlayerControl.RangeLevel_Static >= PlayerControl.RangeLevelMax_Static)
+                    if (Player.RangeEnergy >= Player.RangeEnergyMax && Player.RangeLevel >= Player.RangeLevelMax)
                     {
-                        PlayerControl.RangeEnergy_Static = PlayerControl.RangeEnergyMax_Static;
-                        gameObject.GetComponentInParent<PlayerControl>().RangeUltraText.SetActive(true);
+                        Player.RangeEnergy = Player.RangeEnergyMax;
+                        Player.RangeUltraText.SetActive(true);
                     }
                 }
                 collision.gameObject.GetComponent<CharacterControl>().currentHP -= BulletDamage;

@@ -136,6 +136,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletDamage: 0
   BulletSpeed: 0
-  BulletLifeSpan: 0.1
+  BulletLifeSpan: 0
   Bullet_0: {fileID: 0}
   Bullet_1: {fileID: 0}

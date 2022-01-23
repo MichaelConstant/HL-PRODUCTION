@@ -12,7 +12,7 @@ public class EnemyBullet : MonoBehaviour
     public int BulletDamage;
     public float BulletSpeed;
 
-    private GameObject Target;
+    private GameObject Player;
 
     void Awake()
     {
@@ -22,8 +22,8 @@ public class EnemyBullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Target = GameObject.FindWithTag("Player");
-        BulletVector = (Target.transform.position - gameObject.transform.position);
+        Player = GameObject.FindWithTag("Player");
+        BulletVector = (Player.transform.position - gameObject.transform.position);
         GetComponent<Rigidbody2D>().AddForce(BulletVector.normalized * BulletSpeed);
     }
 

@@ -15,15 +15,17 @@ public class KouKou : CharacterControl
     {
         AttackVector = (GameObject.FindWithTag("Player").transform.position - transform.position).normalized;
 
-        rb.velocity = AttackVector * movementSpeed;
+        rb.velocity = AttackVector * movementSpeed_Final;
 
         if(rb.velocity.x>0)
         {
             sr.flipX = true;
+            GetComponentInChildren<Shooter>().transform.localPosition = new Vector2(0.06f, 0.08f);
         }
         else
         {
             sr.flipX = false;
+            GetComponentInChildren<Shooter>().transform.localPosition = new Vector2(-0.06f, 0.08f);
         }
 
         AnimatorStateInfo Info = anim.GetCurrentAnimatorStateInfo(0);

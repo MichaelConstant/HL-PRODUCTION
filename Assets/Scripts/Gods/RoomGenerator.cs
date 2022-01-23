@@ -57,25 +57,26 @@ public class RoomGenerator : MonoBehaviour
     public List<Room> RoomList = new List<Room>();
 
     // Start is called before the first frame update
-    void OnEnable()
+    void Start()
     {
         #region 生成普通房间列表 Generate Common Room List
         RoomList.Add(new Room(0, GeneratePoint.position));
         RandomChangePos();
-
-
 
         //var randTemp = new System.Random(Seed.GetHashCode());
         //var rand = randTemp.Next(4, 7);
 
         //var randTemp = new System.Random(Seed.GetHashCode()).Next(1, 5);
         //Debug.Log(randTemp);
+
         //Seed = randTemp.ToString();
         //randTemp = new System.Random(Seed.GetHashCode()).Next(1, 5);
         //Debug.Log(randTemp);
+
         //Seed = randTemp.ToString();
         //randTemp = new System.Random(Seed.GetHashCode()).Next(1, 5);
         //Debug.Log(randTemp);
+
         //Seed = randTemp.ToString();
 
         int rand = Random.Range(4, 7);
@@ -139,7 +140,6 @@ public class RoomGenerator : MonoBehaviour
         //    }
         //}
         #endregion
-
         #region 生成房间和门
         for (int i = 0; i < RoomList.Count; i++)
         {
@@ -301,13 +301,6 @@ public class RoomGenerator : MonoBehaviour
                 GameObject BlockRight = Instantiate(Block_Right, generatePoint, Quaternion.identity);
                 BlockRight.transform.parent = GameObject.FindWithTag("LastSpawn").transform;
                 break;
-        }
-    }
-    public static void OpenTheGay()
-    {
-        for (int i = 0; i < 100; i++)
-        {
-            Destroy(GameObject.FindWithTag("LockedDoor"));
         }
     }
 }

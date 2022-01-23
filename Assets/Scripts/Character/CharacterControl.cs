@@ -4,30 +4,62 @@ using UnityEngine;
 
 public class CharacterControl : MonoBehaviour
 {
-    public float movementSpeed;
     public int maxHP;
     public int currentHP;
-    public int meleeDamage;
 
-    public float BasicShootInterval;
-    public float BasicAttackInterval;
+    [HideInInspector]
+    public float movementSpeed_Final;
+    public float movementSpeed_Basic;
+    public float movementSpeed_Ratio;
+
+    [HideInInspector]
+    public int meleeDamage_Final;
+    public int meleeDamage_Basic;
+    public int meleeDamage_Ratio;
+
+    [HideInInspector]
+    public int rangeDamage_Final;
+    public int rangeDamage_Basic;
+    public int rangeDamage_Ratio;
+
+    [HideInInspector]
+    public float ShootInterval_Final;
+    public float ShootInterval_Basic;
+    public float ShootInterval_Ratio;
+
+    [HideInInspector]
+    public float AttackInterval_Final;
+    public float AttackInterval_Basic;
+    public float AttackInterval_Ratio;
+
 
     [HideInInspector]
     public bool isAlive = true;
+    [HideInInspector]
     public bool isMoving = false;
+    [HideInInspector]
     public bool canMove = true;
 
+    [HideInInspector]
     public Rigidbody2D rb;
+    [HideInInspector]
     public Animator anim;
+    [HideInInspector]
     public SpriteRenderer sr;
 
+    [HideInInspector]
     public int xInput;
+    [HideInInspector]
     public int yInput;
 
+    [HideInInspector]
     public bool canShoot;
+    [HideInInspector]
     public bool canAttack;
 
-    public GameObject Shooter;
+    [HideInInspector]
+    public Shooter Shooter;
+
     public GameObject bullet_0;
     public GameObject bullet_1;
     public GameObject bullet_2;
@@ -35,6 +67,7 @@ public class CharacterControl : MonoBehaviour
     public GameObject bullet_Ultra;
     public Transform bulletSpawn;
 
+    [HideInInspector]
     public Vector2 AttackVector;
 
     void Awake()
@@ -44,12 +77,18 @@ public class CharacterControl : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        Shooter = GetComponentInChildren<Shooter>().gameObject;
+        Shooter = GetComponentInChildren<Shooter>();
+
         currentHP = maxHP;
+        movementSpeed_Final = movementSpeed_Basic * movementSpeed_Ratio;
+        rangeDamage_Final = rangeDamage_Basic * rangeDamage_Ratio;
+        meleeDamage_Final = meleeDamage_Basic * meleeDamage_Ratio;
+        ShootInterval_Final = ShootInterval_Basic / ShootInterval_Ratio;
+        AttackInterval_Final = AttackInterval_Basic / AttackInterval_Ratio;
     }
     public void Move(int directionX, int directionY)
     {
-        rb.velocity = (new Vector2(directionX * Time.deltaTime, directionY * Time.deltaTime)).normalized * movementSpeed;
+        rb.velocity = (new Vector2(directionX * Time.deltaTime, directionY * Time.deltaTime)).normalized * movementSpeed_Final;
     }
     public void CommonShoot()
     {
@@ -62,7 +101,7 @@ public class CharacterControl : MonoBehaviour
     }
     public IEnumerator ShootInterval()
     {
-        yield return new WaitForSeconds(BasicShootInterval);
+        yield return new WaitForSeconds(ShootInterval_Final);
         canShoot = true;
     }
     public float Angle_360(Vector2 Vector)
@@ -94,7 +133,7 @@ public class CharacterControl : MonoBehaviour
     {
         GameObject Collision = collision.gameObject;
         Collision.GetComponent<PlayerControl>().canMove = false;
-        Collision.GetComponent<PlayerControl>().currentHP -= meleeDamage;
+        Collision.GetComponent<PlayerControl>().currentHP -= meleeDamage_Final;
         Rigidbody2D collisionRB = Collision.GetComponent<Rigidbody2D>();
         collisionRB.velocity = new Vector3(0, 0, 0);
         collisionRB.AddForce((collisionRB.transform.position - gameObject.transform.position).normalized);

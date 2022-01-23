@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RoomController : MonoBehaviour
 {
+    LevelManager level_Manager;
     public enum RoomType { StartRoom, ProgramRoom, ArtRoom, DesignRoom, BossRoom, AudioRoom };
     //0,1,2,3,4,5
     public RoomType roomType;
@@ -46,26 +47,32 @@ public class RoomController : MonoBehaviour
             rewarded = false;
         }
 
-        Enemy_1 = LevelManager.Enemy_1_Static;
-        Enemy_2 = LevelManager.Enemy_2_Static;
-        Enemy_3 = LevelManager.Enemy_3_Static;
+        level_Manager = GetComponentInParent<LevelManager>();
 
-        Boss_1 = LevelManager.Boss_1_Static;
-        Boss_2 = LevelManager.Boss_2_Static;
-        Boss_3 = LevelManager.Boss_3_Static;
+        Enemy_1 = level_Manager.Enemy_1;
+        Enemy_2 = level_Manager.Enemy_2;
+        Enemy_3 = level_Manager.Enemy_3;
 
-        Reward_1 = LevelManager.Heal_Static;
-        Reward_2 = LevelManager.Coin_Static;
-        Reward_3 = LevelManager.Key_Static;
+        Boss_1 = level_Manager.Boss_1;
+        Boss_2 = level_Manager.Boss_2;
+        Boss_3 = level_Manager.Boss_3;
 
-        Prop_1 = LevelManager.Prop_1_Static;
-        Prop_2 = LevelManager.Prop_2_Static;
-        Prop_3 = LevelManager.Prop_3_Static;
+        Reward_1 = level_Manager.Heal;
+        Reward_2 = level_Manager.Coin;
+        Reward_3 = level_Manager.Key;
+
+        Prop_1 = level_Manager.Prop_1;
+        Prop_2 = level_Manager.Prop_2;
+        Prop_3 = level_Manager.Prop_3;
     }
     void FixedUpdate()
     {
-        if ((spawned == true) && (GameObject.FindGameObjectWithTag("Enemy") == null))
+        if ((spawned) && (GameObject.FindGameObjectWithTag("Enemy") == null))
         {
+            if(gameObject.name== "Room_Boss(Clone)")
+            {
+                transform.GetChild(5).gameObject.SetActive(true);
+            }
             Door[] Doors = GetComponentsInChildren<Door>();
             for (int i = 0; i < Doors.Length; i++)
             {
@@ -73,7 +80,14 @@ public class RoomController : MonoBehaviour
             }
             if (rewarded == false)
             {
-                GenerateRewards();
+                if(roomType == RoomType.AudioRoom)
+                {
+                    GenerateTreasures();
+                }
+                else
+                {
+                    GenerateRewards();
+                }
                 rewarded = true;
             }
         }
@@ -157,6 +171,45 @@ public class RoomController : MonoBehaviour
     }
     public void GenerateRewards()
     {
+        int rand = Random.Range(0, rewardNum + 1);
+        for (int i = 0; i < rand; i++)
+        {
+            int type = Random.Range(1, 4);
+
+            if (roomType == RoomType.AudioRoom || roomType == RoomType.BossRoom)
+            {
+                switch (type)
+                {
+                    case 1:
+                        Instantiate(Prop_1, gameObject.transform.position, Quaternion.identity);
+                        break;
+                    case 2:
+                        Instantiate(Prop_2, gameObject.transform.position, Quaternion.identity);
+                        break;
+                    case 3:
+                        Instantiate(Prop_3, gameObject.transform.position, Quaternion.identity);
+                        break;
+                }
+            }
+            else
+            {
+                switch (type)
+                {
+                    case 1:
+                        Instantiate(Reward_1, gameObject.transform.position, Quaternion.identity);
+                        break;
+                    case 2:
+                        Instantiate(Reward_2, gameObject.transform.position, Quaternion.identity);
+                        break;
+                    case 3:
+                        Instantiate(Reward_3, gameObject.transform.position, Quaternion.identity);
+                        break;
+                }
+            }
+        }
+    }
+    public void GenerateTreasures()
+    {
         for (int i = 0; i < rewardNum; i++)
         {
             int type = Random.Range(1, 4);
@@ -191,6 +244,15 @@ public class RoomController : MonoBehaviour
                         break;
                 }
             }
+        }
+    }
+    public void OpenTheGay()
+    {
+        LockedDoor[] LockedDoors = transform.GetComponentsInChildren<LockedDoor>();
+        for (int i = 0; i < LockedDoors.Length; i++)
+        {
+            LockedDoors[i].GetComponent<BoxCollider2D>().enabled = false;
+            LockedDoors[i].GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 }

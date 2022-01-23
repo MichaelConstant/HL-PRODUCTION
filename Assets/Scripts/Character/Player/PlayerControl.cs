@@ -8,8 +8,6 @@ public class PlayerControl : CharacterControl
 {
     #region 变量
 
-    bool isStudio;
-
     public int KeyCounts;
     public Text keyText;
 
@@ -25,22 +23,16 @@ public class PlayerControl : CharacterControl
     public Image RangeEnergyUI;
     public GameObject RangeUltraText;
 
-    [HideInInspector]
-    GameObject Shooter;
-
     #region 能量系统相关
 
+    [HideInInspector]
     public bool onRage = false;
 
     [Header("远程/近战初始能量，默认为0")]
-    public static float RangeEnergy_Static;
-    public static float MeleeEnergy_Static;
-    private readonly float RangeEnergy = 0;
-    private readonly float MeleeEnergy = 0;
+    public float RangeEnergy = 0;
+    public float MeleeEnergy = 0;
 
     [Header("每一击远程/近战获得能量，近战获得能量，远程减少能量")]
-    public static float RangeEnergyPerHitStatic;
-    public static float MeleeEnergyPerHitStatic;
     public float RangeEnergyPerHit;
     public float MeleeEnergyPerHit;
     //这里的远程每击减少能量指每次远程射击减少近战能量槽的量
@@ -53,32 +45,20 @@ public class PlayerControl : CharacterControl
     private bool canDecrease = true;
 
     [Header("远程/近战初始等级，默认为0")]
-    private readonly int RangeLevel = 0;
-    private readonly int MeleeLevel = 0;
-
-    public static int RangeLevel_Static;
-    public static int MeleeLevel_Static;
+    public int RangeLevel = 0;
+    public int MeleeLevel = 0;
 
     [Header("远程/近战能量上限")]
     public int RangeEnergyMax;
     public int MeleeEnergyMax;
 
-    public static int RangeEnergyMax_Static;
-    public static int MeleeEnergyMax_Static;
-
     [Header("远程/近战等级上限")]
     public int MeleeLevelMax;
     public int RangeLevelMax;
 
-    public static int RangeLevelMax_Static;
-    public static int MeleeLevelMax_Static;
-
     [Header("能量等级升级时的保底百分比，数值为0-1（0%-100%）")]
     public float RangeEnergyProtectPercent;
     public float MeleeEnergyProtectPercent;
-
-    public static float RangeEnergyProtectPercent_Static;
-    public static float MeleeEnergyProtectPercent_Static;
 
     #endregion
 
@@ -86,48 +66,15 @@ public class PlayerControl : CharacterControl
     // Start is called before the first frame update
     void Start()
     {
-        Shooter = gameObject.GetComponentInChildren<Shooter>().gameObject;
-
         isAlive = true;
-
-        if (SceneManager.GetActiveScene().name != "Studio")
-        {
-            isStudio = false;
-        }
-        else
-        {
-            isStudio = true;
-        }
-
         keyText.text = "Key: " + KeyCounts;
         coinText.text = "Coin: " + CoinCounts;
-
-        RangeEnergy_Static = RangeEnergy;
-        MeleeEnergy_Static = MeleeEnergy;
-
-        RangeEnergyPerHitStatic = RangeEnergyPerHit;
-        MeleeEnergyPerHitStatic = MeleeEnergyPerHit;
-
-        RangeEnergyPerHitStatic = RangeEnergyPerHit;
-        MeleeEnergyPerHitStatic = MeleeEnergyPerHit;
-
-        RangeLevel_Static = RangeLevel;
-        MeleeLevel_Static = MeleeLevel;
-
-        RangeEnergyMax_Static = RangeEnergyMax;
-        MeleeEnergyMax_Static = MeleeEnergyMax;
-
-        RangeLevelMax_Static = RangeLevelMax;
-        MeleeLevelMax_Static = MeleeLevelMax;
-
-        RangeEnergyProtectPercent_Static = RangeEnergyProtectPercent;
-        MeleeEnergyProtectPercent_Static = MeleeEnergyProtectPercent;
     }
     // Update is called once per frame
     void Update()
     {
-        MeleeEnergyUI.fillAmount = (float)MeleeEnergy_Static / MeleeEnergyMax_Static;
-        RangeEnergyUI.fillAmount = (float)RangeEnergy_Static / RangeEnergyMax_Static;
+        MeleeEnergyUI.fillAmount = (float)MeleeEnergy / MeleeEnergyMax;
+        RangeEnergyUI.fillAmount = (float)RangeEnergy / RangeEnergyMax;
         HPUI.fillAmount = (float)currentHP / maxHP;
 
         if (isAlive)
@@ -174,28 +121,26 @@ public class PlayerControl : CharacterControl
             #endregion
 
             #region Character Input
-            if (!isStudio)
+
+            if ((Input.GetMouseButton(0)) && (!Input.GetMouseButtonDown(1)))
             {
-                if ((Input.GetMouseButton(0)) && (!Input.GetMouseButtonDown(1)))
-                {
-                    Shooter.GetComponent<Shooter>().enabled = true;
+                Shooter.GetComponent<Shooter>().enabled = true;
+            }
+            if (Input.GetMouseButtonDown(1))
+            {
+                StartCoroutine(Attack());
+            }
+            if (Input.GetKeyDown(KeyCode.E) && RangeLevel == 1)
+            {
+                Shooter.GetComponent<UltraShooter>().enabled = true;
+                RangeLevel = 0;
+                RangeEnergy = 0;
+                RangeUltraText.SetActive(false);
                 }
-                if (Input.GetMouseButtonDown(1))
-                {
-                    StartCoroutine(Attack());
-                }
-                if (Input.GetKeyDown(KeyCode.E) && RangeLevel_Static == 1)
-                {
-                    Shooter.GetComponent<UltraShooter>().enabled = true;
-                    RangeLevel_Static = 0;
-                    RangeEnergy_Static = 0;
-                    RangeUltraText.SetActive(false);
-                }
-                if (Input.GetKeyDown(KeyCode.Q) && MeleeLevel_Static >= 1)
-                {
-                    onRage = true;
-                    MeleeEnergyDecreaseAmount = 0.1f;
-                }
+            if (Input.GetKeyDown(KeyCode.Q) && MeleeLevel >= 1)
+            {
+                onRage = true;
+                MeleeEnergyDecreaseAmount = 0.1f;
             }
             #endregion
         }
@@ -231,16 +176,16 @@ public class PlayerControl : CharacterControl
             GetComponentInChildren<Shooter>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             GetComponentInChildren<Shooter>().transform.Rotate(0, 0, Angle_360(AttackVector));
             GetComponentInChildren<Shooter>().GetComponentInChildren<Animator>().Play("Attack");
-            yield return new WaitForSeconds(BasicAttackInterval);
+            yield return new WaitForSeconds(AttackInterval_Final);
             canAttack = true;
         }
     }
     public IEnumerator MeleeEnergyDecrease()
     {
         canDecrease = false;
-        MeleeLevelUI.text = "LV: " + (MeleeLevel_Static + 1);
-        MeleeLevelHint.GetComponent<Text>().text = "Pree Q to RAGE: LV." + (MeleeLevel_Static + 1);
-        if (MeleeLevel_Static > 0)
+        MeleeLevelUI.text = "LV: " + (MeleeLevel + 1);
+        MeleeLevelHint.GetComponent<Text>().text = "Pree Q to RAGE: LV." + (MeleeLevel + 1);
+        if (MeleeLevel > 0)
         {
             MeleeLevelHint.SetActive(true);
         }
@@ -248,16 +193,16 @@ public class PlayerControl : CharacterControl
         {
             MeleeLevelHint.SetActive(false);
         }
-        if (MeleeEnergy_Static > 0)
+        if (MeleeEnergy > 0)
         {
-            MeleeEnergy_Static -= MeleeEnergyDecreaseAmount;
+            MeleeEnergy -= MeleeEnergyDecreaseAmount;
         }
-        if (MeleeEnergy_Static <= 0 && MeleeLevel_Static > 0)
+        if (MeleeEnergy <= 0 && MeleeLevel > 0)
         {
-            MeleeLevel_Static -= 1;
-            MeleeEnergy_Static += MeleeEnergyMax_Static;
+            MeleeLevel -= 1;
+            MeleeEnergy += MeleeEnergyMax;
         }
-        if (MeleeEnergy_Static <= 0 && MeleeLevel_Static == 0)
+        if (MeleeEnergy <= 0 && MeleeLevel == 0)
         {
             onRage = false;
             MeleeEnergyDecreaseAmount = 0.01f;
@@ -269,15 +214,15 @@ public class PlayerControl : CharacterControl
     {
         if (canShoot && !onRage)
         {
-            if (MeleeEnergy_Static > 0)
+            if (MeleeEnergy > 0)
             {
-                MeleeEnergy_Static -= RangeEnergyPerHit;
+                MeleeEnergy -= RangeEnergyPerHit;
             }
-            if (MeleeEnergy_Static <= 0 && MeleeLevel_Static > 0)
+            if (MeleeEnergy <= 0 && MeleeLevel > 0)
             {
-                MeleeLevel_Static -= 1;
+                MeleeLevel -= 1;
                 MeleeLevelUI.text = "LV: " + MeleeLevel;
-                MeleeEnergy_Static = MeleeEnergyMax_Static;
+                MeleeEnergy = MeleeEnergyMax;
             }
         }
     }

@@ -4,26 +4,20 @@ using UnityEngine;
 
 public class LockedDoor : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    RoomController RoomController;
+    private void Start()
     {
-        
+        RoomController = GetComponentInParent<RoomController>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<PlayerControl>() != null)
         {
             if(collision.gameObject.GetComponent<PlayerControl>().KeyCounts>=1)
             {
                 collision.gameObject.GetComponent<PlayerControl>().KeyCounts--;
-                RoomGenerator.OpenTheGay();
+                collision.gameObject.GetComponent<PlayerControl>().keyText.text = "Key: " + collision.gameObject.GetComponent<PlayerControl>().KeyCounts;
+                RoomController.OpenTheGay();
             }
         }
     }

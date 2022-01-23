@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
-    GameObject Player;
+    PlayerControl Player;
     private void Awake()
     {
-        Player = GameObject.FindWithTag("Player");
+        Player = GetComponentInParent<PlayerControl>();
     }
     private void OnEnable()
     {
-        if (Player.GetComponent<PlayerControl>().canShoot)
+        if (Player.canShoot)
         {
-            Player.GetComponent<PlayerControl>().MeleeEnergyDecreaseOfShooting();
-            Player.GetComponent<PlayerControl>().canShoot = false;
-            Player.GetComponent<PlayerControl>().AttackVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);
-            if (Player.GetComponent<PlayerControl>().onRage)
+            Player.MeleeEnergyDecreaseOfShooting();
+            Player.canShoot = false;
+            Player.AttackVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);
+            if (Player.onRage)
             {
-                switch (PlayerControl.MeleeLevel_Static)
+                switch (Player.MeleeLevel)
                 {
                     case 0:
                         GetComponentInChildren<Shooter>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
@@ -75,7 +75,7 @@ public class Shooter : MonoBehaviour
                 GetComponentInChildren<Shooter>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
                 GetComponentInChildren<Shooter>().transform.Rotate(0, 0, Player.GetComponent<PlayerControl>().Angle_360(Player.GetComponent<PlayerControl>().AttackVector));
 
-                switch (PlayerControl.MeleeLevel_Static)
+                switch (Player.MeleeLevel)
                 {
                     case 0:
                         GameObject bullet = Instantiate(Player.GetComponent<PlayerControl>().bullet_0, Player.GetComponent<PlayerControl>().bulletSpawn.transform.position, Player.GetComponent<PlayerControl>().bulletSpawn.transform.rotation);

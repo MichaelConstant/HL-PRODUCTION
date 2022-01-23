@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207026537148510220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.06, y: 0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1459256475852565085}
@@ -198,12 +198,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa4dabb4cde57294c85fe31ddb248b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0.1
+  movementSpeed_Final: 0
+  movementSpeed_Basic: 0.1
+  movementSpeed_Ratio: 1
   maxHP: 10
   currentHP: 10
-  meleeDamage: 1
-  BasicShootInterval: 1
-  BasicAttackInterval: 1
+  meleeDamage_Final: 0
+  meleeDamage_Basic: 1
+  meleeDamage_Ratio: 1
+  ShootInterval_Final: 0
+  ShootInterval_Basic: 1
+  ShootInterval_Ratio: 1
+  AttackInterval_Final: 0
+  AttackInterval_Basic: 1
+  AttackInterval_Ratio: 1
   isAlive: 1
   isMoving: 0
   canMove: 1
@@ -220,5 +228,5 @@ MonoBehaviour:
   bullet_2: {fileID: 7155485969590187701, guid: f728ce6f3273e2c40b5d2d0525730f26, type: 3}
   bullet_3: {fileID: 7155485969590187701, guid: f728ce6f3273e2c40b5d2d0525730f26, type: 3}
   bullet_Ultra: {fileID: 7155485969590187701, guid: f728ce6f3273e2c40b5d2d0525730f26, type: 3}
-  bulletSpawn: {fileID: 1459256475852565085}
+  bulletSpawn: {fileID: 8680351223105146152}
   AttackVector: {x: 0, y: 0}

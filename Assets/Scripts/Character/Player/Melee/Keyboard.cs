@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Keyboard : MonoBehaviour
 {
-    GameObject Player;
+    PlayerControl Player;
     private void Awake()
     {
-        Player = gameObject.GetComponentInParent<PlayerControl>().gameObject;
+        Player = gameObject.GetComponentInParent<PlayerControl>();
     }
     //public GameObject ParriedBullet;
     void OnTriggerEnter2D(Collider2D collision)
@@ -23,18 +23,18 @@ public class Keyboard : MonoBehaviour
                 Destroy(collision.gameObject);
                 if (!Player.GetComponent<PlayerControl>().onRage)
                 {
-                    if (PlayerControl.MeleeEnergy_Static < PlayerControl.MeleeEnergyMax_Static)
+                    if (Player.MeleeEnergy < Player.MeleeEnergyMax)
                     {
-                        PlayerControl.MeleeEnergy_Static += PlayerControl.MeleeEnergyPerHitStatic;
+                        Player.MeleeEnergy += Player.MeleeEnergyPerHit;
                     }
-                    if (PlayerControl.MeleeEnergy_Static >= PlayerControl.MeleeEnergyMax_Static && PlayerControl.MeleeLevel_Static < PlayerControl.MeleeLevelMax_Static)
+                    if (Player.MeleeEnergy >= Player.MeleeEnergyMax && Player.MeleeLevel < Player.MeleeLevelMax)
                     {
-                        PlayerControl.MeleeLevel_Static += 1;
-                        PlayerControl.MeleeEnergy_Static = PlayerControl.MeleeEnergy_Static - PlayerControl.MeleeEnergyMax_Static + PlayerControl.MeleeEnergyMax_Static * PlayerControl.MeleeEnergyProtectPercent_Static;
+                        Player.MeleeLevel += 1;
+                        Player.MeleeEnergy = Player.MeleeEnergy - Player.MeleeEnergyMax + Player.MeleeEnergyMax * Player.MeleeEnergyProtectPercent;
                     }
-                    if (PlayerControl.MeleeEnergy_Static >= PlayerControl.MeleeEnergyMax_Static && PlayerControl.MeleeLevel_Static >= PlayerControl.MeleeLevelMax_Static)
+                    if (Player.MeleeEnergy >= Player.MeleeEnergyMax && Player.MeleeLevel >= Player.MeleeLevelMax)
                     {
-                        PlayerControl.MeleeEnergy_Static = PlayerControl.MeleeEnergyMax_Static;
+                        Player.MeleeEnergy = Player.MeleeEnergyMax;
                     }
                 }
             }

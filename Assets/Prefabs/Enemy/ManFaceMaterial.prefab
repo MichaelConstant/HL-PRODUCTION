@@ -198,12 +198,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc6925862d41df2468b7f313ce62245e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 75
+  movementSpeed_Final: 0
+  movementSpeed_Basic: 75
+  movementSpeed_Ratio: 1
   maxHP: 100
   currentHP: 100
-  meleeDamage: 1
-  BasicShootInterval: 0.01
-  BasicAttackInterval: 1
+  meleeDamage_Final: 0
+  meleeDamage_Basic: 1
+  meleeDamage_Ratio: 1
+  ShootInterval_Final: 0
+  ShootInterval_Basic: 1
+  ShootInterval_Ratio: 1
+  AttackInterval_Final: 0
+  AttackInterval_Basic: 1
+  AttackInterval_Ratio: 1
   isAlive: 1
   isMoving: 0
   canMove: 1
