@@ -117,10 +117,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a212beda944d9546967cce3efad4c93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 80
-  m_rayLength: 0.4
-  m_moveSpeed: 2.69
+  maxHP: 3
+  currentHP: 3
+  movementSpeed_Final: 0
+  movementSpeed_Basic: 0
+  movementSpeed_Ratio: 0
+  meleeDamage_Final: 0
+  meleeDamage_Basic: 0
+  meleeDamage_Ratio: 0
+  rangeDamage_Final: 0
+  rangeDamage_Basic: 0
+  rangeDamage_Ratio: 0
+  ShootInterval_Final: 0
+  ShootInterval_Basic: 0
+  ShootInterval_Ratio: 0
+  AttackInterval_Final: 0
+  AttackInterval_Basic: 0
+  AttackInterval_Ratio: 0
+  isAlive: 1
+  isMoving: 0
+  canMove: 1
+  rb: {fileID: 0}
+  anim: {fileID: 0}
+  sr: {fileID: 0}
+  xInput: 0
+  yInput: 0
+  canShoot: 1
+  canAttack: 1
+  Shooter: {fileID: 0}
+  RageShooter: {fileID: 0}
+  UltraShooter: {fileID: 0}
+  bullet_0: {fileID: 0}
+  bullet_1: {fileID: 0}
+  bullet_2: {fileID: 0}
+  bullet_3: {fileID: 0}
+  bullet_Ultra: {fileID: 0}
+  bulletSpawn: {fileID: 0}
+  AttackVector: {x: 0, y: 0}
+  m_moveSpeed: 1
 --- !u!50 &5093019398764160573
 Rigidbody2D:
   serializedVersion: 4

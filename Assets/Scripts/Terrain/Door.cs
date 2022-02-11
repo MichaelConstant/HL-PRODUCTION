@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [HideInInspector]
+    public Rigidbody2D rb;
+    [HideInInspector]
+    public Animator anim;
+    [HideInInspector]
+    public SpriteRenderer sr;
 
-    // Update is called once per frame
-    void FixedUpdate()
+    public enum doorDirection { up, down, left, right };
+    public doorDirection DoorDirection;
+
+    private void Awake()
     {
-        
+        anim = GetComponent<Animator>();
+        anim.SetInteger("Direction", (int)DoorDirection);
     }
 }

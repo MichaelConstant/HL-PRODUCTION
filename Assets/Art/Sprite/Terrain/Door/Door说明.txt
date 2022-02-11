@@ -1,0 +1,24 @@
+
+
+
+
+
+
+
+
+
+
+//Door_open door 6帧 上下左右四张  【未进入过的可通行的房间】
+//Door_open door_Appear  4帧 ，后接open door动画【未进入过的可通行的房间  出现动画】
+
+//Door_Boss 6帧 【BOSS房门】 GET
+//Door_Boss_Appear 6帧，后接boss door动画 【BOSS房门 出现动画】  GET
+
+//Door_lock door_Appear 6帧，后接Lock door动画 【没去过，需要用钥匙解锁的房间 出现动画】
+//Door_lock door 6帧  【没去过，需要用钥匙解锁的房间】 宝藏房
+
+Door_UCG （unlock change green）12帧，后接green door 动画【上锁的房间解锁可通行】
+
+//Door_green door  6帧  【去过，可以直接通行的房间】 
+
+//Door_turnoffdoor 12帧 【进入房间后，战斗阶段，房门关闭动画】【所有门统一】

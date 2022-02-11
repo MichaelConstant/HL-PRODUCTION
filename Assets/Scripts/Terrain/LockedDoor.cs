@@ -5,18 +5,20 @@ using UnityEngine;
 public class LockedDoor : MonoBehaviour
 {
     RoomController RoomController;
+    PlayerControl Player;
     private void Start()
     {
         RoomController = GetComponentInParent<RoomController>();
     }
     public void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerControl>() != null)
+        Player = collision.gameObject.GetComponent<PlayerControl>();
+        if (Player != null)
         {
-            if(collision.gameObject.GetComponent<PlayerControl>().KeyCounts>=1)
+            if(Player.KeyCounts>=1)
             {
-                collision.gameObject.GetComponent<PlayerControl>().KeyCounts--;
-                collision.gameObject.GetComponent<PlayerControl>().keyText.text = "Key: " + collision.gameObject.GetComponent<PlayerControl>().KeyCounts;
+                Player.KeyCounts--;
+                Player.keyText.text = "Key: " + Player.KeyCounts;
                 RoomController.OpenTheGay();
             }
         }

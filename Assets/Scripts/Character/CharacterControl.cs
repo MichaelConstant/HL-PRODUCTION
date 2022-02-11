@@ -32,7 +32,6 @@ public class CharacterControl : MonoBehaviour
     public float AttackInterval_Basic;
     public float AttackInterval_Ratio;
 
-
     [HideInInspector]
     public bool isAlive = true;
     [HideInInspector]

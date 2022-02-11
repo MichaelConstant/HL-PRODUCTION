@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6068098182009161062}
   - component: {fileID: -4376295607514288482}
   - component: {fileID: -2168551233122399335}
-  - component: {fileID: 7189255012205752529}
+  - component: {fileID: 1151747305115673755}
   m_Layer: 0
   m_Name: Super_Lag
   m_TagString: Untagged
@@ -133,7 +133,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7189255012205752529
+--- !u!114 &1151747305115673755
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c43bb3b1f5675240991fce5e4fab929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RangeAttackSpeedUpPercent: 5
+  RangeAttackSpeedUpPercent: 3
 --- !u!1 &3645642624478778209
 GameObject:
   m_ObjectHideFlags: 0
