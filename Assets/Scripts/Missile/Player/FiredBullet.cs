@@ -15,8 +15,6 @@ public class FiredBullet : Bullet
 
     public Sprite Bullet_0;
     public Sprite Bullet_1;
-
-    // Start is called before the first frame update
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -32,7 +30,6 @@ public class FiredBullet : Bullet
         GetComponent<Rigidbody2D>().AddForce(transform.up * BulletSpeed);
         Destroy(gameObject, BulletLifeSpan);
     }
-    // Update is called once per frame
     void Update()
     {
         if (spawnTimer >= spawnTimeval)

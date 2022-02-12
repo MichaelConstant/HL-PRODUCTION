@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{5B30D82A-5144-42EF-B3E0-1AF212C112BA}" SchemaVersion="103">
+	<AudioObjects>
+		<WorkUnit Name="Test" ID="{5B30D82A-5144-42EF-B3E0-1AF212C112BA}" PersistMode="Standalone">
+			<ChildrenList>
+				<Sound Name="Interior_Tones_05" ID="{72A539CE-B78B-49DA-A706-C473FA5DB0B1}" ShortID="398845875">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2B28648E-AFAB-439E-BC86-EC5B728292C6}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DC0E3910-0059-4972-AE51-384424D50F34}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Interior_Tones_05" ID="{B2173D77-26F5-4AE3-80BB-2390B41B695C}">
+							<Language>SFX</Language>
+							<AudioFile>Interior_Tones_05.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="157178995"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="Interior_Tones_05" ID="{B2173D77-26F5-4AE3-80BB-2390B41B695C}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerControl : CharacterControl
 {
     #region 变量
-
+    
     public int KeyCounts;
     public Text keyText;
 
@@ -118,7 +118,7 @@ public class PlayerControl : CharacterControl
                 anim.SetInteger("State", 6);
             }
             #endregion
-
+            
             #region Character Input
 
             if ((Input.GetMouseButton(0)) && (!Input.GetMouseButtonDown(1)))

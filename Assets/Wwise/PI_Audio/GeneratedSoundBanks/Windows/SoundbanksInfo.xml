@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
+	<RootPaths>
+		<ProjectRoot>D:\Unity\Pixel_Indie_Gary\Assets\Wwise\PI_Audio\</ProjectRoot>
+		<SourceFilesRoot>D:\Unity\Pixel_Indie_Gary\Assets\Wwise\PI_Audio\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Unity\Pixel_Indie_Gary\Assets\Wwise\PI_Audio\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>D:\Unity\Pixel_Indie_Gary\Assets\Wwise\PI_Audio\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX" Hash="3413456938">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3991942870" Language="SFX" Hash="2130580216">
+			<ObjectPath>\SoundBanks\Test\Music</ObjectPath>
+			<ShortName>Music</ShortName>
+			<Path>Music.bnk</Path>
+			<IncludedEvents>
+				<Event Id="483751950" Name="Play_Interior_Tones_05" ObjectPath="\Events\Test\Play_Interior_Tones_05">
+					<IncludedMemoryFiles>
+						<File Id="157178995" Language="SFX">
+							<ShortName>Interior_Tones_05.wav</ShortName>
+							<Path>SFX\Interior_Tones_05_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

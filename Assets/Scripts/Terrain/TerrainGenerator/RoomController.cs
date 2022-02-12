@@ -4,23 +4,21 @@ using UnityEngine;
 
 public class RoomController : MonoBehaviour
 {
-    float xOffset;
-    float yOffset;
-
     LevelManager level_Manager;
     RoomGenerator room_Generator;
     SpriteRenderer sr;
 
-    public enum RoomType { StartRoom, ProgramRoom, ArtRoom, DesignRoom, BossRoom, AudioRoom };
+    public Sprite Art;
+    public Sprite Design;
+    public Sprite Program;
+
+    public enum RoomType { StartRoom, ProgramRoom, ArtRoom, DesignRoom, BossRoom, RandEncoRoom };
     //0,1,2,3,4,5
     public RoomType roomType;
 
-    public Sprite Art;
-    public Sprite Program;
-    public Sprite Design;
-
     enum Direction { up, down, left, right };
     public GameObject DoorObject;
+    Door[] Doors;
 
     Vector3 CamPos;
     Vector3 RoomPos;
@@ -28,7 +26,7 @@ public class RoomController : MonoBehaviour
 
     bool spawned;
     public int spawnNum;
-    
+
     bool rewarded;
     public int rewardNum;
 
@@ -37,10 +35,32 @@ public class RoomController : MonoBehaviour
         level_Manager = GetComponentInParent<LevelManager>();
         room_Generator = GetComponentInParent<RoomGenerator>();
         sr = GetComponent<SpriteRenderer>();
+        Door[] Doors = GetComponentsInChildren<Door>();
 
-        xOffset = room_Generator.xOffset;
-        yOffset = room_Generator.yOffset;
-
+        switch (roomType)
+        {
+            case RoomType.StartRoom:
+                sr.sprite = Design;
+                sr.color = new Color32(255, 255, 0, 255);
+                break;
+            case RoomType.ArtRoom:
+                sr.sprite = Art;
+                break;
+            case RoomType.DesignRoom:
+                sr.sprite = Design;
+                break;
+            case RoomType.ProgramRoom:
+                sr.sprite = Program;
+                break;
+            case RoomType.BossRoom:
+                sr.sprite = Design;
+                sr.color = new Color32(255, 0, 0, 255);
+                break;
+            case RoomType.RandEncoRoom:
+                sr.sprite = Design;
+                sr.color = new Color32(0, 255, 255, 255);
+                break;
+        }
         if (roomType == RoomType.StartRoom)
         {
             spawned = true;
@@ -56,31 +76,18 @@ public class RoomController : MonoBehaviour
         {
             if (RoomGenerator.RoomList.Exists(Room => Room.RoomLocation == ChangePos(i, transform.position)))
             {
-                GenerateDoor(j, RoomList[i].RoomLocation);
-            }
-            else
-            {
-
+                int RoomTypeAside = RoomGenerator.RoomList.Find(Room => Room.RoomLocation == ChangePos(i, transform.position)).RoomType;
+                GenerateDoor(RoomTypeAside, i, transform.position);
             }
         }
-
     }
     void FixedUpdate()
     {
         if ((spawned) && (GameObject.FindGameObjectWithTag("Enemy") == null))
         {
-            Door[] Doors = GetComponentsInChildren<Door>();
-            if (this.roomType == RoomType.BossRoom)
-            {
-                transform.GetComponentInChildren<Exit>().gameObject.SetActive(true);
-            }
-            for (int i = 0; i < Doors.Length; i++)
-            {
-                Doors[i].GetComponentInChildren<Collider2D>().enabled = false;
-            }
             if (rewarded == false)
             {
-                if(roomType == RoomType.AudioRoom)
+                if (roomType == RoomType.ArtRoom)
                 {
                     GenerateTreasures();
                 }
@@ -105,63 +112,10 @@ public class RoomController : MonoBehaviour
     {
         if ((spawned == false) && (collision.GetComponent<PlayerControl>() != null))
         {
-            Door[] Doors = GetComponentsInChildren<Door>();
-
-            if (spawned == false)
-            {
-                Vector3 pushVector = new Vector3(collision.GetComponent<Rigidbody2D>().velocity.x, collision.GetComponent<Rigidbody2D>().velocity.y, 0);
-                collision.transform.position += pushVector.normalized * 0.75f;
-                GenerateEnemies();
-                spawned = true;
-            }
-
-            for (int i = 0; i < Doors.Length; i++)
-            {
-                switch(roomType)
-                {
-                    case RoomType.StartRoom:
-                        switch (Doors[i].gameObject.GetComponent<Door>().DoorDirection)
-                        {
-                            case Door.doorDirection.down:
-                                Doors[i].gameObject.GetComponent<Animator>().Play("Green_Idle_Down");
-                                break;
-                            case Door.doorDirection.left:
-                                Doors[i].gameObject.GetComponent<Animator>().Play("Green_Idle_Left");
-                                break;
-                            case Door.doorDirection.right:
-                                Doors[i].gameObject.GetComponent<Animator>().Play("Green_Idle_Right");
-                                break;
-                            case Door.doorDirection.up:
-                                Doors[i].gameObject.GetComponent<Animator>().Play("Green_Idle_Up");
-                                break;
-                        }
-                        break;
-                    default:
-                        switch (Doors[i].gameObject.GetComponent<Door>().DoorDirection)
-                        {
-                            case Door.doorDirection.down:
-                                Doors[i].gameObject.GetComponent<Animator>().Play("Disappear_Down");
-                                break;
-                            case Door.doorDirection.left:
-                                Doors[i].gameObject.GetComponent<Animator>().Play("Disappear_Left");
-                                break;
-                            case Door.doorDirection.right:
-                                Doors[i].gameObject.GetComponent<Animator>().Play("Disappear_Right");
-                                break;
-                            case Door.doorDirection.up:
-                                Doors[i].gameObject.GetComponent<Animator>().Play("Disappear_Up");
-                                break;
-                        }
-                        break;
-                }
-
-                switch(Doors[i].gameObject.GetComponent<Door>().DoorDirection)
-                {
-                    case Door.doorDirection.down:
-
-                        break;
-                }
-            }
+            Vector3 pushVector = new Vector3(collision.GetComponent<Rigidbody2D>().velocity.x, collision.GetComponent<Rigidbody2D>().velocity.y, 0);
+            collision.transform.position += pushVector.normalized;
+            GenerateEnemies();
+            spawned = true;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -180,26 +134,27 @@ public class RoomController : MonoBehaviour
         switch ((Direction)direction)
         {
             case Direction.up:
-                changedPos = Location + new Vector3(0, yOffset, 0);
+                changedPos = Location + new Vector3(0, room_Generator.yOffset, 0);
                 return changedPos;
             case Direction.down:
-                changedPos = Location + new Vector3(0, -yOffset, 0);
+                changedPos = Location + new Vector3(0, -room_Generator.yOffset, 0);
                 return changedPos;
             case Direction.left:
-                changedPos = Location + new Vector3(-xOffset, 0, 0);
+                changedPos = Location + new Vector3(-room_Generator.xOffset, 0, 0);
                 return changedPos;
             case Direction.right:
-                changedPos = Location + new Vector3(xOffset, 0, 0);
+                changedPos = Location + new Vector3(room_Generator.xOffset, 0, 0);
                 return changedPos;
             default:
                 return changedPos;
         }
     }
-    void GenerateDoor(int GenerateRoomType, Vector3 generatePoint)
+    void GenerateDoor(int RoomTypeAside, int DoorDirection,Vector3 generatePoint)
     {
-        GameObject Door = Instantiate(DoorObject, generatePoint, Quaternion.identity);
-        Door.GetComponent<RoomController>().roomType = (RoomController.RoomType)GenerateRoomType;
-        Door.transform.parent = transform;
+        GameObject GeneratedDoor = Instantiate(DoorObject, generatePoint, Quaternion.identity);
+        GeneratedDoor.GetComponent<Door>().roomTypeAside = (Door.RoomTypeAside) RoomTypeAside;
+        GeneratedDoor.GetComponent<Door>().doorDirection = (Door.DoorDirection) DoorDirection;
+        GeneratedDoor.transform.parent = transform;
     }
     public void GenerateEnemies()
     {
@@ -209,7 +164,7 @@ public class RoomController : MonoBehaviour
         {
             int type = Random.Range(1, 4);
 
-            if (roomType == (RoomType)1)
+            if (roomType == RoomType.ProgramRoom)
             {
                 switch (type)
                 {
@@ -227,7 +182,7 @@ public class RoomController : MonoBehaviour
                         break;
                 }
             }
-            else if (roomType == (RoomType)4)
+            else if (roomType == RoomType.BossRoom)
             {
                 switch (type)
                 {
@@ -254,7 +209,7 @@ public class RoomController : MonoBehaviour
         {
             int type = Random.Range(1, 4);
 
-            if (roomType == RoomType.AudioRoom || roomType == RoomType.BossRoom)
+            if (roomType == RoomType.ArtRoom || roomType == RoomType.BossRoom)
             {
                 switch (type)
                 {
@@ -292,18 +247,18 @@ public class RoomController : MonoBehaviour
         {
             int type = Random.Range(1, 4);
 
-            if (roomType == RoomType.AudioRoom || roomType == RoomType.BossRoom)
+            if (roomType == RoomType.ArtRoom || roomType == RoomType.BossRoom)
             {
                 switch (type)
                 {
                     case 1:
-                        Instantiate(Prop_1, gameObject.transform.position, Quaternion.identity);
+                        Instantiate(level_Manager.Prop_1, gameObject.transform.position, Quaternion.identity);
                         break;
                     case 2:
-                        Instantiate(Prop_2, gameObject.transform.position, Quaternion.identity);
+                        Instantiate(level_Manager.Prop_2, gameObject.transform.position, Quaternion.identity);
                         break;
                     case 3:
-                        Instantiate(Prop_3, gameObject.transform.position, Quaternion.identity);
+                        Instantiate(level_Manager.Prop_3, gameObject.transform.position, Quaternion.identity);
                         break;
                 }
             }
@@ -312,13 +267,13 @@ public class RoomController : MonoBehaviour
                 switch (type)
                 {
                     case 1:
-                        Instantiate(Reward_1, gameObject.transform.position, Quaternion.identity);
+                        Instantiate(level_Manager.Heal, gameObject.transform.position, Quaternion.identity);
                         break;
                     case 2:
-                        Instantiate(Reward_2, gameObject.transform.position, Quaternion.identity);
+                        Instantiate(level_Manager.Coin, gameObject.transform.position, Quaternion.identity);
                         break;
                     case 3:
-                        Instantiate(Reward_3, gameObject.transform.position, Quaternion.identity);
+                        Instantiate(level_Manager.Key, gameObject.transform.position, Quaternion.identity);
                         break;
                 }
             }
@@ -330,7 +285,6 @@ public class RoomController : MonoBehaviour
         for (int i = 0; i < LockedDoors.Length; i++)
         {
             LockedDoors[i].GetComponent<BoxCollider2D>().enabled = false;
-            LockedDoors[i].GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 }

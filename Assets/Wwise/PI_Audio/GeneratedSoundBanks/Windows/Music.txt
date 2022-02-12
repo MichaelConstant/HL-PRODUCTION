@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	483751950	Play_Interior_Tones_05			\Test\Play_Interior_Tones_05	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	157178995	Interior_Tones_05	D:\Unity\Pixel_Indie_Gary\Assets\Wwise\PI_Audio\.cache\Windows\SFX\Interior_Tones_05_10C4C929.wem		\Actor-Mixer Hierarchy\Test\Interior_Tones_05		9712068
+

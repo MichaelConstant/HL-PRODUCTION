@@ -13,26 +13,12 @@ public class EnemyBullet : MonoBehaviour
     public float BulletSpeed;
 
     private GameObject Player;
-
-    void Awake()
-    {
-
-    }
-
-    // Start is called before the first frame update
     void Start()
     {
         Player = GameObject.FindWithTag("Player");
         BulletVector = (Player.transform.position - gameObject.transform.position);
         GetComponent<Rigidbody2D>().AddForce(BulletVector.normalized * BulletSpeed);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Terrain" || collision.gameObject.GetComponent<PlayerControl>() != null)

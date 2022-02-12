@@ -10,12 +10,13 @@ public class RoomGenerator : MonoBehaviour
     public class Room
     {
         public int RoomType;
-        //0:初始房间，实际不使用
-        //1:程序房
-        //2:美术房
-        //3:设计房
+        //0:初始房
+        //1:程序房(普通打怪房间)
+        //2:美术房(宝藏房)
+        //3:设计房(陷阱机关房)
         //4:BOSS房
-        //5:音频房(宝藏房)
+        //5:Random Encounter集会房(宝藏房)
+        //此处记得检查与RoomController中的枚举类型保持顺序一致，防止出bug
         public Vector3 RoomLocation;
         public Room(int RoomType, Vector3 RoomLocation)
         {
