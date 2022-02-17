@@ -26,9 +26,9 @@ TagManager:
   - Item
   - Obstacle
   - Player(Flying)
-  - 
-  - 
-  - 
+  - Enemy
+  - Player(Ignoring Enemy)
+  - Player(Flying & Ignoring Enemy)
   - 
   - 
   - 

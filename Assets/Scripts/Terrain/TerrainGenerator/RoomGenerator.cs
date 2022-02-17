@@ -18,10 +18,12 @@ public class RoomGenerator : MonoBehaviour
         //5:Random Encounter集会房(宝藏房)
         //此处记得检查与RoomController中的枚举类型保持顺序一致，防止出bug
         public Vector3 RoomLocation;
+        public bool RoomEntered;
         public Room(int RoomType, Vector3 RoomLocation)
         {
             this.RoomType = RoomType;
             this.RoomLocation = RoomLocation;
+            this.RoomEntered = false;
         }
     }
 

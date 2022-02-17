@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6570642098983685158}
   - component: {fileID: 1717967754}
   - component: {fileID: 7280409358620332310}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bigPhlegm
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -9,7 +9,6 @@ public class Keyboard : MonoBehaviour
     {
         Player = gameObject.GetComponentInParent<PlayerControl>();
     }
-    //public GameObject ParriedBullet;
     void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.GetComponent<EnemyBullet>() != null)

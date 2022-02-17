@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Super_Lag_RageShooter : RageShooter_Base
 {
-    private void OnEnable()
+    public override void Fire()
     {
         if (Player.canShoot && Player.onRage)
         {
@@ -61,8 +61,6 @@ public class Super_Lag_RageShooter : RageShooter_Base
                     bullet.transform.parent = Player.transform;
                     break;
             }
-            StartCoroutine(Player.ShootInterval());
         }
-        GetComponent<RageShooter_Base>().enabled = false;
     }
 }

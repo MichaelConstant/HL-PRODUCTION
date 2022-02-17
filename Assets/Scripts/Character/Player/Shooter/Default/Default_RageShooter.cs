@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Default_RageShooter : RageShooter_Base
 {
-    private void OnEnable()
+    public override void Fire()
     {
         if (Player.canShoot && Player.onRage)
         {
@@ -12,7 +12,7 @@ public class Default_RageShooter : RageShooter_Base
             Player.canShoot = false;
             Player.AttackVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);
             switch (Player.MeleeLevel)
-                {
+            {
                 case 0:
                     transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
                     transform.Rotate(0, 0, Player.Angle_360(Player.AttackVector) - 5);
@@ -60,9 +60,7 @@ public class Default_RageShooter : RageShooter_Base
                     bullet = Instantiate(Player.bullet_0, Player.bulletSpawn.transform.position, Player.bulletSpawn.transform.rotation);
                     bullet.transform.parent = Player.transform;
                     break;
-                }
-            StartCoroutine(Player.ShootInterval());
+            }
         }
-        GetComponent<RageShooter_Base>().enabled = false;
     }
 }

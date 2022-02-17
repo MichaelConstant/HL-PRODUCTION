@@ -9,4 +9,8 @@ public class Shooter_Base : MonoBehaviour
     {
         Player = GetComponentInParent<PlayerControl>();
     }
+    public virtual void Fire()
+    {
+
+    }
 }

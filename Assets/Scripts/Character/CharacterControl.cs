@@ -55,6 +55,10 @@ public class CharacterControl : MonoBehaviour
     public bool canShoot = true;
     [HideInInspector]
     public bool canAttack = true;
+    [HideInInspector]
+    public float shootTimer;
+    [HideInInspector]
+    public float attackTimer;
 
     [HideInInspector]
     public Shooter_Base Shooter;
@@ -92,6 +96,34 @@ public class CharacterControl : MonoBehaviour
         ShootInterval_Final = ShootInterval_Basic / ShootInterval_Ratio;
         AttackInterval_Final = AttackInterval_Basic / AttackInterval_Ratio;
     }
+    public virtual void FixedUpdate()
+    {
+        if (!canShoot)
+        {
+            if (shootTimer < ShootInterval_Final)
+            {
+                shootTimer += Time.deltaTime;
+            }
+            else
+            {
+                shootTimer = 0;
+                canShoot = true;
+            }
+        }
+
+        if (!canAttack)
+        {
+            if (attackTimer < AttackInterval_Final)
+            {
+                attackTimer += Time.deltaTime;
+            }
+            else
+            {
+                attackTimer = 0;
+                canAttack = true;
+            }
+        }
+    }
     public void Move(int directionX, int directionY)
     {
         rb.velocity = (new Vector2(directionX * Time.deltaTime, directionY * Time.deltaTime)).normalized * movementSpeed_Final;
@@ -102,13 +134,7 @@ public class CharacterControl : MonoBehaviour
         {
             canShoot = false;
             Instantiate(bullet_0, bulletSpawn.transform.position, transform.rotation);
-            StartCoroutine(ShootInterval());
         }
-    }
-    public IEnumerator ShootInterval()
-    {
-        yield return new WaitForSeconds(ShootInterval_Final);
-        canShoot = true;
     }
     public float Angle_360(Vector2 Vector)
     {
@@ -127,31 +153,5 @@ public class CharacterControl : MonoBehaviour
             angle = -angle;
         }
         return angle;
-    }
-    protected void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.GetComponent<PlayerControl>() != null)
-        {
-            StartCoroutine(HitPlayer(collision));
-        }
-    }
-    protected IEnumerator HitPlayer(Collision2D collision)
-    {
-        GameObject Collision = collision.gameObject;
-        Collision.GetComponent<PlayerControl>().canMove = false;
-        Collision.GetComponent<PlayerControl>().currentHP -= meleeDamage_Final;
-        Rigidbody2D collisionRB = Collision.GetComponent<Rigidbody2D>();
-        collisionRB.velocity = new Vector3(0, 0, 0);
-        collisionRB.AddForce((collisionRB.transform.position - gameObject.transform.position).normalized);
-        yield return new WaitForSeconds(0.2f);
-        Collision.GetComponent<PlayerControl>().canMove = true;
-        StartCoroutine(Invincible(Collision));
-
-    }
-    protected IEnumerator Invincible(GameObject Player)
-    {
-        Player.GetComponent<CapsuleCollider2D>().enabled = false;
-        yield return new WaitForSeconds(0.5f);
-        Player.GetComponent<CapsuleCollider2D>().enabled = true;
     }
 }

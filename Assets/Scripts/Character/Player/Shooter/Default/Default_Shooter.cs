@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Default_Shooter : Shooter_Base
 {
-    private void OnEnable()
+    public override void Fire()
     {
         if (Player.canShoot && !Player.onRage)
         {
@@ -33,8 +33,6 @@ public class Default_Shooter : Shooter_Base
                     bullet.transform.parent = Player.transform;
                     break;
             }
-            StartCoroutine(Player.ShootInterval());
         }
-        GetComponent<Shooter_Base>().enabled = false;
     }
 }

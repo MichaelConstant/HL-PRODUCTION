@@ -19,4 +19,16 @@ public class LevelManager : MonoBehaviour
     public GameObject Prop_1;
     public GameObject Prop_2;
     public GameObject Prop_3;
+
+    public int spawnNumForArt;
+    public int rewardNumForArt;
+
+    public int spawnNumForDesign;
+    public int rewardNumForDesign;
+
+    public int spawnNumForProgram;
+    public int rewardNumForProgram;
+
+    public int spawnNumForBoss;
+    public int rewardNumForBoss;
 }

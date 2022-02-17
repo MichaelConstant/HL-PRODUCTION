@@ -9,4 +9,8 @@ public class UltraShooter_Base : MonoBehaviour
     {
         Player = GetComponentInParent<PlayerControl>();
     }
+    public virtual void Fire()
+    {
+
+    }
 }

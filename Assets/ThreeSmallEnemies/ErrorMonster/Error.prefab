@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7978009126371974673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8251786988899841156}
+  m_Layer: 0
+  m_Name: Shooter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8251786988899841156
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7978009126371974673}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8370909274472122641}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8370909274472122637
 GameObject:
   m_ObjectHideFlags: 0
@@ -15,7 +45,7 @@ GameObject:
   - component: {fileID: 8370909274472122640}
   m_Layer: 0
   m_Name: Error
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +60,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.5170455, y: -0.08466868, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 8251786988899841156}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -116,9 +147,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f09235f5a0878ec42bf90f859ca3755e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  currentHealth: 20
-  bulletNumber: 4
+  maxHP: 3
+  currentHP: 3
+  movementSpeed_Final: 0
+  movementSpeed_Basic: 1
+  movementSpeed_Ratio: 1
+  meleeDamage_Final: 0
+  meleeDamage_Basic: 1
+  meleeDamage_Ratio: 1
+  rangeDamage_Final: 0
+  rangeDamage_Basic: 1
+  rangeDamage_Ratio: 1
+  ShootInterval_Final: 0
+  ShootInterval_Basic: 1
+  ShootInterval_Ratio: 1
+  AttackInterval_Final: 0
+  AttackInterval_Basic: 1
+  AttackInterval_Ratio: 1
+  isAlive: 1
+  isMoving: 0
+  canMove: 1
+  rb: {fileID: 0}
+  anim: {fileID: 0}
+  sr: {fileID: 0}
+  xInput: 0
+  yInput: 0
+  canShoot: 1
+  canAttack: 1
+  shootTimer: 0
+  attackTimer: 0
+  Shooter: {fileID: 0}
+  RageShooter: {fileID: 0}
+  UltraShooter: {fileID: 0}
+  bullet_0: {fileID: 539628993391128890, guid: e98833b1a1373d14fb6441b1caaa8a77, type: 3}
+  bullet_1: {fileID: 539628993391128890, guid: e98833b1a1373d14fb6441b1caaa8a77, type: 3}
+  bullet_2: {fileID: 539628993391128890, guid: e98833b1a1373d14fb6441b1caaa8a77, type: 3}
+  bullet_3: {fileID: 539628993391128890, guid: e98833b1a1373d14fb6441b1caaa8a77, type: 3}
+  bullet_Ultra: {fileID: 539628993391128890, guid: e98833b1a1373d14fb6441b1caaa8a77, type: 3}
+  bulletSpawn: {fileID: 8251786988899841156}
+  AttackVector: {x: 0, y: 0}
+  bulletNumber: 8
   bulletSpeed: 10
   ErrorBullet: {fileID: 539628993391128890, guid: e98833b1a1373d14fb6441b1caaa8a77, type: 3}
   m_errorState: 0

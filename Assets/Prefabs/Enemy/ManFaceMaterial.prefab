@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8903631139006321875}
   - component: {fileID: 8824739370158162050}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 2622358293703611763}
   - component: {fileID: 4294586720604628936}
   - component: {fileID: 5002361008476271377}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ManFaceMaterial
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -225,7 +225,10 @@ MonoBehaviour:
   yInput: 0
   canShoot: 0
   canAttack: 0
+  shootTimer: 0
+  attackTimer: 0
   Shooter: {fileID: 0}
+  RageShooter: {fileID: 0}
   UltraShooter: {fileID: 0}
   bullet_0: {fileID: 6570642098983685159, guid: f315331d3cb511a4ea9d80b49d0cce90, type: 3}
   bullet_1: {fileID: 6570642098983685159, guid: f315331d3cb511a4ea9d80b49d0cce90, type: 3}

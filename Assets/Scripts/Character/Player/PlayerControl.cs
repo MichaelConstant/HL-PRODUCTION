@@ -38,6 +38,7 @@ public class PlayerControl : CharacterControl
     //这里的远程每击减少能量指每次远程射击减少近战能量槽的量
     //远程射击每次命中增长远程能量槽固定为1，通过调整远程最大能量上限调整
 
+    float EnergyDecreaseTimer;
     [Header("每0.1秒远程/近战能量衰减")]
     public float RangeEnergyDecreaseAmount;
     public float MeleeEnergyDecreaseAmount;
@@ -63,13 +64,11 @@ public class PlayerControl : CharacterControl
     #endregion
 
     #endregion
-    // Start is called before the first frame update
     void Start()
     {
         keyText.text = "Key: " + KeyCounts;
         coinText.text = "Coin: " + CoinCounts;
     }
-    // Update is called once per frame
     void Update()
     {
         MeleeEnergyUI.fillAmount = (float)MeleeEnergy / MeleeEnergyMax;
@@ -121,25 +120,26 @@ public class PlayerControl : CharacterControl
             
             #region Character Input
 
-            if ((Input.GetMouseButton(0)) && (!Input.GetMouseButtonDown(1)))
+            if ( Input.GetMouseButton(0) && !Input.GetMouseButtonDown(1) )
             {
-                Shooter.enabled = false;
-                RageShooter.enabled = false;
-                Shooter.enabled = true;
-                RageShooter.enabled = true;
+                Shooter.Fire();
+                RageShooter.Fire();
             }
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(1) && canAttack)
             {
-                StartCoroutine(Attack());
+                canAttack = false;
+                AttackVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);
+                transform.GetChild(2).GetComponent<Animator>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+                transform.GetChild(2).GetComponent<Animator>().transform.Rotate(0, 0, Angle_360(AttackVector));
+                transform.GetChild(2).GetComponent<Animator>().Play("Attack");
             }
             if (Input.GetKeyDown(KeyCode.E) && RangeLevel >= 1)
             {
-                UltraShooter.enabled = false;
-                UltraShooter.enabled = true;
+                UltraShooter.Fire();
                 RangeLevel -= 1;
                 RangeEnergy = 0;
                 RangeUltraText.SetActive(false);
-                }
+            }
             if (Input.GetKeyDown(KeyCode.Q) && MeleeLevel >= 1)
             {
                 onRage = true;
@@ -148,16 +148,57 @@ public class PlayerControl : CharacterControl
             #endregion
         }
     }
-    void FixedUpdate()
+    public override void FixedUpdate()
     {
+        base.FixedUpdate();
+
         if (isAlive && canMove)
         {
             Move(xInput, yInput);
         }
+
         if (canDecrease)
         {
-            StartCoroutine(MeleeEnergyDecrease());
+            canDecrease = false;
+            MeleeLevelUI.text = "LV: " + (MeleeLevel + 1);
+            MeleeLevelHint.GetComponent<Text>().text = "Pree Q to RAGE: LV." + (MeleeLevel + 1);
+            if (MeleeLevel > 0)
+            {
+                MeleeLevelHint.SetActive(true);
+            }
+            else
+            {
+                MeleeLevelHint.SetActive(false);
+            }
+            if (MeleeEnergy > 0)
+            {
+                MeleeEnergy -= MeleeEnergyDecreaseAmount;
+            }
+            if (MeleeEnergy <= 0 && MeleeLevel > 0)
+            {
+                MeleeLevel -= 1;
+                MeleeEnergy += MeleeEnergyMax;
+            }
+            if (MeleeEnergy <= 0 && MeleeLevel == 0)
+            {
+                onRage = false;
+                MeleeEnergyDecreaseAmount = 0.01f;
+            }
+            canDecrease = true;
         }
+        else
+        {
+            if (EnergyDecreaseTimer < 0.1)
+            {
+                EnergyDecreaseTimer += Time.deltaTime;
+            }
+            else
+            {
+                EnergyDecreaseTimer = 0;
+                canDecrease = true;
+            }
+        }
+
         if (currentHP <= 0)
         {
             if(gameObject.GetComponent<Sakiro_Buff>() != null)
@@ -178,49 +219,6 @@ public class PlayerControl : CharacterControl
             }
         }
     }
-    public IEnumerator Attack()
-    {
-        if (canAttack)
-        {
-            canAttack = false;
-            AttackVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);
-            GetComponentInChildren<Shooter_Base>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-            GetComponentInChildren<Shooter_Base>().transform.Rotate(0, 0, Angle_360(AttackVector));
-            GetComponentInChildren<Shooter_Base>().GetComponentInChildren<Animator>().Play("Attack");
-            yield return new WaitForSeconds(AttackInterval_Final);
-            canAttack = true;
-        }
-    }
-    public IEnumerator MeleeEnergyDecrease()
-    {
-        canDecrease = false;
-        MeleeLevelUI.text = "LV: " + (MeleeLevel + 1);
-        MeleeLevelHint.GetComponent<Text>().text = "Pree Q to RAGE: LV." + (MeleeLevel + 1);
-        if (MeleeLevel > 0)
-        {
-            MeleeLevelHint.SetActive(true);
-        }
-        else
-        {
-            MeleeLevelHint.SetActive(false);
-        }
-        if (MeleeEnergy > 0)
-        {
-            MeleeEnergy -= MeleeEnergyDecreaseAmount;
-        }
-        if (MeleeEnergy <= 0 && MeleeLevel > 0)
-        {
-            MeleeLevel -= 1;
-            MeleeEnergy += MeleeEnergyMax;
-        }
-        if (MeleeEnergy <= 0 && MeleeLevel == 0)
-        {
-            onRage = false;
-            MeleeEnergyDecreaseAmount = 0.01f;
-        }
-        yield return new WaitForSeconds(0.1f);
-        canDecrease = true;
-    }
     public void MeleeEnergyDecreaseOfShooting()
     {
         if (canShoot && !onRage)
@@ -239,7 +237,65 @@ public class PlayerControl : CharacterControl
     }
     public IEnumerator PlayerDead()
     {
+        RoomGenerator.RoomList.Clear();
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene("Studio");
+        SceneManager.LoadScene(1);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<CharacterControl>() != null)
+        {
+            currentHP -= collision.gameObject.GetComponent<CharacterControl>().meleeDamage_Final;
+            canMove = false;
+            rb.velocity = new Vector2 (0,0);
+            rb.velocity = (transform.position - collision.transform.position).normalized * 2.5f;
+            if (gameObject.layer == 6)
+            {
+                gameObject.layer = 11;
+            }
+            else
+            {
+                gameObject.layer = 12;
+            }
+            StartCoroutine(Invincible());
+            StartCoroutine(ChangeColor());
+        }
+    }
+    IEnumerator Invincible()
+    {
+        yield return new WaitForSeconds(0.05f);
+        canMove = true;
+        yield return new WaitForSeconds(1f);
+        if (gameObject.layer == 11)
+        {
+            gameObject.layer = 6;
+        }
+        else
+        {
+            gameObject.layer = 9;
+        }
+    }
+    IEnumerator ChangeColor()
+    {
+        Color Red = new Color32(255, 0, 0, 255);
+        Color Common = new Color32(255, 255, 255, 255);
+        float t;
+        for (int i=0; i<5; i++)
+        {
+            t = 0f;
+            while (t <= 1f)
+            {
+                t += Time.deltaTime / 0.1f;
+                sr.color = Color32.Lerp(Common, Red, t);
+                yield return null;
+            }
+            t = 0f;
+            while (t <= 1f)
+            {
+                t += Time.deltaTime / 0.1f;
+                sr.color = Color32.Lerp(Red, Common, t);
+                yield return null;
+            }
+        }
     }
 }
