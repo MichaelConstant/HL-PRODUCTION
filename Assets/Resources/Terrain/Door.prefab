@@ -435,3 +435,5 @@ MonoBehaviour:
   room_Controller: {fileID: 0}
   doorDirection: 0
   roomTypeAside: 0
+  roomAsideEntered: 0
+  roomAsideLocked: 0
