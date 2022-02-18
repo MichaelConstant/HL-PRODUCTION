@@ -77,6 +77,7 @@ public class PauseMenuControl : MonoBehaviour
     public void Continue()
     {
         PauseInterface.SetActive(false);
+        isPauseOpen = false;
         Time.timeScale = 1;
     }
     public void PauseMenuToggle()

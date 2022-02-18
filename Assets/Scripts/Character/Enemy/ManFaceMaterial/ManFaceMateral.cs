@@ -22,7 +22,7 @@ public class ManFaceMateral : CharacterControl
     {
         base.FixedUpdate();
 
-        BossHP.transform.GetChild(1).GetComponent<Image>().fillAmount = (float)currentHP / maxHP;
+        BossHP.transform.GetChild(1).GetComponent<Image>().fillAmount = (float) currentHP / maxHP;
 
         AttackVector = (GameObject.FindWithTag("Player").transform.position - transform.position);
 

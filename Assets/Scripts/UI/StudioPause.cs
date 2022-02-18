@@ -10,7 +10,6 @@ public class StudioPause : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        Menu.SetActive(false);
         MenuOpen = false;
     }
     private void Update()

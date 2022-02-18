@@ -7,13 +7,19 @@ using UnityEngine.UI;
 public class PlayerControl : CharacterControl
 {
     #region 变量
-    
+
     public int KeyCounts;
     public Text keyText;
 
     public int CoinCounts;
     public Text coinText;
 
+    [Header("近战/远程受击被击退时间/无敌时间, 单位秒")]
+    public float KnockBackSeconds_Melee;
+    public float KnockBackSeconds_Range;
+
+    public float InvincibleSeconds_Melee;
+    public float InvincibleSeconds_Range;
 
     public Image MeleeEnergyUI;
     public Text MeleeLevelUI;
@@ -255,15 +261,36 @@ public class PlayerControl : CharacterControl
             {
                 gameObject.layer = 12;
             }
-            StartCoroutine(Invincible());
-            StartCoroutine(ChangeColor());
+            StartCoroutine(Invincible(KnockBackSeconds_Melee, InvincibleSeconds_Melee));
+            StartCoroutine(ChangeColor(InvincibleSeconds_Melee));
         }
     }
-    IEnumerator Invincible()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        yield return new WaitForSeconds(0.05f);
+        if (collision.gameObject.GetComponent<EnemyBullet>() != null)
+        {
+            Debug.Log("111");
+            canMove = false;
+            rb.velocity = new Vector2(0, 0);
+            rb.velocity = (transform.position - collision.transform.position).normalized * 2.5f;
+            if (gameObject.layer == 6)
+            {
+                gameObject.layer = 11;
+            }
+            else
+            {
+                gameObject.layer = 12;
+            }
+            StartCoroutine(Invincible(KnockBackSeconds_Range, InvincibleSeconds_Range));
+            StartCoroutine(ChangeColor(InvincibleSeconds_Range));
+        }
+    }
+
+    IEnumerator Invincible(float KnockBackSeconds, float InvincibleSeconds)
+    {
+        yield return new WaitForSeconds(KnockBackSeconds);
         canMove = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(InvincibleSeconds);
         if (gameObject.layer == 11)
         {
             gameObject.layer = 6;
@@ -273,12 +300,12 @@ public class PlayerControl : CharacterControl
             gameObject.layer = 9;
         }
     }
-    IEnumerator ChangeColor()
+    IEnumerator ChangeColor(float InvincibleSeconds)
     {
         Color Red = new Color32(255, 0, 0, 255);
         Color Common = new Color32(255, 255, 255, 255);
         float t;
-        for (int i=0; i<5; i++)
+        for (int i=0; i< (int)(InvincibleSeconds / 0.2f); i++)
         {
             t = 0f;
             while (t <= 1f)
