@@ -18,12 +18,22 @@ public class ManFaceMateral : CharacterControl
         BossHP.SetActive(true);
         Idle();
     }
-    private void FixedUpdate()
+    public override void FixedUpdate()
     {
+        base.FixedUpdate();
+
         BossHP.transform.GetChild(1).GetComponent<Image>().fillAmount = (float)currentHP / maxHP;
 
         AttackVector = (GameObject.FindWithTag("Player").transform.position - transform.position);
 
+        if (currentHP <= 0)
+        {
+            rb.gravityScale = 0;
+            rb.velocity = new Vector3(0, 0, 0);
+            BossHP.SetActive(false);
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            anim.Play("Dead");
+        }
         if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1f)
         {
             if (currentHP <= 0)
@@ -78,14 +88,7 @@ public class ManFaceMateral : CharacterControl
                     break;
             }
         }
-        if (currentHP <= 0)
-        {
-            rb.gravityScale = 0;
-            rb.velocity = new Vector3(0, 0, 0);
-            BossHP.SetActive(false);
-            gameObject.GetComponent<CircleCollider2D>().enabled = false;
-            anim.Play("Dead");
-        }
+        
     }
     private IEnumerator Jump()
     {
