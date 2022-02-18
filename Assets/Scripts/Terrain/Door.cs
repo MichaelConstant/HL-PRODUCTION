@@ -159,6 +159,7 @@ public class Door : MonoBehaviour
                         anim.Play("Boss_Appear_Right");
                         break;
                 }
+                gameObject.transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = false;
             }
             else
             {
