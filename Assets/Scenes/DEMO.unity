@@ -626,11 +626,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnNumForArt: 0
   rewardNumForArt: 1
-  spawnNumForDesign: 3
+  spawnNumForDesign: 0
   rewardNumForDesign: 1
-  spawnNumForProgram: 3
+  spawnNumForProgram: 0
   rewardNumForProgram: 1
-  spawnNumForBoss: 1
+  spawnNumForBoss: 0
   rewardNumForBoss: 1
 --- !u!4 &6193430724878962534
 Transform:
