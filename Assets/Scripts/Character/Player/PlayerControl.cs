@@ -14,14 +14,13 @@ public class PlayerControl : CharacterControl
     public int CoinCounts;
     public Text coinText;
 
-    public Image HPUI;
 
     public Image MeleeEnergyUI;
     public Text MeleeLevelUI;
     public GameObject MeleeLevelHint;
 
     public Image RangeEnergyUI;
-    public GameObject RangeUltraText;
+    public GameObject RangeUltraUI;
 
     #region 能量系统相关
 
@@ -71,9 +70,8 @@ public class PlayerControl : CharacterControl
     }
     void Update()
     {
-        MeleeEnergyUI.fillAmount = (float)MeleeEnergy / MeleeEnergyMax;
+        //MeleeEnergyUI.fillAmount = (float)MeleeEnergy / MeleeEnergyMax;
         RangeEnergyUI.fillAmount = (float)RangeEnergy / RangeEnergyMax;
-        HPUI.fillAmount = (float)currentHP / maxHP;
 
         if (isAlive)
         {
@@ -138,7 +136,7 @@ public class PlayerControl : CharacterControl
                 UltraShooter.Fire();
                 RangeLevel -= 1;
                 RangeEnergy = 0;
-                RangeUltraText.SetActive(false);
+                RangeUltraUI.SetActive(false);
             }
             if (Input.GetKeyDown(KeyCode.Q) && MeleeLevel >= 1)
             {

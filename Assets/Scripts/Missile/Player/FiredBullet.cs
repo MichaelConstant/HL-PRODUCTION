@@ -65,7 +65,7 @@ public class FiredBullet : Bullet
                     if (Player.RangeEnergy >= Player.RangeEnergyMax && Player.RangeLevel >= Player.RangeLevelMax)
                     {
                         Player.RangeEnergy = Player.RangeEnergyMax;
-                        Player.RangeUltraText.SetActive(true);
+                        Player.RangeUltraUI.SetActive(true);
                     }
                 }
                 collision.gameObject.GetComponent<CharacterControl>().currentHP -= BulletDamage;
