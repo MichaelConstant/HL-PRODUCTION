@@ -25,6 +25,7 @@ public class Door : MonoBehaviour
     public RoomTypeAside roomTypeAside;
 
     bool roomAsideEntered;
+    bool roomAsideLocked;
     
     private void Awake()
     {
@@ -109,6 +110,8 @@ public class Door : MonoBehaviour
             {
                 roomAsideEntered = RoomGenerator.RoomList.Find(Room => Room.RoomLocation == GetComponentInParent<RoomController>().ChangePos((int)doorDirection, transform.position)).RoomEntered;
                 anim.SetBool("RoomAsideEntered", roomAsideEntered);
+                roomAsideLocked = RoomGenerator.RoomList.Find(Room => Room.RoomLocation == GetComponentInParent<RoomController>().ChangePos((int)doorDirection, transform.position)).RoomLocked;
+                anim.SetBool("RoomAsideLocked", roomAsideLocked);
             }
         }
     }
@@ -159,23 +162,44 @@ public class Door : MonoBehaviour
             }
             else
             {
-                switch (doorDirection)
+                if (roomAsideLocked)
                 {
-                    case DoorDirection.up:
-                        anim.Play("Opened_Appear_Up");
-                        break;
-                    case DoorDirection.down:
-                        anim.Play("Opened_Appear_Down");
-                        break;
-                    case DoorDirection.left:
-                        anim.Play("Opened_Appear_Left");
-                        break;
-                    case DoorDirection.right:
-                        anim.Play("Opened_Appear_Right");
-                        break;
+                    switch (doorDirection)
+                    {
+                        case DoorDirection.up:
+                            anim.Play("Opened_Appear_Up");
+                            break;
+                        case DoorDirection.down:
+                            anim.Play("Opened_Appear_Down");
+                            break;
+                        case DoorDirection.left:
+                            anim.Play("Opened_Appear_Left");
+                            break;
+                        case DoorDirection.right:
+                            anim.Play("Opened_Appear_Right");
+                            break;
+                    }
                 }
+                else
+                {
+                    switch (doorDirection)
+                    {
+                        case DoorDirection.up:
+                            anim.Play("Locked_Appear_Up");
+                            break;
+                        case DoorDirection.down:
+                            anim.Play("Locked_Appear_Down");
+                            break;
+                        case DoorDirection.left:
+                            anim.Play("Locked_Appear_Left");
+                            break;
+                        case DoorDirection.right:
+                            anim.Play("Locked_Appear_Right");
+                            break;
+                    }
+                }
+                gameObject.transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = false;
             }
-            gameObject.transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 }

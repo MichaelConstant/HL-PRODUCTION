@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8826966099889405901}
   - component: {fileID: 1947688269026940338}
+  - component: {fileID: 3621295196272052696}
   m_Layer: 0
   m_Name: Block_Down
   m_TagString: Terrain
@@ -57,6 +58,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.53, y: 0.38}
   m_EdgeRadius: 0
+--- !u!114 &3621295196272052696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72840543094728174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09751769d9c3b59428cf08d3baa1f223, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4267046235292362743
 GameObject:
   m_ObjectHideFlags: 0
@@ -67,6 +80,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8201635915460247190}
   - component: {fileID: 3537700355723943217}
+  - component: {fileID: 3098997929784856156}
   m_Layer: 0
   m_Name: Block_Up
   m_TagString: Terrain
@@ -114,6 +128,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.53, y: 0.38}
   m_EdgeRadius: 0
+--- !u!114 &3098997929784856156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4267046235292362743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09751769d9c3b59428cf08d3baa1f223, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4508975432179320296
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,6 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3575453691720715252}
   - component: {fileID: 4836909098770126587}
+  - component: {fileID: 2463438715383986401}
   m_Layer: 0
   m_Name: Block_Right
   m_TagString: Terrain
@@ -171,6 +198,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.39, y: 0.53}
   m_EdgeRadius: 0
+--- !u!114 &2463438715383986401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4508975432179320296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09751769d9c3b59428cf08d3baa1f223, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6306246584484050993
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,6 +220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7579640648703686099}
   - component: {fileID: 1344168883540467887}
+  - component: {fileID: 5614404010975028476}
   m_Layer: 0
   m_Name: Block_Left
   m_TagString: Terrain
@@ -228,6 +268,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.39, y: 0.53}
   m_EdgeRadius: 0
+--- !u!114 &5614404010975028476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6306246584484050993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09751769d9c3b59428cf08d3baa1f223, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7683775030328422795
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,5 +432,6 @@ MonoBehaviour:
   defaultDoorRight: {fileID: 1718843793830217583, guid: 1a6da3cf509483b4cbbb96784dc7bdd0, type: 3}
   anim: {fileID: 0}
   sr: {fileID: 0}
+  room_Controller: {fileID: 0}
   doorDirection: 0
   roomTypeAside: 0

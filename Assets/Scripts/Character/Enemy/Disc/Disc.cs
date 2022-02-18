@@ -5,13 +5,13 @@ using UnityEngine;
 public class Disc : CharacterControl
 {
     PlayerControl Player;
-    Vector2 VectorGoing;
 
     void Start()
     {
         Player = GameObject.FindWithTag("Player").GetComponent<PlayerControl>();
         AttackVector = (Player.transform.position - transform.position).normalized;
-        rb.velocity = AttackVector * movementSpeed_Final;
+        rb.velocity = new Vector2(0,0);
+        StartCoroutine(StartRolling());
     }
     public override void FixedUpdate()
     {
@@ -46,5 +46,13 @@ public class Disc : CharacterControl
         {
             rb.velocity = (new Vector2(-rb.velocity.x, -rb.velocity.y)).normalized * movementSpeed_Final;
         }
+    }
+
+    IEnumerator StartRolling()
+    {
+        yield return new WaitForSeconds(1f);
+        Player = GameObject.FindWithTag("Player").GetComponent<PlayerControl>();
+        AttackVector = (Player.transform.position - transform.position).normalized;
+        rb.velocity = AttackVector * movementSpeed_Final;
     }
 }

@@ -19,11 +19,13 @@ public class RoomGenerator : MonoBehaviour
         //此处记得检查与RoomController中的枚举类型保持顺序一致，防止出bug
         public Vector3 RoomLocation;
         public bool RoomEntered;
-        public Room(int RoomType, Vector3 RoomLocation)
+        public bool RoomLocked;
+        public Room(int RoomType, Vector3 RoomLocation, bool LockedOrNot)
         {
             this.RoomType = RoomType;
             this.RoomLocation = RoomLocation;
             this.RoomEntered = false;
+            this.RoomLocked = LockedOrNot;
         }
     }
 
@@ -71,7 +73,7 @@ public class RoomGenerator : MonoBehaviour
         {
             if (i == 0)
             {
-                RoomList.Add(new Room(0, transform.position));
+                RoomList.Add(new Room(0, transform.position, false));
                 continue;
             }
             else if (i == randLengthOfFirstRoomLine)
@@ -92,16 +94,16 @@ public class RoomGenerator : MonoBehaviour
             {
                 if (i == randLengthOfFirstRoomLine-1)
                 {
-                    RoomList.Add(new Room(4, transform.position));
+                    RoomList.Add(new Room(4, transform.position, false));
                 }
                 else if (i == RoomNum - 1)
                 {
-                    RoomList.Add(new Room(2, transform.position));
+                    RoomList.Add(new Room(2, transform.position, true));
                 }
                 else
                 {
                     int rand = RandomNum();
-                    RoomList.Add(new Room(rand, transform.position));
+                    RoomList.Add(new Room(rand, transform.position, false));
                 }
             }
         }
