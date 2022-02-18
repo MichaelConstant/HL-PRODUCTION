@@ -52,7 +52,6 @@ public class RoomGenerator : MonoBehaviour
     {
         LevelManager = GetComponentInChildren<LevelManager>();
     }
-
     void Start()
     {
         #region 生成房间列表 Generate Room List

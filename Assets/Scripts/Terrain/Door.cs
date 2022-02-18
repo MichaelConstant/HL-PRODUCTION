@@ -24,8 +24,8 @@ public class Door : MonoBehaviour
     //0,1,2,3,4,5,*6*
     public RoomTypeAside roomTypeAside;
 
-    bool roomAsideEntered;
-    bool roomAsideLocked;
+    public bool roomAsideEntered;
+    public bool roomAsideLocked;
     
     private void Awake()
     {
@@ -162,7 +162,7 @@ public class Door : MonoBehaviour
             }
             else
             {
-                if (roomAsideLocked)
+                if (!roomAsideLocked)
                 {
                     switch (doorDirection)
                     {
@@ -179,6 +179,7 @@ public class Door : MonoBehaviour
                             anim.Play("Opened_Appear_Right");
                             break;
                     }
+                    gameObject.transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = false;
                 }
                 else
                 {
@@ -198,7 +199,6 @@ public class Door : MonoBehaviour
                             break;
                     }
                 }
-                gameObject.transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = false;
             }
         }
     }

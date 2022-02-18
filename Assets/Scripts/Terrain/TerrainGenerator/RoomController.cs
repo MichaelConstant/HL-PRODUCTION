@@ -21,10 +21,10 @@ public class RoomController : MonoBehaviour
     Vector3 RoomPos;
     Vector3 cameraVector3 = Vector3.zero;
 
-    bool spawned;
+    public bool spawned;
     public int spawnNum;
 
-    bool rewarded;
+    public bool rewarded;
     public int rewardNum;
 
     bool doorAnimPlayed;
@@ -143,6 +143,10 @@ public class RoomController : MonoBehaviour
         if (collision.GetComponent<FiredBullet>() != null || collision.GetComponent<ParriedBullet>() != null || collision.GetComponent<EnemyBullet>() != null)
         {
             Destroy(collision.gameObject);
+        }
+        if (collision.GetComponent<PlayerControl>() != null)
+        {
+            doorAnimPlayed = false;
         }
     }
     public Vector3 ChangePos(int direction, Vector3 Location)
