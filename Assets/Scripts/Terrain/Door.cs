@@ -101,16 +101,15 @@ public class Door : MonoBehaviour
                 break;
         }
     }
-    private void FixedUpdate()
-    {
-
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<PlayerControl>() != null)
         {
-            roomAsideEntered = RoomGenerator.RoomList.Find(Room => Room.RoomLocation == GetComponentInParent<RoomController>().ChangePos((int)doorDirection, transform.position)).RoomEntered;
-            anim.SetBool("RoomAsideEntered", roomAsideEntered);
+            if (RoomGenerator.RoomList.Exists(Room => Room.RoomLocation == GetComponentInParent<RoomController>().ChangePos((int)doorDirection, transform.position)))
+            {
+                roomAsideEntered = RoomGenerator.RoomList.Find(Room => Room.RoomLocation == GetComponentInParent<RoomController>().ChangePos((int)doorDirection, transform.position)).RoomEntered;
+                anim.SetBool("RoomAsideEntered", roomAsideEntered);
+            }
         }
     }
     public void ShutTheGay()

@@ -45,6 +45,7 @@ public class RoomController : MonoBehaviour
                 break;
             case RoomType.ArtRoom:
                 sr.sprite = Art;
+                sr.color = new Color32(255, 255, 0, 255);
                 break;
             case RoomType.DesignRoom:
                 sr.sprite = Design;
@@ -123,14 +124,7 @@ public class RoomController : MonoBehaviour
 
         if (spawned && GameObject.FindGameObjectWithTag("Enemy") == null && !rewarded)
         {
-            if (roomType == RoomType.ArtRoom || roomType == RoomType.BossRoom)
-            {
-                GenerateTreasures();
-            }
-            else
-            {
-                GenerateRewards();
-            }
+            GenerateRewards();
             rewarded = true;
         }
 
@@ -182,7 +176,7 @@ public class RoomController : MonoBehaviour
         GeneratedDoor.GetComponent<Door>().doorDirection = (Door.DoorDirection) DoorDirection;
         GeneratedDoor.transform.parent = transform;
     }
-    public void GenerateEnemies()
+    void GenerateEnemies()
     {
         switch (roomType)
         {
@@ -204,48 +198,26 @@ public class RoomController : MonoBehaviour
 
         for (int i = 0; i < rand; i++)
         {
-            int type = Random.Range(1, 4);
+            int Enemytype = Random.Range(0, LevelManager.EnemiesList.Count + 1);
 
             if (roomType == RoomType.ProgramRoom)
             {
-                switch (type)
-                {
-                    case 1:
-                        Instantiate(GetComponentInParent<LevelManager>().Enemy_1, gameObject.transform.position, Quaternion.identity);
-                        break;
-                    case 2:
-                        Instantiate(GetComponentInParent<LevelManager>().Enemy_2, gameObject.transform.position, Quaternion.identity);
-                        break;
-                    case 3:
-                        Instantiate(GetComponentInParent<LevelManager>().Enemy_3, gameObject.transform.position, Quaternion.identity);
-                        break;
-                    default:
-                        Instantiate(GetComponentInParent<LevelManager>().Enemy_1, gameObject.transform.position, Quaternion.identity);
-                        break;
-                }
+                Instantiate(LevelManager.EnemiesList[Enemytype], gameObject.transform.position, Quaternion.identity);
+            }
+            else if (roomType == RoomType.DesignRoom)
+            {
+                Instantiate(LevelManager.EnemiesList[Enemytype], gameObject.transform.position, Quaternion.identity);
             }
             else if (roomType == RoomType.BossRoom)
             {
-                switch (type)
-                {
-                    case 1:
-                        Instantiate(GetComponentInParent<LevelManager>().Boss_1, gameObject.transform.position, Quaternion.identity);
-                        break;
-                    case 2:
-                        Instantiate(GetComponentInParent<LevelManager>().Boss_2, gameObject.transform.position, Quaternion.identity);
-                        break;
-                    case 3:
-                        Instantiate(GetComponentInParent<LevelManager>().Boss_3, gameObject.transform.position, Quaternion.identity);
-                        break;
-                    default:
-                        Instantiate(GetComponentInParent<LevelManager>().Boss_1, gameObject.transform.position, Quaternion.identity);
-                        break;
-                }
+                Instantiate(LevelManager.BossesList[Enemytype], gameObject.transform.position, Quaternion.identity);
             }
         }
     }
-    public void GenerateRewards()
+    void GenerateRewards()
     {
+        int randRewardNum = 1;
+
         switch (roomType)
         {
             case RoomType.ArtRoom:
@@ -253,113 +225,29 @@ public class RoomController : MonoBehaviour
                 break;
             case RoomType.DesignRoom:
                 rewardNum = GetComponentInParent<LevelManager>().rewardNumForDesign;
+                randRewardNum = Random.Range(0, rewardNum + 1);
                 break;
             case RoomType.ProgramRoom:
                 rewardNum = GetComponentInParent<LevelManager>().rewardNumForProgram;
+                randRewardNum = Random.Range(0, rewardNum + 1);
                 break;
             case RoomType.BossRoom:
                 rewardNum = GetComponentInParent<LevelManager>().rewardNumForBoss;
                 break;
         }
-
-        int randRewardNum = Random.Range(0, rewardNum + 1);
 
         for (int i = 0; i < randRewardNum; i++)
         {
-            int type = Random.Range(1, 4);
+            int type = Random.Range(0, 3);
 
             if (roomType == RoomType.ArtRoom || roomType == RoomType.BossRoom)
             {
-                switch (type)
-                {
-                    case 1:
-                        Instantiate(GetComponentInParent<LevelManager>().Prop_1, gameObject.transform.position, Quaternion.identity);
-                        break;
-                    case 2:
-                        Instantiate(GetComponentInParent<LevelManager>().Prop_2, gameObject.transform.position, Quaternion.identity);
-                        break;
-                    case 3:
-                        Instantiate(GetComponentInParent<LevelManager>().Prop_3, gameObject.transform.position, Quaternion.identity);
-                        break;
-                }
+                Instantiate(LevelManager.ItemsList[type], gameObject.transform.position, Quaternion.identity);
             }
             else
             {
-                switch (type)
-                {
-                    case 1:
-                        Instantiate(GetComponentInParent<LevelManager>().Heal, gameObject.transform.position, Quaternion.identity);
-                        break;
-                    case 2:
-                        Instantiate(GetComponentInParent<LevelManager>().Coin, gameObject.transform.position, Quaternion.identity);
-                        break;
-                    case 3:
-                        Instantiate(GetComponentInParent<LevelManager>().Key, gameObject.transform.position, Quaternion.identity);
-                        break;
-                }
+                Instantiate(LevelManager.PropsList[type], gameObject.transform.position, Quaternion.identity);
             }
-        }
-    }
-    public void GenerateTreasures()
-    {
-        switch (roomType)
-        {
-            case RoomType.ArtRoom:
-                rewardNum = GetComponentInParent<LevelManager>().rewardNumForArt;
-                break;
-            case RoomType.DesignRoom:
-                rewardNum = GetComponentInParent<LevelManager>().rewardNumForDesign;
-                break;
-            case RoomType.ProgramRoom:
-                rewardNum = GetComponentInParent<LevelManager>().rewardNumForProgram;
-                break;
-            case RoomType.BossRoom:
-                rewardNum = GetComponentInParent<LevelManager>().rewardNumForBoss;
-                break;
-        }
-
-        for (int i = 0; i < rewardNum; i++)
-        {
-            int type = Random.Range(1, 4);
-
-            if (roomType == RoomType.ArtRoom || roomType == RoomType.BossRoom)
-            {
-                switch (type)
-                {
-                    case 1:
-                        Instantiate(GetComponentInParent<LevelManager>().Prop_1, gameObject.transform.position, Quaternion.identity);
-                        break;
-                    case 2:
-                        Instantiate(GetComponentInParent<LevelManager>().Prop_2, gameObject.transform.position, Quaternion.identity);
-                        break;
-                    case 3:
-                        Instantiate(GetComponentInParent<LevelManager>().Prop_3, gameObject.transform.position, Quaternion.identity);
-                        break;
-                }
-            }
-            else
-            {
-                switch (type)
-                {
-                    case 1:
-                        Instantiate(GetComponentInParent<LevelManager>().Heal, gameObject.transform.position, Quaternion.identity);
-                        break;
-                    case 2:
-                        Instantiate(GetComponentInParent<LevelManager>().Coin, gameObject.transform.position, Quaternion.identity);
-                        break;
-                    case 3:
-                        Instantiate(GetComponentInParent<LevelManager>().Key, gameObject.transform.position, Quaternion.identity);
-                        break;
-                }
-            }
-        }
-    }
-    public void OpenTheGay()
-    {
-        LockedDoor[] LockedDoors = transform.GetComponentsInChildren<LockedDoor>();
-        for (int i = 0; i < LockedDoors.Length; i++)
-        {
-            LockedDoors[i].GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 }

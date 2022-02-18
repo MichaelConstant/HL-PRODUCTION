@@ -27,8 +27,12 @@ public class RoomGenerator : MonoBehaviour
         }
     }
 
-    [Header("房间信息")]
     LevelManager LevelManager;
+
+    [Header("房间权重")]
+    public int program_Weight;
+    public int art_Weight;
+    public int design_Weight;
 
     public GameObject RoomObject;
 
@@ -96,15 +100,11 @@ public class RoomGenerator : MonoBehaviour
                 }
                 else
                 {
-                    int rand = Random.Range(1, 4);
+                    int rand = RandomNum();
                     RoomList.Add(new Room(rand, transform.position));
                 }
             }
         }
-
-        #endregion
-
-        #region 定位BOSS房、宝藏房(WORKING)
 
         #endregion
 
@@ -142,5 +142,26 @@ public class RoomGenerator : MonoBehaviour
         GameObject Room = Instantiate(RoomObject, generatePoint, Quaternion.identity);
         Room.GetComponent<RoomController>().roomType = (RoomController.RoomType) GenerateRoomType;
         Room.transform.parent = LevelManager.transform;
+    }
+    int RandomNum()
+    {
+        int sum_Weight = program_Weight + art_Weight + design_Weight;
+        int rand_Weight = Random.Range(1, sum_Weight + 1);
+        if (rand_Weight >= 1 && rand_Weight <= program_Weight)
+        {
+            return 1;
+        }
+        else if (rand_Weight > program_Weight && rand_Weight <= program_Weight + art_Weight)
+        {
+            return 2;
+        }
+        else if (rand_Weight > program_Weight + art_Weight && rand_Weight <= sum_Weight)
+        {
+            return 3;
+        }
+        else
+        {
+            return 1;
+        }
     }
 }
