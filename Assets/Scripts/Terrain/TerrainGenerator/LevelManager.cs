@@ -16,42 +16,42 @@ public class LevelManager : MonoBehaviour
     public int spawnNumForBoss;
     public int rewardNumForBoss;
 
-    Object[] Enemies;
-    Object[] Bosses;
-    Object[] Items;
-    Object[] Props;
+    GameObject[] Enemies;
+    GameObject[] Bosses;
+    GameObject[] Items;
+    GameObject[] Props;
 
-    public static List<Object> EnemiesList;
-    public static List<Object> BossesList;
-    public static List<Object> ItemsList;
-    public static List<Object> PropsList;
+    public static List<GameObject> EnemiesList = new List<GameObject>();
+    public static List<GameObject> BossesList = new List<GameObject>();
+    public static List<GameObject> ItemsList = new List<GameObject>();
+    public static List<GameObject> PropsList = new List<GameObject>();
 
     private void Awake()
     {
-        Enemies =  Resources.LoadAll("Enemy/Common");
-        Bosses = Resources.LoadAll("Enemy/Common");
-        Items = Resources.LoadAll("Enemy/Item");
-        Props = Resources.LoadAll("Enemy/Prop");
+        Enemies = Resources.LoadAll<GameObject>("Enemy/Common");
+        Bosses = Resources.LoadAll<GameObject>("Enemy/Boss");
+        Items = Resources.LoadAll<GameObject>("Item");
+        Props = Resources.LoadAll<GameObject>("Prop");
 
         for (int i = 0; i < Enemies.Length; i++)
         {
-            EnemiesList.Add((GameObject)Enemies[i]);
-            for (int j = 0; j < EnemiesList.Count; j++)
-            {
-                Debug.Log(EnemiesList[j]);
-            }
+            EnemiesList.Add(Enemies[i]);
         }
+
         for (int i = 0; i < Bosses.Length; i++)
         {
-            BossesList.Add((GameObject)Enemies[i]);
+            BossesList.Add(Bosses[i]);
         }
+
         for (int i = 0; i < Items.Length; i++)
         {
-            ItemsList.Add((GameObject)Enemies[i]);
+            ItemsList.Add(Items[i]);
         }
+
         for (int i = 0; i < Props.Length; i++)
         {
-            PropsList.Add((GameObject)Enemies[i]);
+
+            PropsList.Add(Props[i]);
         }
     }
 }

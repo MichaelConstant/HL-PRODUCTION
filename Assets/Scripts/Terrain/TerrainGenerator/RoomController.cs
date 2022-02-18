@@ -178,6 +178,8 @@ public class RoomController : MonoBehaviour
     }
     void GenerateEnemies()
     {
+        int randSpawnNum = 1;
+
         switch (roomType)
         {
             case RoomType.ArtRoom:
@@ -185,32 +187,37 @@ public class RoomController : MonoBehaviour
                 break;
             case RoomType.DesignRoom:
                 spawnNum = GetComponentInParent<LevelManager>().spawnNumForDesign;
+                randSpawnNum = Random.Range(1, spawnNum + 1);
                 break;
             case RoomType.ProgramRoom:
                 spawnNum = GetComponentInParent<LevelManager>().spawnNumForProgram;
+                randSpawnNum = Random.Range(1, spawnNum + 1);
                 break;
             case RoomType.BossRoom:
                 spawnNum = GetComponentInParent<LevelManager>().spawnNumForBoss;
                 break;
         }
 
-        int rand = Random.Range(1, spawnNum + 1);
-
-        for (int i = 0; i < rand; i++)
+        for (int i = 0; i < randSpawnNum; i++)
         {
-            int Enemytype = Random.Range(0, LevelManager.EnemiesList.Count + 1);
-
             if (roomType == RoomType.ProgramRoom)
             {
+                int Enemytype = Random.Range(0, LevelManager.EnemiesList.Count);
                 Instantiate(LevelManager.EnemiesList[Enemytype], gameObject.transform.position, Quaternion.identity);
             }
             else if (roomType == RoomType.DesignRoom)
             {
+                int Enemytype = Random.Range(0, LevelManager.EnemiesList.Count);
                 Instantiate(LevelManager.EnemiesList[Enemytype], gameObject.transform.position, Quaternion.identity);
             }
             else if (roomType == RoomType.BossRoom)
             {
+                int Enemytype = Random.Range(0, LevelManager.BossesList.Count);
                 Instantiate(LevelManager.BossesList[Enemytype], gameObject.transform.position, Quaternion.identity);
+            }
+            else
+            {
+                break;
             }
         }
     }
@@ -238,15 +245,17 @@ public class RoomController : MonoBehaviour
 
         for (int i = 0; i < randRewardNum; i++)
         {
-            int type = Random.Range(0, 3);
 
             if (roomType == RoomType.ArtRoom || roomType == RoomType.BossRoom)
             {
-                Instantiate(LevelManager.ItemsList[type], gameObject.transform.position, Quaternion.identity);
+                int type = Random.Range(0, LevelManager.PropsList.Count);
+                Instantiate(LevelManager.PropsList[type], gameObject.transform.position, Quaternion.identity);
+                LevelManager.PropsList.Remove(LevelManager.PropsList[type]);
             }
             else
             {
-                Instantiate(LevelManager.PropsList[type], gameObject.transform.position, Quaternion.identity);
+                int type = Random.Range(0, LevelManager.ItemsList.Count);
+                Instantiate(LevelManager.ItemsList[type], gameObject.transform.position, Quaternion.identity);
             }
         }
     }

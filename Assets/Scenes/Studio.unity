@@ -226,7 +226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5651610884779649425, guid: 018ffccc72c95254e963b584977181b4, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5651610884779649425, guid: 018ffccc72c95254e963b584977181b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -922,12 +922,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7621033027938625064, guid: c2147224f5dc17742807ad686b7148f8, type: 3}
-      propertyPath: roomType
-      value: 3
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7621033027938625065, guid: c2147224f5dc17742807ad686b7148f8, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7621033027938625065, guid: c2147224f5dc17742807ad686b7148f8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -973,7 +973,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7621033027938625064, guid: c2147224f5dc17742807ad686b7148f8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c2147224f5dc17742807ad686b7148f8, type: 3}
 --- !u!1 &1252586963
 GameObject:

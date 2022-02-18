@@ -31,7 +31,7 @@ public class RoomGenerator : MonoBehaviour
 
     [Header("房间权重")]
     public int program_Weight;
-    public int art_Weight;
+    public int randEnco_Weight;
     public int design_Weight;
 
     public GameObject RoomObject;
@@ -96,7 +96,7 @@ public class RoomGenerator : MonoBehaviour
                 }
                 else if (i == RoomNum - 1)
                 {
-                    RoomList.Add(new Room(5, transform.position));
+                    RoomList.Add(new Room(2, transform.position));
                 }
                 else
                 {
@@ -145,17 +145,17 @@ public class RoomGenerator : MonoBehaviour
     }
     int RandomNum()
     {
-        int sum_Weight = program_Weight + art_Weight + design_Weight;
+        int sum_Weight = program_Weight + randEnco_Weight + design_Weight;
         int rand_Weight = Random.Range(1, sum_Weight + 1);
         if (rand_Weight >= 1 && rand_Weight <= program_Weight)
         {
             return 1;
         }
-        else if (rand_Weight > program_Weight && rand_Weight <= program_Weight + art_Weight)
+        else if (rand_Weight > program_Weight && rand_Weight <= program_Weight + randEnco_Weight)
         {
-            return 2;
+            return 5;
         }
-        else if (rand_Weight > program_Weight + art_Weight && rand_Weight <= sum_Weight)
+        else if (rand_Weight > program_Weight + randEnco_Weight && rand_Weight <= sum_Weight)
         {
             return 3;
         }

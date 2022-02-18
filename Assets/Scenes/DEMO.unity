@@ -584,7 +584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   program_Weight: 10
-  art_Weight: 1
+  randEnco_Weight: 1
   design_Weight: 4
   RoomObject: {fileID: 7621033027938625067, guid: c2147224f5dc17742807ad686b7148f8, type: 3}
   RoomNum: 15
@@ -620,23 +620,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d782e38c5500541b57cff0ab34a6d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy_1: {fileID: 1459256475852565080, guid: 87104465d5818474a851cf49e194ac74, type: 3}
-  Enemy_2: {fileID: 5093019398764160568, guid: 95921b375baa0a148a6f27894202b25e, type: 3}
-  Enemy_3: {fileID: 5093019398764160568, guid: 95921b375baa0a148a6f27894202b25e, type: 3}
-  Boss_1: {fileID: 2622358293703611761, guid: 38d55bd9791d93346abadac2a6aa5024, type: 3}
-  Boss_2: {fileID: 2622358293703611761, guid: 38d55bd9791d93346abadac2a6aa5024, type: 3}
-  Boss_3: {fileID: 2622358293703611761, guid: 38d55bd9791d93346abadac2a6aa5024, type: 3}
-  Heal: {fileID: 4695096031042041005, guid: e9444a0e1fc68e14288fdc5c0143077d, type: 3}
-  Coin: {fileID: 4695096031042041005, guid: f2c385db002d29d4791be37097cb2223, type: 3}
-  Key: {fileID: 6743168511544822323, guid: 3c7a6de5743c2d5468719e319be415c2, type: 3}
-  Prop_1: {fileID: 1635918939255144555, guid: 588907e50365e1c43ba9d89cb143eaec, type: 3}
-  Prop_2: {fileID: 1635918939255144555, guid: bb7d483a62a39ac439c08e8da86ae7be, type: 3}
-  Prop_3: {fileID: 1635918939255144555, guid: 1417ee8e003668c49927c67e121d0846, type: 3}
-  Prop_4: {fileID: 1635918939255144555, guid: 8cb946b386c05df488c10b3188b15cc7, type: 3}
-  Prop_5: {fileID: 1635918939255144555, guid: a84a2b3198a21ad4bacb7ff62a7e25af, type: 3}
-  Prop_6: {fileID: 5242779902267281911, guid: 77cffe118c62f944ca7387669631b9d4, type: 3}
-  Prop_7: {fileID: 1635918939255144555, guid: b39c4b46114c47041975c685697ddf75, type: 3}
-  Prop_8: {fileID: 1447777239203224366, guid: 87b59af8940cd4842bd53889cfde41bb, type: 3}
   spawnNumForArt: 3
   rewardNumForArt: 1
   spawnNumForDesign: 3

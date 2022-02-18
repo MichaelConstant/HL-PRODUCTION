@@ -5,29 +5,32 @@ using UnityEngine;
 public class Disc : CharacterControl
 {
     PlayerControl Player;
+    Vector2 VectorGoing;
 
     void Start()
     {
         Player = GameObject.FindWithTag("Player").GetComponent<PlayerControl>();
         AttackVector = (Player.transform.position - transform.position).normalized;
-        rb.velocity =AttackVector * movementSpeed_Final;
+        rb.velocity = AttackVector * movementSpeed_Final;
     }
     public override void FixedUpdate()
     {
         base.FixedUpdate();
 
+        rb.velocity = rb.velocity.normalized * movementSpeed_Final;
+
         AnimatorStateInfo Info = anim.GetCurrentAnimatorStateInfo(0);
 
-        if (Info.normalizedTime > 1f && currentHP <= 0)
-        {
-            gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
-            Destroy(gameObject);
-        }
         if (currentHP <= 0)
         {
             rb.velocity = new Vector3(0, 0, 0);
             gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
             anim.Play("Die");
+        }
+        if (Info.normalizedTime > 1f && currentHP <= 0)
+        {
+            gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+            Destroy(gameObject);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
