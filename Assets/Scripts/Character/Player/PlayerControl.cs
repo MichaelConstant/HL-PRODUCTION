@@ -28,6 +28,7 @@ public class PlayerControl : CharacterControl
     public Image RangeEnergyUI;
     public GameObject RangeUltraUI;
 
+
     #region 能量系统相关
 
     [HideInInspector]
@@ -244,6 +245,7 @@ public class PlayerControl : CharacterControl
     {
         RoomGenerator.RoomList.Clear();
         yield return new WaitForSeconds(3f);
+        FirstAnimation.isDead = true;
         SceneManager.LoadScene(1);
     }
     private void OnCollisionEnter2D(Collision2D collision)
