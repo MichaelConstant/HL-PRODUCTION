@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -7567591609010748086}
   - component: {fileID: 6536541994333927380}
   - component: {fileID: -6290876211070312823}
+  - component: {fileID: -8710485039276428482}
   m_Layer: 0
   m_Name: Plash_Speed
   m_TagString: Untagged
@@ -146,6 +147,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedUpPercent: 1
+--- !u!114 &-8710485039276428482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5242779902267281911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d687aa32ca1e02d439a1aa38433c3396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisItem: {fileID: 11400000, guid: 3318d08481056af45995145a75f7789b, type: 2}
+  playerInventory: {fileID: 11400000, guid: 57e59ed74df82b646a1b1be8683d35a4, type: 2}
 --- !u!1 &6012320682390994537
 GameObject:
   m_ObjectHideFlags: 0

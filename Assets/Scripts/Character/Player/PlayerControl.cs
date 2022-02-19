@@ -71,11 +71,12 @@ public class PlayerControl : CharacterControl
     #endregion
     void Start()
     {
-        keyText.text = "Key: " + KeyCounts;
-        coinText.text = "Coin: " + CoinCounts;
+
     }
     void Update()
     {
+        keyText.text = ($"{KeyCounts}");
+        coinText.text = ($"{CoinCounts}");
         //MeleeEnergyUI.fillAmount = (float)MeleeEnergy / MeleeEnergyMax;
         RangeEnergyUI.fillAmount = (float)RangeEnergy / RangeEnergyMax;
 
@@ -164,15 +165,15 @@ public class PlayerControl : CharacterControl
         if (canDecrease)
         {
             canDecrease = false;
-            MeleeLevelUI.text = "LV: " + (MeleeLevel + 1);
-            MeleeLevelHint.GetComponent<Text>().text = "Pree Q to RAGE: LV." + (MeleeLevel + 1);
+            //MeleeLevelUI.text = "LV: " + (MeleeLevel + 1);
+            //MeleeLevelHint.GetComponent<Text>().text = "Pree Q to RAGE: LV." + (MeleeLevel + 1);
             if (MeleeLevel > 0)
             {
-                MeleeLevelHint.SetActive(true);
+                //MeleeLevelHint.SetActive(true);
             }
             else
             {
-                MeleeLevelHint.SetActive(false);
+                //MeleeLevelHint.SetActive(false);
             }
             if (MeleeEnergy > 0)
             {
