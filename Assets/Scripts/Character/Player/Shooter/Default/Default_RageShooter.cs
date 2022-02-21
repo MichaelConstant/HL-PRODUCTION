@@ -8,7 +8,6 @@ public class Default_RageShooter : RageShooter_Base
     {
         if (Player.canShoot)
         {
-            Player.MeleeEnergyDecreaseOfShooting();
             Player.canShoot = false;
             Player.AttackVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);
             switch (Player.MeleeLevel)

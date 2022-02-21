@@ -8,7 +8,6 @@ public class Default_Shooter : Shooter_Base
     {
         if (Player.canShoot)
         {
-            Player.MeleeEnergyDecreaseOfShooting();
             Player.canShoot = false;
             Player.AttackVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);
 

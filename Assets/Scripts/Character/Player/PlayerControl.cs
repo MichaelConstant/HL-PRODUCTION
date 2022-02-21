@@ -164,7 +164,7 @@ public class PlayerControl : CharacterControl
             if (Input.GetKeyDown(KeyCode.Space) && MeleeLevel >= 1)
             {
                 onRage = true;
-                MeleeEnergyDecreaseAmountInUse = 0.1f;
+                MeleeEnergyDecreaseAmountInUse = MeleeEnergyDecreaseAmount_Rage;
             }
             #endregion
         }
@@ -203,7 +203,7 @@ public class PlayerControl : CharacterControl
             if (MeleeEnergy <= 0 && MeleeLevel == 0)
             {
                 onRage = false;
-                MeleeEnergyDecreaseAmountInUse = 0.01f;
+                MeleeEnergyDecreaseAmountInUse = MeleeEnergyDecreaseAmount_Common;
             }
             canDecrease = true;
         }
@@ -237,22 +237,6 @@ public class PlayerControl : CharacterControl
                 anim.SetInteger("State", 0);
                 anim.Play("Dead");
                 StartCoroutine(PlayerDead());
-            }
-        }
-    }
-    public void MeleeEnergyDecreaseOfShooting()
-    {
-        if (canShoot && !onRage)
-        {
-            if (MeleeEnergy > 0)
-            {
-                MeleeEnergy -= RangeEnergyPerHit;
-            }
-            if (MeleeEnergy <= 0 && MeleeLevel > 0)
-            {
-                MeleeLevel -= 1;
-                MeleeLevelUI.text = "LV: " + MeleeLevel;
-                MeleeEnergy = MeleeEnergyMax;
             }
         }
     }

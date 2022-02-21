@@ -520,14 +520,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 485
       objectReference: {fileID: 0}
-    - target: {fileID: 7431250051107753080, guid: 018ffccc72c95254e963b584977181b4, type: 3}
-      propertyPath: KeyCounts
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7431250051107753080, guid: 018ffccc72c95254e963b584977181b4, type: 3}
-      propertyPath: CoinCounts
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7621998430759933497, guid: 018ffccc72c95254e963b584977181b4, type: 3}
       propertyPath: m_FontData.m_Alignment
       value: 4

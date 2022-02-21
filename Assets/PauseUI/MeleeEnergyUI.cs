@@ -20,7 +20,6 @@ public class MeleeEnergyUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(meleeLevel);
         meleeLevel = this.GetComponent<PlayerControl>().MeleeLevel;
         meleeEnergy = this.GetComponent<PlayerControl>().MeleeEnergy;
         meleeEnergyMax = this.GetComponent<PlayerControl>().MeleeEnergyMax;

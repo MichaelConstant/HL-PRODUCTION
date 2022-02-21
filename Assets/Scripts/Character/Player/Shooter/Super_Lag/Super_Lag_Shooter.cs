@@ -8,7 +8,6 @@ public class Super_Lag_Shooter : Shooter_Base
     {
         if (Player.canShoot)
         {
-            Player.MeleeEnergyDecreaseOfShooting();
             Player.canShoot = false;
 
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
