@@ -4,22 +4,17 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public int spawnNumForArt;
-    public int rewardNumForArt;
-
     public int spawnNumForDesign;
-    public int rewardNumForDesign;
 
     public int spawnNumForProgram;
-    public int rewardNumForProgram;
 
     public int spawnNumForBoss;
-    public int rewardNumForBoss;
 
     GameObject[] Enemies;
     GameObject[] Bosses;
     GameObject[] Items;
     GameObject[] Props;
+    public static GameObject RandEnco;
 
     public static List<GameObject> EnemiesList = new List<GameObject>();
     public static List<GameObject> BossesList = new List<GameObject>();
@@ -32,6 +27,8 @@ public class LevelManager : MonoBehaviour
         Bosses = Resources.LoadAll<GameObject>("Enemy/Boss");
         Items = Resources.LoadAll<GameObject>("Item");
         Props = Resources.LoadAll<GameObject>("Prop");
+
+        RandEnco = Resources.Load<GameObject>("Terrain/RandEnco/RandEnco");
 
         for (int i = 0; i < Enemies.Length; i++)
         {

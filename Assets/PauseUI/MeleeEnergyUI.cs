@@ -39,11 +39,6 @@ public class MeleeEnergyUI : MonoBehaviour
             case 2:
                 energySign.color = new Color32(255, (byte)(45 + (140 - 45) * percent), (byte)(49 + (255 - 49) * percent), 240);
                 break;
-            case 3:
-                energySign.color = new Color32(45, 140, 255, 240);
-                break;
-
         }
     }
 }
-

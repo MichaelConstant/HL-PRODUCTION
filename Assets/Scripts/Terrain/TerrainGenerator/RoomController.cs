@@ -9,6 +9,7 @@ public class RoomController : MonoBehaviour
     public Sprite Art;
     public Sprite Design;
     public Sprite Program;
+    public Sprite Base;
 
     public enum RoomType { StartRoom, ProgramRoom, ArtRoom, DesignRoom, BossRoom, RandEncoRoom, None };
     //0,1,2,3,4,5,*6*
@@ -54,14 +55,14 @@ public class RoomController : MonoBehaviour
                 sr.sprite = Program;
                 break;
             case RoomType.BossRoom:
-                sr.sprite = Design;
+                sr.sprite = Base;
                 sr.color = new Color32(255, 0, 0, 255);
                 break;
             case RoomType.RandEncoRoom:
-                sr.sprite = Design;
+                sr.sprite = Base;
                 sr.color = new Color32(0, 255, 255, 255);
                 spawnNum = 0;
-                rewardNum = 1;
+                rewardNum = 0;
                 break;
         }
 
@@ -103,7 +104,16 @@ public class RoomController : MonoBehaviour
 
         if ((!spawned) && (collision.GetComponent<PlayerControl>() != null))
         {
-            GenerateEnemies();
+            if (roomType == RoomType.RandEncoRoom)
+            {
+                GameObject RandEncoObject = Instantiate(LevelManager.RandEnco, transform.position, Quaternion.identity);
+                RandEncoObject.transform.parent = transform;
+            }
+            else
+            {
+                GenerateEnemies();
+            }
+
             spawned = true;
             for (int i = 0; i < Doors.Length; i++)
             {
@@ -186,9 +196,6 @@ public class RoomController : MonoBehaviour
 
         switch (roomType)
         {
-            case RoomType.ArtRoom:
-                spawnNum = GetComponentInParent<LevelManager>().spawnNumForArt;
-                break;
             case RoomType.DesignRoom:
                 spawnNum = GetComponentInParent<LevelManager>().spawnNumForDesign;
                 randSpawnNum = Random.Range(1, spawnNum + 1);
@@ -198,7 +205,10 @@ public class RoomController : MonoBehaviour
                 randSpawnNum = Random.Range(1, spawnNum + 1);
                 break;
             case RoomType.BossRoom:
-                spawnNum = GetComponentInParent<LevelManager>().spawnNumForBoss;
+                randSpawnNum = GetComponentInParent<LevelManager>().spawnNumForBoss;
+                break;
+            default:
+                randSpawnNum = 0;
                 break;
         }
 
@@ -227,40 +237,16 @@ public class RoomController : MonoBehaviour
     }
     void GenerateRewards()
     {
-        int randRewardNum = 1;
-
-        switch (roomType)
+        if (roomType == RoomType.ArtRoom || roomType == RoomType.BossRoom)
         {
-            case RoomType.ArtRoom:
-                rewardNum = GetComponentInParent<LevelManager>().rewardNumForArt;
-                break;
-            case RoomType.DesignRoom:
-                rewardNum = GetComponentInParent<LevelManager>().rewardNumForDesign;
-                randRewardNum = Random.Range(0, rewardNum + 1);
-                break;
-            case RoomType.ProgramRoom:
-                rewardNum = GetComponentInParent<LevelManager>().rewardNumForProgram;
-                randRewardNum = Random.Range(0, rewardNum + 1);
-                break;
-            case RoomType.BossRoom:
-                rewardNum = GetComponentInParent<LevelManager>().rewardNumForBoss;
-                break;
+            int type = Random.Range(0, LevelManager.PropsList.Count);
+            Instantiate(LevelManager.PropsList[type], gameObject.transform.position, Quaternion.identity);
+            LevelManager.PropsList.Remove(LevelManager.PropsList[type]);
         }
-
-        for (int i = 0; i < randRewardNum; i++)
+        else if (roomType == RoomType.DesignRoom || roomType == RoomType.ProgramRoom)
         {
-
-            if (roomType == RoomType.ArtRoom || roomType == RoomType.BossRoom)
-            {
-                int type = Random.Range(0, LevelManager.PropsList.Count);
-                Instantiate(LevelManager.PropsList[type], gameObject.transform.position, Quaternion.identity);
-                LevelManager.PropsList.Remove(LevelManager.PropsList[type]);
-            }
-            else
-            {
-                int type = Random.Range(0, LevelManager.ItemsList.Count);
-                Instantiate(LevelManager.ItemsList[type], gameObject.transform.position, Quaternion.identity);
-            }
+            int type = Random.Range(0, LevelManager.ItemsList.Count);
+            Instantiate(LevelManager.ItemsList[type], gameObject.transform.position, Quaternion.identity);
         }
     }
 }

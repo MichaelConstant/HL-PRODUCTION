@@ -1,0 +1,20 @@
+流程：
+进入商店后，和中间的顾客进行对话，购买商品。
+靠近顾客
+顾客头顶气泡显示价格
+互动按Q键 购买商品
+
+动画：
+bar 场景背景，叠在基础房间底图上
+jiubaodaojiu 酒保倒酒 11帧
+yaojiu 摇酒 2帧
+qipao 气泡 4帧
+
+player1_blink 玩家1眨眼idle 2帧
+player2_blink 玩家2眨眼idle 2帧
+player3_blink 玩家3眨眼idle 2帧
+player4_blink 玩家4眨眼idle 2帧
+player1_face  玩家1撑脸 8帧
+player2_headache 玩家2头晕 6帧
+player3_hair  玩家3头发动 7帧
+player4_hejiu 玩家4喝酒 9帧

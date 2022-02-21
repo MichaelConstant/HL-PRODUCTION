@@ -382,9 +382,12 @@ MonoBehaviour:
   Art: {fileID: 21300000, guid: b7c073889dcab69499f6a69e7ce1d4f6, type: 3}
   Design: {fileID: 21300000, guid: 5d9a2b85722330941a5cf2c3c6543cfa, type: 3}
   Program: {fileID: 21300000, guid: 3faeceaee2078504480575e576a3b63d, type: 3}
+  Base: {fileID: 21300000, guid: 9e941a37e2bde58488a9423a1108f6d9, type: 3}
   roomType: 0
   DoorObject: {fileID: 7683775030328422795, guid: 3c918c63e8bb8ec42b278d788209cf0a, type: 3}
+  spawned: 0
   spawnNum: 0
+  rewarded: 0
   rewardNum: 0
 --- !u!1 &7621033028608191292
 GameObject:

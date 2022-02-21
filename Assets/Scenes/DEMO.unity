@@ -670,10 +670,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   program_Weight: 10
-  randEnco_Weight: 1
+  randEnco_Weight: 5
   design_Weight: 4
   RoomObject: {fileID: 7621033027938625067, guid: c2147224f5dc17742807ad686b7148f8, type: 3}
-  RoomNum: 10
+  RoomNum: 15
   xOffset: 6.4
   yOffset: 4.175
   Seed: 123
@@ -706,14 +706,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d782e38c5500541b57cff0ab34a6d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnNumForArt: 0
-  rewardNumForArt: 1
   spawnNumForDesign: 0
-  rewardNumForDesign: 1
   spawnNumForProgram: 0
-  rewardNumForProgram: 1
   spawnNumForBoss: 0
-  rewardNumForBoss: 1
 --- !u!4 &6193430724878962534
 Transform:
   m_ObjectHideFlags: 0
