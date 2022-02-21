@@ -2302,7 +2302,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2941b6226be9307498bfe80294a9a336, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fe71e5c08f98ba446b560cb3dadacbd3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2886,9 +2886,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energySign: {fileID: 8943656027243337380}
-  green: {fileID: 21300000, guid: 2941b6226be9307498bfe80294a9a336, type: 3}
-  blue: {fileID: 21300000, guid: e5eeffff24be2544b9c87b0fed8f5aeb, type: 3}
-  red: {fileID: 21300000, guid: dd755cbda333cca4d8342d0fe4581705, type: 3}
 --- !u!1 &5706825186503199730
 GameObject:
   m_ObjectHideFlags: 0
