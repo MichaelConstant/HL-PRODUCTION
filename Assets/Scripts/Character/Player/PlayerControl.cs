@@ -28,7 +28,7 @@ public class PlayerControl : CharacterControl
     public Image RangeEnergyUI;
     public GameObject RangeUltraUI;
 
-
+    public Inventory myBag;
     #region 能量系统相关
 
     [HideInInspector]
@@ -246,6 +246,8 @@ public class PlayerControl : CharacterControl
         yield return new WaitForSeconds(3f);
         FirstAnimation.isDead = true;
         SceneManager.LoadScene(1);
+        myBag.itemList.Clear();
+        InventoryManager.RefreshItem();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

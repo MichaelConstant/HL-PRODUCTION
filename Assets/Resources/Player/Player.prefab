@@ -2839,6 +2839,7 @@ MonoBehaviour:
   MeleeLevelHint: {fileID: 0}
   RangeEnergyUI: {fileID: 8419322491131706524}
   RangeUltraUI: {fileID: 1257713208666277647}
+  myBag: {fileID: 11400000, guid: 57e59ed74df82b646a1b1be8683d35a4, type: 2}
   onRage: 0
   RangeEnergy: 0
   MeleeEnergy: 0
