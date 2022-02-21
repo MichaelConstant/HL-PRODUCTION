@@ -45,9 +45,18 @@ public class PlayerControl : CharacterControl
     //远程射击每次命中增长远程能量槽固定为1，通过调整远程最大能量上限调整
 
     float EnergyDecreaseTimer;
-    [Header("每0.1秒远程/近战能量衰减")]
-    public float RangeEnergyDecreaseAmount;
-    public float MeleeEnergyDecreaseAmount;
+    [HideInInspector]
+    public float RangeEnergyDecreaseAmountInUse;
+    [HideInInspector]
+    public float MeleeEnergyDecreaseAmountInUse;
+
+    [Header("通常状态近战、远程能量衰减")]
+    public float RangeEnergyDecreaseAmount_Common;
+    public float MeleeEnergyDecreaseAmount_Common;
+
+    [Header("Rage状态近战、远程能量衰减")]
+    public float RangeEnergyDecreaseAmount_Rage;
+    public float MeleeEnergyDecreaseAmount_Rage;
 
     private bool canDecrease = true;
 
@@ -128,8 +137,14 @@ public class PlayerControl : CharacterControl
 
             if ( Input.GetMouseButton(0) && !Input.GetMouseButtonDown(1) )
             {
-                Shooter.Fire();
-                RageShooter.Fire();
+                if (!onRage)
+                {
+                    Shooter.Fire();
+                }
+                else
+                {
+                    RageShooter.Fire();
+                }
             }
             if (Input.GetMouseButtonDown(1) && canAttack)
             {
@@ -146,10 +161,10 @@ public class PlayerControl : CharacterControl
                 RangeEnergy = 0;
                 RangeUltraUI.SetActive(false);
             }
-            if (Input.GetKeyDown(KeyCode.Q) && MeleeLevel >= 1)
+            if (Input.GetKeyDown(KeyCode.Space) && MeleeLevel >= 1)
             {
                 onRage = true;
-                MeleeEnergyDecreaseAmount = 0.1f;
+                MeleeEnergyDecreaseAmountInUse = 0.1f;
             }
             #endregion
         }
@@ -178,7 +193,7 @@ public class PlayerControl : CharacterControl
             }
             if (MeleeEnergy > 0)
             {
-                MeleeEnergy -= MeleeEnergyDecreaseAmount;
+                MeleeEnergy -= MeleeEnergyDecreaseAmountInUse;
             }
             if (MeleeEnergy <= 0 && MeleeLevel > 0)
             {
@@ -188,7 +203,7 @@ public class PlayerControl : CharacterControl
             if (MeleeEnergy <= 0 && MeleeLevel == 0)
             {
                 onRage = false;
-                MeleeEnergyDecreaseAmount = 0.01f;
+                MeleeEnergyDecreaseAmountInUse = 0.01f;
             }
             canDecrease = true;
         }

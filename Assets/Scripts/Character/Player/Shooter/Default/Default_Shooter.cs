@@ -6,7 +6,7 @@ public class Default_Shooter : Shooter_Base
 {
     public override void Fire()
     {
-        if (Player.canShoot && !Player.onRage)
+        if (Player.canShoot)
         {
             Player.MeleeEnergyDecreaseOfShooting();
             Player.canShoot = false;

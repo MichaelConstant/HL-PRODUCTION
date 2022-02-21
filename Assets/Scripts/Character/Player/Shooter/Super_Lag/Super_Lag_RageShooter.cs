@@ -6,7 +6,7 @@ public class Super_Lag_RageShooter : RageShooter_Base
 {
     public override void Fire()
     {
-        if (Player.canShoot && Player.onRage)
+        if (Player.canShoot)
         {
             Player.MeleeEnergyDecreaseOfShooting();
             Player.canShoot = false;Player.AttackVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, -Camera.main.transform.position.z)) - gameObject.transform.position);

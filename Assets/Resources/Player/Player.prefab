@@ -2826,9 +2826,9 @@ MonoBehaviour:
   bullet_Ultra: {fileID: 8573897042248982977, guid: 0e52ce7ed17978543b554d2df1b49392, type: 3}
   bulletSpawn: {fileID: 5954075329029322210}
   AttackVector: {x: 0, y: 0}
-  KeyCounts: 2
+  KeyCounts: 0
   keyText: {fileID: 5418517330264958114}
-  CoinCounts: 3
+  CoinCounts: 0
   coinText: {fileID: 7621998430759933497}
   KnockBackSeconds_Melee: 0.25
   KnockBackSeconds_Range: 0
@@ -2844,8 +2844,12 @@ MonoBehaviour:
   MeleeEnergy: 0
   RangeEnergyPerHit: 0.25
   MeleeEnergyPerHit: 1
-  RangeEnergyDecreaseAmount: 0
-  MeleeEnergyDecreaseAmount: 0.01
+  RangeEnergyDecreaseAmountInUse: 0
+  MeleeEnergyDecreaseAmountInUse: 0
+  RangeEnergyDecreaseAmount_Common: 0
+  MeleeEnergyDecreaseAmount_Common: 0
+  RangeEnergyDecreaseAmount_Rage: 0
+  MeleeEnergyDecreaseAmount_Rage: 0.05
   RangeLevel: 0
   MeleeLevel: 0
   RangeEnergyMax: 5
