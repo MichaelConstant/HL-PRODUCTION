@@ -10,6 +10,11 @@ public class Door : MonoBehaviour
     public Sprite defaultDoorLeft;
     public Sprite defaultDoorRight;
 
+    public GameObject minimapDoor_Up;
+    public GameObject minimapDoor_Down;
+    public GameObject minimapDoor_Left;
+    public GameObject minimapDoor_Right;
+
     [HideInInspector]
     public Animator anim;
     [HideInInspector]
@@ -64,15 +69,19 @@ public class Door : MonoBehaviour
                 {
                     case DoorDirection.up:
                         anim.Play("Opened_Idle_Up");
+                        minimapDoor_Up.SetActive(true);
                         break;
                     case DoorDirection.down:
                         anim.Play("Opened_Idle_Down");
+                        minimapDoor_Down.SetActive(true);
                         break;
                     case DoorDirection.left:
                         anim.Play("Opened_Idle_Left");
+                        minimapDoor_Left.SetActive(true);
                         break;
                     case DoorDirection.right:
                         anim.Play("Opened_Idle_Right");
+                        minimapDoor_Right.SetActive(true);
                         break;
                 }
             }
@@ -84,33 +93,21 @@ public class Door : MonoBehaviour
                 Destroy(gameObject.transform.GetChild(1).gameObject);
                 Destroy(gameObject.transform.GetChild(2).gameObject);
                 Destroy(gameObject.transform.GetChild(3).gameObject);
-                Destroy(gameObject.transform.GetChild(5).gameObject);
-                Destroy(gameObject.transform.GetChild(6).gameObject);
-                Destroy(gameObject.transform.GetChild(7).gameObject);
                 break;
             case DoorDirection.down:
                 Destroy(gameObject.transform.GetChild(0).gameObject);
                 Destroy(gameObject.transform.GetChild(2).gameObject);
                 Destroy(gameObject.transform.GetChild(3).gameObject);
-                Destroy(gameObject.transform.GetChild(4).gameObject);
-                Destroy(gameObject.transform.GetChild(6).gameObject);
-                Destroy(gameObject.transform.GetChild(7).gameObject);
                 break;
             case DoorDirection.left:
                 Destroy(gameObject.transform.GetChild(0).gameObject);
                 Destroy(gameObject.transform.GetChild(1).gameObject);
                 Destroy(gameObject.transform.GetChild(3).gameObject);
-                Destroy(gameObject.transform.GetChild(4).gameObject);
-                Destroy(gameObject.transform.GetChild(5).gameObject);
-                Destroy(gameObject.transform.GetChild(7).gameObject);
                 break;
             case DoorDirection.right:
                 Destroy(gameObject.transform.GetChild(0).gameObject);
                 Destroy(gameObject.transform.GetChild(1).gameObject);
                 Destroy(gameObject.transform.GetChild(2).gameObject);
-                Destroy(gameObject.transform.GetChild(4).gameObject);
-                Destroy(gameObject.transform.GetChild(5).gameObject);
-                Destroy(gameObject.transform.GetChild(6).gameObject);
                 break;
         }
     }

@@ -14,7 +14,6 @@ public class WallMap : MonoBehaviour
         mapSprite.GetComponent<SpriteRenderer>().color = color1;
      
     }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
