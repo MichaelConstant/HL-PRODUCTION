@@ -52,7 +52,7 @@ public class MeleeEnergyUI : MonoBehaviour
                 break;
 
         }
-        Debug.Log($"Level:{meleeLevel},Energy:{meleeEnergy}");
+        //Debug.Log($"Level:{meleeLevel},Energy:{meleeEnergy}");
 
         
         if (meleeEnergy <= 0)
