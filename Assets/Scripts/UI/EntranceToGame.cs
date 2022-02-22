@@ -8,10 +8,14 @@ public class EntranceToGame : MonoBehaviour
     public GameObject m_PlayerUI;
     public GameObject phoneUI;
     public GameObject cinematic;
+
+    public Inventory myBag;
     private void Start()
     {
         m_PlayerUI.SetActive(false);
-        if(FirstAnimation.isDead == true)
+        myBag.itemList.Clear();
+        InventoryManager.RefreshItem();
+        if (FirstAnimation.isDead == true)
         {
             phoneUI.SetActive(false);
             cinematic.SetActive(true);

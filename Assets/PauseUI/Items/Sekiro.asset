@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ddc24484b02dc74f9a840952a999a13, type: 3}
   m_Name: Sekiro
   m_EditorClassIdentifier: 
-  itemName: Sekiro
+  itemName: Die Twice
   itemImage: {fileID: 21300000, guid: 110a2e21bca256f49b495af28445380f, type: 3}
   selectedImage: {fileID: 21300000, guid: bf9d923ed3722aa48ab9ccd62d8896e7, type: 3}
-  itemInfo: 
+  itemInfo: Come...Producer. *Have a second life, recover 50%hp after first death.
   equip: 0

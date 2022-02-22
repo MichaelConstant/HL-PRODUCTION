@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ddc24484b02dc74f9a840952a999a13, type: 3}
   m_Name: ForFree
   m_EditorClassIdentifier: 
-  itemName: For_Free
+  itemName: Developer's credit card
   itemImage: {fileID: 21300000, guid: 9214fb845771e7b4c9827ed0e0152484, type: 3}
   selectedImage: {fileID: 21300000, guid: f66afd9eb00582b4ea64cf154818615f, type: 3}
-  itemInfo: 
+  itemInfo: One of them accidently forgot to take it, maybe you can use it? *Free
+    purches for one prop
   equip: 0
