@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Heart : MonoBehaviour
+public class Heart : PropBase
 {
     public GameObject minimapHeart;
     // Start is called before the first frame update

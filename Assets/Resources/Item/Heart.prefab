@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 205a796aa8a768a44ab844d5390ec3b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  propPrice: 1
   minimapHeart: {fileID: 5290907937265453949}
 --- !u!1 &5290907937265453949
 GameObject:

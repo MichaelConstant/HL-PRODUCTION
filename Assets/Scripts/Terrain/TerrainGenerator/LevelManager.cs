@@ -10,11 +10,25 @@ public class LevelManager : MonoBehaviour
 
     public int spawnNumForBoss;
 
+    public static Sprite Num_0;
+    public static Sprite Num_1;
+    public static Sprite Num_2;
+    public static Sprite Num_3;
+    public static Sprite Num_4;
+    public static Sprite Num_5;
+    public static Sprite Num_6;
+    public static Sprite Num_7;
+    public static Sprite Num_8;
+    public static Sprite Num_9;
+
     GameObject[] Enemies;
     GameObject[] Bosses;
     GameObject[] Items;
     GameObject[] Props;
+
     public static GameObject RandEnco;
+
+    public static Sprite[] Nums = new Sprite[] { Num_0, Num_1, Num_2, Num_3, Num_4, Num_5, Num_6, Num_7, Num_8, Num_9 };
 
     public static List<GameObject> EnemiesList = new List<GameObject>();
     public static List<GameObject> BossesList = new List<GameObject>();
@@ -47,7 +61,6 @@ public class LevelManager : MonoBehaviour
 
         for (int i = 0; i < Props.Length; i++)
         {
-
             PropsList.Add(Props[i]);
         }
     }

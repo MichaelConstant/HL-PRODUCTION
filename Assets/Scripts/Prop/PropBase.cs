@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class PropBase : MonoBehaviour
 {
-
+    public int propPrice;
 }
