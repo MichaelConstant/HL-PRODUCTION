@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Cheaper : PropBase
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        PlayerControl Player = collision.GetComponent<PlayerControl>();
+        PlayerControl Player = collision.gameObject.GetComponent<PlayerControl>();
         if (Player != null)
         {
             Player.gameObject.AddComponent<Cheaper_Buff>();

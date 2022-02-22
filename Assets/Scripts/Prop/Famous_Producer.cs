@@ -5,9 +5,9 @@ using UnityEngine;
 public class Famous_Producer : PropBase
 {
     public float MeleeEnergyPerHitIncreased;
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        PlayerControl Player = collision.GetComponent<PlayerControl>();
+        PlayerControl Player = collision.gameObject.GetComponent<PlayerControl>();
         if (Player != null)
         {
             Player.MeleeEnergyPerHit += MeleeEnergyPerHitIncreased;

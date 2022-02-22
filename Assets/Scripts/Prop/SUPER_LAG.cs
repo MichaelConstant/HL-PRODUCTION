@@ -6,10 +6,9 @@ using UnityEngine;
 public class Super_Lag : PropBase
 {
     public float RangeAttackSpeedUpPercent;
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-
-        if (collision.GetComponent<PlayerControl>() != null)
+        if (collision.gameObject.GetComponent<PlayerControl>() != null)
         {
             GameObject Player = collision.gameObject;
             GameObject PlayerShooter = collision.transform.GetChild(1).gameObject;

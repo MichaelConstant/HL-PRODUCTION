@@ -7,9 +7,9 @@ public class itemOnWorld : MonoBehaviour //This Script should be on every prop a
     public item thisItem;//To store the Scriptable object
     public Inventory playerInventory;//To store the inventory of bag 
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             AddNewItem();
             Destroy(gameObject);
