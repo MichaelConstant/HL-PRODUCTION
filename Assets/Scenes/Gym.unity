@@ -1296,7 +1296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5651610884779649425, guid: 018ffccc72c95254e963b584977181b4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.19
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 5651610884779649425, guid: 018ffccc72c95254e963b584977181b4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1349,6 +1349,14 @@ PrefabInstance:
     - target: {fileID: 6951859194246763464, guid: 018ffccc72c95254e963b584977181b4, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 485
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431250051107753080, guid: 018ffccc72c95254e963b584977181b4, type: 3}
+      propertyPath: RangeEnergyMax
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431250051107753080, guid: 018ffccc72c95254e963b584977181b4, type: 3}
+      propertyPath: MeleeEnergyPerHit
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7708714669899403262, guid: 018ffccc72c95254e963b584977181b4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2498,6 +2506,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 400952176037739541, guid: 87104465d5818474a851cf49e194ac74, type: 3}
+      propertyPath: ShootInterval_Ratio
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1459256475852565080, guid: 87104465d5818474a851cf49e194ac74, type: 3}
       propertyPath: m_Name
       value: KouKou (1)
@@ -3637,6 +3649,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 400952176037739541, guid: 87104465d5818474a851cf49e194ac74, type: 3}
+      propertyPath: rangeDamage_Basic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400952176037739541, guid: 87104465d5818474a851cf49e194ac74, type: 3}
+      propertyPath: ShootInterval_Basic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400952176037739541, guid: 87104465d5818474a851cf49e194ac74, type: 3}
+      propertyPath: ShootInterval_Ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 400952176037739541, guid: 87104465d5818474a851cf49e194ac74, type: 3}
+      propertyPath: AttackInterval_Basic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1459256475852565080, guid: 87104465d5818474a851cf49e194ac74, type: 3}
       propertyPath: m_Name
       value: KouKou
