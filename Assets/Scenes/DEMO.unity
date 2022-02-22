@@ -857,6 +857,16 @@ MonoBehaviour:
   spawnNumForDesign: 0
   spawnNumForProgram: 0
   spawnNumForBoss: 0
+  num_0: {fileID: -1180234416577501930, guid: 550eee2f3087c074fa1ebf70d702c6d8, type: 3}
+  num_1: {fileID: -6787896269430008760, guid: 550eee2f3087c074fa1ebf70d702c6d8, type: 3}
+  num_2: {fileID: -6630971469653654122, guid: 550eee2f3087c074fa1ebf70d702c6d8, type: 3}
+  num_3: {fileID: 3155708254655358991, guid: 550eee2f3087c074fa1ebf70d702c6d8, type: 3}
+  num_4: {fileID: -1809877987737587854, guid: 550eee2f3087c074fa1ebf70d702c6d8, type: 3}
+  num_5: {fileID: -8478194216507768359, guid: 550eee2f3087c074fa1ebf70d702c6d8, type: 3}
+  num_6: {fileID: -239845697509426971, guid: 550eee2f3087c074fa1ebf70d702c6d8, type: 3}
+  num_7: {fileID: -2432296197583570664, guid: 550eee2f3087c074fa1ebf70d702c6d8, type: 3}
+  num_8: {fileID: 8988950123309387204, guid: 550eee2f3087c074fa1ebf70d702c6d8, type: 3}
+  num_9: {fileID: -1401874176895988017, guid: 550eee2f3087c074fa1ebf70d702c6d8, type: 3}
 --- !u!4 &6193430724878962534
 Transform:
   m_ObjectHideFlags: 0
