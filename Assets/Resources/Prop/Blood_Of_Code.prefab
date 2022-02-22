@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 578d90d4191a88d4fb12f185deafb4ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  propPrice: 8
+  propPrice: 6
   RangeDamageUpPercent: 0.5
   RangeAttackSpeedUpPercent: 0.5
 --- !u!114 &5644088372477177191

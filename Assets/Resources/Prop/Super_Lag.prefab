@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c43bb3b1f5675240991fce5e4fab929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  propPrice: 8
+  propPrice: 7
   RangeAttackSpeedUpPercent: 3
 --- !u!61 &5306204021824276645
 BoxCollider2D:

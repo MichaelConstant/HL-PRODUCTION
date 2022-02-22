@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8257b1fe024ab44887d29baded9c21a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  propPrice: 8
+  propPrice: 5
 --- !u!114 &3331605303111441820
 MonoBehaviour:
   m_ObjectHideFlags: 0

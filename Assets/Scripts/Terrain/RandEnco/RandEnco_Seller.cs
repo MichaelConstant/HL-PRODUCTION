@@ -34,12 +34,12 @@ public class RandEnco_Seller : MonoBehaviour
             if(randGoodType == 0)
             {
                 goodsPrice = LevelManager.PropsList[goodsIndex].GetComponent<PropBase>().propPrice;
-                transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().sprite = LevelManager.Nums[goodsPrice];
+                transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().sprite = LevelManager.NumsSprites[goodsPrice];
             }
             else
             {
-                goodsPrice = LevelManager.PropsList[goodsIndex].GetComponent<PropBase>().propPrice;
-                transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().sprite = LevelManager.Nums[goodsPrice];
+                goodsPrice = LevelManager.ItemsList[goodsIndex].GetComponent<PropBase>().propPrice;
+                transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().sprite = LevelManager.NumsSprites[goodsPrice];
             }
         }
     }
@@ -48,9 +48,9 @@ public class RandEnco_Seller : MonoBehaviour
         if (collision.gameObject.GetComponent<PlayerControl>() != null && Input.GetKey(KeyCode.Q) && transform.GetChild(1).gameObject != null)
         {
             PlayerControl Player = collision.gameObject.GetComponent<PlayerControl>();
-            //if (Player.CoinCounts >= goodsPrice)
-            //{
-                //Player.CoinCounts -= goodsPrice;
+            if (Player.CoinCounts >= goodsPrice)
+            {
+                Player.CoinCounts -= goodsPrice;
                 if (randGoodType == 0)
                 {
                     Instantiate(Goods, transform.position, Quaternion.identity);
@@ -59,13 +59,14 @@ public class RandEnco_Seller : MonoBehaviour
                 {
                     Instantiate(Goods, transform.position, Quaternion.identity);
                 }
+                Destroy(transform.GetChild(0).gameObject);
                 Destroy(transform.GetChild(1).gameObject);
-            //}
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerControl>() != null)
+        if (collision.gameObject.GetComponent<PlayerControl>() != null && transform.GetChild(0).gameObject != null)
         {
             transform.GetChild(0).gameObject.SetActive(false);
         }
