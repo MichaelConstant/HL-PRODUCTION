@@ -84,21 +84,33 @@ public class Door : MonoBehaviour
                 Destroy(gameObject.transform.GetChild(1).gameObject);
                 Destroy(gameObject.transform.GetChild(2).gameObject);
                 Destroy(gameObject.transform.GetChild(3).gameObject);
+                Destroy(gameObject.transform.GetChild(5).gameObject);
+                Destroy(gameObject.transform.GetChild(6).gameObject);
+                Destroy(gameObject.transform.GetChild(7).gameObject);
                 break;
             case DoorDirection.down:
                 Destroy(gameObject.transform.GetChild(0).gameObject);
                 Destroy(gameObject.transform.GetChild(2).gameObject);
                 Destroy(gameObject.transform.GetChild(3).gameObject);
+                Destroy(gameObject.transform.GetChild(4).gameObject);
+                Destroy(gameObject.transform.GetChild(6).gameObject);
+                Destroy(gameObject.transform.GetChild(7).gameObject);
                 break;
             case DoorDirection.left:
                 Destroy(gameObject.transform.GetChild(0).gameObject);
                 Destroy(gameObject.transform.GetChild(1).gameObject);
                 Destroy(gameObject.transform.GetChild(3).gameObject);
+                Destroy(gameObject.transform.GetChild(4).gameObject);
+                Destroy(gameObject.transform.GetChild(5).gameObject);
+                Destroy(gameObject.transform.GetChild(7).gameObject);
                 break;
             case DoorDirection.right:
                 Destroy(gameObject.transform.GetChild(0).gameObject);
                 Destroy(gameObject.transform.GetChild(1).gameObject);
                 Destroy(gameObject.transform.GetChild(2).gameObject);
+                Destroy(gameObject.transform.GetChild(4).gameObject);
+                Destroy(gameObject.transform.GetChild(5).gameObject);
+                Destroy(gameObject.transform.GetChild(6).gameObject);
                 break;
         }
     }

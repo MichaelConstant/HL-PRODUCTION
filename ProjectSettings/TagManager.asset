@@ -29,7 +29,7 @@ TagManager:
   - Enemy
   - Player(Ignoring Enemy)
   - Player(Flying & Ignoring Enemy)
-  - 
+  - Minimap
   - 
   - 
   - 

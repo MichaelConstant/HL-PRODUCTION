@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Heart : MonoBehaviour
 {
+    public GameObject minimapHeart;
     // Start is called before the first frame update
     void Start()
     {
-        
+        minimapHeart.transform.parent = null;
     }
 
     // Update is called once per frame
@@ -22,5 +23,9 @@ public class Heart : MonoBehaviour
             collision.gameObject.GetComponent<PlayerControl>().currentHP++;
             Destroy(gameObject);
         }
+    }
+    private void OnDestroy()
+    {
+        Destroy(minimapHeart);
     }
 }
