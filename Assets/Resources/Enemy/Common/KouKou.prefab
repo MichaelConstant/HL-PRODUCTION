@@ -198,7 +198,7 @@ MonoBehaviour:
   rangeDamage_Ratio: 1
   ShootInterval_Final: 0
   ShootInterval_Basic: 1
-  ShootInterval_Ratio: 4
+  ShootInterval_Ratio: 1.5
   AttackInterval_Final: 0
   AttackInterval_Basic: 1
   AttackInterval_Ratio: 1
