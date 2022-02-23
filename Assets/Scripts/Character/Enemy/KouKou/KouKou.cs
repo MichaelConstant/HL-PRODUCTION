@@ -32,7 +32,6 @@ public class KouKou : CharacterControl
         }
 
         AnimatorStateInfo Info = anim.GetCurrentAnimatorStateInfo(0);
-
         if (currentHP <= 0)
         {
             rb.velocity = new Vector3(0, 0, 0);
@@ -41,6 +40,7 @@ public class KouKou : CharacterControl
             anim.SetBool("IsAlive", isAlive);
             anim.Play("Dead");
         }
+
         if (Info.normalizedTime > 1f && currentHP <= 0)
         {
             gameObject.GetComponent<CapsuleCollider2D>().enabled = false;

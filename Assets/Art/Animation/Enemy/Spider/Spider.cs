@@ -32,25 +32,19 @@ public class Spider : CharacterControl
             transform.GetChild(0).transform.localPosition = new Vector2(-0.06f, 0.08f);
         }
 
-
+        AnimatorStateInfo Info = anim.GetCurrentAnimatorStateInfo(0);
         if (currentHP <= 0)
         {
             rb.velocity = new Vector3(0, 0, 0);
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
             isAlive = false;
             anim.Play("Dead");
-            AnimatorStateInfo Info = anim.GetCurrentAnimatorStateInfo(0);
-            Debug.Log(Info);
-            //if (Info.normalizedTime > 1f)
-            //{
-            //    Debug.Log(Info.normalizedTime);
-            //    gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            //    Destroy(gameObject);
-            //}
         }
 
-
+        if (Info.normalizedTime > 1f && currentHP <= 0)
+        {
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            Destroy(gameObject);
+        }
     }
 }
-
-
