@@ -483,6 +483,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7431250051107753080, guid: 018ffccc72c95254e963b584977181b4, type: 3}
+      propertyPath: rangeDamage_Basic
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431250051107753080, guid: 018ffccc72c95254e963b584977181b4, type: 3}
       propertyPath: MeleeEnergyDecreaseAmount_Rage
       value: 0.1
       objectReference: {fileID: 0}
@@ -584,7 +588,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &706262234
 Transform:
   m_ObjectHideFlags: 0
@@ -666,7 +670,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &961656158
 Transform:
   m_ObjectHideFlags: 0
