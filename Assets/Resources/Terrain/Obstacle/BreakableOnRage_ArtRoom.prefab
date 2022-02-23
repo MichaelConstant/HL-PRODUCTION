@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7981525613360725119}
   - component: {fileID: 1368702203403164547}
   m_Layer: 8
-  m_Name: BreakableOnRage
+  m_Name: BreakableOnRage_ArtRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
