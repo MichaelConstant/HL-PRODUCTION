@@ -44,15 +44,18 @@ public class InventoryManager : MonoBehaviour
     }
     public static void RefreshItem()
     {
-        for (int i = 0; i < instance.slotGrid.transform.childCount; i++)//delete all children of "Grid"
+        if (instance != null)
         {
-            if (instance.slotGrid.transform.childCount == 0)
-                break;
-            Destroy(instance.slotGrid.transform.GetChild(i).gameObject);
-        }
-        for (int i = 0; i < instance.myBag.itemList.Count; i++)  //Re-locate the Scriptable Objects of class <item> in Scriptable Object of class<Inventory>"myBag"and put them in the "Grid"
-        {
-            CreateNewItem(instance.myBag.itemList[i]);
+            for (int i = 0; i < instance.slotGrid.transform.childCount; i++)//delete all children of "Grid"
+            {
+                if (instance.slotGrid.transform.childCount == 0)
+                    break;
+                Destroy(instance.slotGrid.transform.GetChild(i).gameObject);
+            }
+            for (int i = 0; i < instance.myBag.itemList.Count; i++)  //Re-locate the Scriptable Objects of class <item> in Scriptable Object of class<Inventory>"myBag"and put them in the "Grid"
+            {
+                CreateNewItem(instance.myBag.itemList[i]);
+            }
         }
     }
 }

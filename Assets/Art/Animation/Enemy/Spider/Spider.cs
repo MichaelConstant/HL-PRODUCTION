@@ -15,21 +15,22 @@ public class Spider : CharacterControl
     public override void FixedUpdate()
     {
         base.FixedUpdate();
-
-        CommonShoot();
-
         AttackVector = (Player.transform.position - transform.position).normalized;
+        if (isAlive)
+        {
+            CommonShoot();
+        }
         rb.velocity = AttackVector * movementSpeed_Final;
 
         if (rb.velocity.x > 0.01f)
         {
             sr.flipX = true;
-            transform.GetChild(0).transform.localPosition = new Vector2(0.06f, 0.08f);
+            transform.GetChild(0).transform.localPosition = new Vector2(0.06f, -0.07f);
         }
         else
         {
             sr.flipX = false;
-            transform.GetChild(0).transform.localPosition = new Vector2(-0.06f, 0.08f);
+            transform.GetChild(0).transform.localPosition = new Vector2(-0.06f, -0.07f);
         }
 
         AnimatorStateInfo Info = anim.GetCurrentAnimatorStateInfo(0);
