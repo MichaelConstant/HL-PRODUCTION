@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 08d0c8e7c2c647841875295468722eae
+guid: f28b254bddea65d4f9d1e7bcd5601d52
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1500859349458254994
-    second: Phone_Active_0
+      213: -8526941878823881883
+    second: lajiqiu2_0
+  - first:
+      213: 1354633074821475024
+    second: lajiqiu2_1
+  - first:
+      213: 2488758139573244972
+    second: lajiqiu2_2
+  - first:
+      213: -7066006562137152053
+    second: lajiqiu2_3
+  - first:
+      213: -7948007861381838637
+    second: lajiqiu2_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -46,11 +58,11 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 74, w: 0}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -94,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Phone_Active_0
+      name: lajiqiu2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 2
-        width: 34
-        height: 36
+        y: 0
+        width: 17
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -108,8 +120,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6387b1af50eb2be0800000000000000
-      internalID: -1500859349458254994
+      spriteID: 563fc44f9873aa980800000000000000
+      internalID: -8526941878823881883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lajiqiu2_1
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 0
+        width: 17
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0daaab9ba9f9cc210800000000000000
+      internalID: 1354633074821475024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lajiqiu2_2
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 0
+        width: 17
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2410298758d98220800000000000000
+      internalID: 2488758139573244972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lajiqiu2_3
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 0
+        width: 17
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc56c33187080fd90800000000000000
+      internalID: -7066006562137152053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lajiqiu2_4
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 0
+        width: 17
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d8c25ed5f003b190800000000000000
+      internalID: -7948007861381838637
       vertices: []
       indices: 
       edges: []

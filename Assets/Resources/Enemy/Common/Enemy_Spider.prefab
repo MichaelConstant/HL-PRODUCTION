@@ -197,11 +197,11 @@ MonoBehaviour:
   Shooter: {fileID: 0}
   RageShooter: {fileID: 0}
   UltraShooter: {fileID: 0}
-  bullet_0: {fileID: 7155485969590187701, guid: f728ce6f3273e2c40b5d2d0525730f26, type: 3}
-  bullet_1: {fileID: 7155485969590187701, guid: f728ce6f3273e2c40b5d2d0525730f26, type: 3}
-  bullet_2: {fileID: 7155485969590187701, guid: f728ce6f3273e2c40b5d2d0525730f26, type: 3}
-  bullet_3: {fileID: 7155485969590187701, guid: f728ce6f3273e2c40b5d2d0525730f26, type: 3}
-  bullet_Ultra: {fileID: 7155485969590187701, guid: f728ce6f3273e2c40b5d2d0525730f26, type: 3}
+  bullet_0: {fileID: 137484941098686117, guid: 390ee516a0e8db24bbda6cc1149adc69, type: 3}
+  bullet_1: {fileID: 137484941098686117, guid: 390ee516a0e8db24bbda6cc1149adc69, type: 3}
+  bullet_2: {fileID: 137484941098686117, guid: 390ee516a0e8db24bbda6cc1149adc69, type: 3}
+  bullet_3: {fileID: 137484941098686117, guid: 390ee516a0e8db24bbda6cc1149adc69, type: 3}
+  bullet_Ultra: {fileID: 137484941098686117, guid: 390ee516a0e8db24bbda6cc1149adc69, type: 3}
   bulletSpawn: {fileID: 3416024317021800284}
   AttackVector: {x: 0, y: 0}
 --- !u!1 &3416024317021800287
