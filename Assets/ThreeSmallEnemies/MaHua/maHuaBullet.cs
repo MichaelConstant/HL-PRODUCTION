@@ -10,6 +10,7 @@ public class maHuaBullet : EnemyBullet
     public override void Start()
     {
         base.Start();
+        canBeObstacled = false;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         BulletVector = (Player.transform.position - gameObject.transform.position);

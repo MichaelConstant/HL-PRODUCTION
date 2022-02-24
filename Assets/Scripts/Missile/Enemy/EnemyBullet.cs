@@ -10,6 +10,7 @@ public class EnemyBullet : MonoBehaviour
     protected Vector2 BulletVector;
     public int BulletDamage;
     public float BulletSpeed;
+    protected bool canBeObstacled = true;//made for MaHua Bullet
 
     protected GameObject Player;
     public virtual void Start()
@@ -18,9 +19,9 @@ public class EnemyBullet : MonoBehaviour
         BulletVector = (Player.transform.position - gameObject.transform.position);
         GetComponent<Rigidbody2D>().AddForce(BulletVector.normalized * BulletSpeed);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void  OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Terrain" || collision.gameObject.GetComponent<PlayerControl>() != null || collision.gameObject.layer == 8)
+        if (collision.gameObject.tag == "Terrain" || collision.gameObject.GetComponent<PlayerControl>() != null || (collision.gameObject.layer == 8&&canBeObstacled))
         {
             if (collision.gameObject.GetComponent<PlayerControl>() != null)
             {
