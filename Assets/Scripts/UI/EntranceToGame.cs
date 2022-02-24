@@ -47,7 +47,7 @@ public class EntranceToGame : MonoBehaviour
     {
         if ((collision.gameObject.GetComponent<PlayerControl>() != null)&&Input.GetKey(KeyCode.E))
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene("LV1");
             playerUI.SetActive(true);
         }
     }

@@ -821,7 +821,7 @@ MonoBehaviour:
   randEnco_Weight: 5
   design_Weight: 4
   RoomObject: {fileID: 7621033027938625067, guid: c2147224f5dc17742807ad686b7148f8, type: 3}
-  RoomNum: 15
+  RoomNum: 10
   xOffset: 6.4
   yOffset: 4.175
   Seed: 123

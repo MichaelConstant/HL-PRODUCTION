@@ -9,14 +9,7 @@ public class Transport : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerControl>() != null)
         {
-            if (SceneManager.GetActiveScene().buildIndex == 2)
-            {
-                SceneManager.LoadScene(3);
-            }
-            else if (SceneManager.GetActiveScene().buildIndex == 3)
-            {
-                SceneManager.LoadScene(4);
-            }
+            SceneManager.LoadScene("Studio");
         }
     }
 }

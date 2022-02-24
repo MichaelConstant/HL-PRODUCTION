@@ -77,17 +77,16 @@ public class PlayerControl : CharacterControl
     public float MeleeEnergyProtectPercent;
 
     #endregion
-
-    #endregion
-    void Start()
+    private void Start()
     {
 
     }
+    #endregion
     void Update()
     {
         keyText.text = ($"{KeyCounts}");
         coinText.text = ($"{CoinCounts}");
-        //MeleeEnergyUI.fillAmount = (float)MeleeEnergy / MeleeEnergyMax;
+
         RangeEnergyUI.fillAmount = (float)RangeEnergy / RangeEnergyMax;
 
         if (isAlive)
@@ -181,16 +180,7 @@ public class PlayerControl : CharacterControl
         if (canDecrease)
         {
             canDecrease = false;
-            //MeleeLevelUI.text = "LV: " + (MeleeLevel + 1);
-            //MeleeLevelHint.GetComponent<Text>().text = "Pree Q to RAGE: LV." + (MeleeLevel + 1);
-            if (MeleeLevel > 0)
-            {
-                //MeleeLevelHint.SetActive(true);
-            }
-            else
-            {
-                //MeleeLevelHint.SetActive(false);
-            }
+
             if (MeleeEnergy > 0)
             {
                 MeleeEnergy -= MeleeEnergyDecreaseAmountInUse;
@@ -236,6 +226,7 @@ public class PlayerControl : CharacterControl
                 gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
                 anim.SetInteger("State", 0);
                 anim.Play("Dead");
+
                 StartCoroutine(PlayerDead());
             }
         }
@@ -245,7 +236,7 @@ public class PlayerControl : CharacterControl
         RoomGenerator.RoomList.Clear();
         yield return new WaitForSeconds(3f);
         FirstAnimation.isDead = true;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(4);
         myBag.itemList.Clear();
         InventoryManager.RefreshItem();
     }
