@@ -38,7 +38,7 @@ public class Disc : CharacterControl
         Player = GameObject.FindWithTag("Player").GetComponent<PlayerControl>();
         AttackVector = (Player.transform.position - transform.position).normalized;
 
-        if (collision.gameObject.tag == "Terrain")
+        if (collision.gameObject.tag == "Terrain"|| collision.gameObject.layer == 8)
         {
             rb.velocity = AttackVector * movementSpeed_Final;
         }
