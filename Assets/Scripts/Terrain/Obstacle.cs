@@ -12,7 +12,7 @@ public class Obstacle : MonoBehaviour
 
     private void Awake()
     {
-        Player = gameObject.GetComponentInParent<PlayerControl>().gameObject;
+        Player = GameObject.FindWithTag("Player");
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
