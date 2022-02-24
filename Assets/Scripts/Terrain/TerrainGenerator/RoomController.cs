@@ -56,7 +56,6 @@ public class RoomController : MonoBehaviour
                 break;
             case RoomType.BossRoom:
                 sr.sprite = Base;
-                sr.color = new Color32(255, 0, 0, 255);
                 spawnNum = 1;
                 rewardNum = 1;
                 break;

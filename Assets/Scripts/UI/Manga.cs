@@ -16,7 +16,7 @@ public class Manga : MonoBehaviour
     {
         if(Input.anyKeyDown)
         {
-            SceneManager.LoadScene("Studio");
+            SceneManager.LoadScene("LV1");
         }
     }
 }
