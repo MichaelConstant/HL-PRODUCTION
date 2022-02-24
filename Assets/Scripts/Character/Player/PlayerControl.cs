@@ -81,8 +81,7 @@ public class PlayerControl : CharacterControl
     #endregion
     void Start()
     {
-        myBag.itemList.Clear();
-        InventoryManager.RefreshItem();
+
     }
     void Update()
     {

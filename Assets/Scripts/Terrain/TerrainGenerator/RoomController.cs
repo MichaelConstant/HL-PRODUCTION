@@ -73,6 +73,12 @@ public class RoomController : MonoBehaviour
             spawned = true;
             rewarded = true;
             RoomGenerator.RoomList[0].RoomEntered = true;
+            Door[] Doors = GetComponentsInChildren<Door>();
+            for (int i = 0; i < Doors.Length; i++)
+            {
+                Doors[i].TurnOnTheGay();
+            }
+            doorAnimPlayed = true;
         }
         else
         {
