@@ -24,7 +24,6 @@ public class EntranceToGame : MonoBehaviour
             cinematic.SetActive(true);
             FirstAnimation.isDead = false;
         }
-
     }
     private void FixedUpdate()
     {

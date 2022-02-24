@@ -36,6 +36,10 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Destroy(transform.GetChild(0).gameObject);
+        }
 
         Sprite[] Nums = new Sprite[] { num_0, num_1, num_2, num_3, num_4, num_5, num_6, num_7, num_8, num_9 };
 

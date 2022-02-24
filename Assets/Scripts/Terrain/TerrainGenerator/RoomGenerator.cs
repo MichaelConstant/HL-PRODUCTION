@@ -51,6 +51,7 @@ public class RoomGenerator : MonoBehaviour
     private void Awake()
     {
         LevelManager = GetComponentInChildren<LevelManager>();
+        RoomList.Clear();
     }
     void Start()
     {
