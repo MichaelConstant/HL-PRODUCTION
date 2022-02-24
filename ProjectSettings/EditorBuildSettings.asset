@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DEMO.unity
     guid: 6d0443ae37d709b48b89e5da4ec1808d
+  - enabled: 1
+    path: Assets/Scenes/OpeningManga.unity
+    guid: 7f85fd31f10d965489aec56a23df3ae8
   m_configObjects: {}

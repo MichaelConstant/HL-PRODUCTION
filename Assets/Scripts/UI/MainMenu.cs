@@ -14,7 +14,7 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     public void PlayGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("OpeningManga");
     }
     
     public void QuitGame()
