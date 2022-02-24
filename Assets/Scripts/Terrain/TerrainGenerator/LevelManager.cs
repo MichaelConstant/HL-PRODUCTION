@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public int spawnNumForDesign;
-
-    public int spawnNumForProgram;
-
-    public int spawnNumForBoss;
-
     public Sprite num_0;
     public Sprite num_1;
     public Sprite num_2;
@@ -26,6 +20,8 @@ public class LevelManager : MonoBehaviour
     GameObject[] Items;
     GameObject[] Props;
 
+    GameObject[] ProgramRoomSets;
+
     public static GameObject RandEnco;
 
     public Sprite[] Nums;
@@ -35,6 +31,8 @@ public class LevelManager : MonoBehaviour
     public static List<GameObject> ItemsList = new List<GameObject>();
     public static List<GameObject> PropsList = new List<GameObject>();
     public static List<Sprite> NumsSprites = new List<Sprite>();
+
+    public static List<GameObject> ProgramRoomSetsList = new List<GameObject>();
 
     private void Awake()
     {
@@ -47,6 +45,8 @@ public class LevelManager : MonoBehaviour
         Props = Resources.LoadAll<GameObject>("Prop");
 
         RandEnco = Resources.Load<GameObject>("Terrain/RandEnco/RandEnco");
+
+        ProgramRoomSets = Resources.LoadAll<GameObject>("Terrain/ProgramRoom");
 
         for (int i = 0; i < Enemies.Length; i++)
         {
@@ -73,5 +73,9 @@ public class LevelManager : MonoBehaviour
             NumsSprites.Add(Nums[i]);
         }
 
+        for (int i = 0; i < ProgramRoomSets.Length; i++)
+        {
+            ProgramRoomSetsList.Add(ProgramRoomSets[i]);
+        }
     }
 }

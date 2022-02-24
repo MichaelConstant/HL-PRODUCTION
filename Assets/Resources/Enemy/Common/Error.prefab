@@ -26,8 +26,39 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 6568964240486894119}
   m_Father: {fileID: 8370909274472122641}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8199174944981204930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6568964240486894119}
+  m_Layer: 0
+  m_Name: BulletSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6568964240486894119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8199174944981204930}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8251786988899841156}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8370909274472122637
@@ -43,6 +74,7 @@ GameObject:
   - component: {fileID: 8370909274472122643}
   - component: {fileID: 8370909274472122636}
   - component: {fileID: 8370909274472122640}
+  - component: {fileID: 1279261697566395617}
   m_Layer: 0
   m_Name: Error
   m_TagString: Enemy
@@ -147,10 +179,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f09235f5a0878ec42bf90f859ca3755e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  currentHP: 3
+  maxHP: 5
+  currentHP: 5
   movementSpeed_Final: 0
-  movementSpeed_Basic: 1
+  movementSpeed_Basic: 0.2
   movementSpeed_Ratio: 1
   meleeDamage_Final: 0
   meleeDamage_Basic: 1
@@ -159,7 +191,7 @@ MonoBehaviour:
   rangeDamage_Basic: 1
   rangeDamage_Ratio: 1
   ShootInterval_Final: 0
-  ShootInterval_Basic: 1
+  ShootInterval_Basic: 1.5
   ShootInterval_Ratio: 1
   AttackInterval_Final: 0
   AttackInterval_Basic: 1
@@ -179,20 +211,13 @@ MonoBehaviour:
   Shooter: {fileID: 0}
   RageShooter: {fileID: 0}
   UltraShooter: {fileID: 0}
-  bullet_0: {fileID: 539628993391128890, guid: e98833b1a1373d14fb6441b1caaa8a77, type: 3}
-  bullet_1: {fileID: 539628993391128890, guid: e98833b1a1373d14fb6441b1caaa8a77, type: 3}
-  bullet_2: {fileID: 539628993391128890, guid: e98833b1a1373d14fb6441b1caaa8a77, type: 3}
-  bullet_3: {fileID: 539628993391128890, guid: e98833b1a1373d14fb6441b1caaa8a77, type: 3}
-  bullet_Ultra: {fileID: 539628993391128890, guid: e98833b1a1373d14fb6441b1caaa8a77, type: 3}
-  bulletSpawn: {fileID: 8251786988899841156}
+  bullet_0: {fileID: 7155485969590187701, guid: ca69a5a98ca80a4439fd58e18074f1e9, type: 3}
+  bullet_1: {fileID: 7155485969590187701, guid: ca69a5a98ca80a4439fd58e18074f1e9, type: 3}
+  bullet_2: {fileID: 7155485969590187701, guid: ca69a5a98ca80a4439fd58e18074f1e9, type: 3}
+  bullet_3: {fileID: 7155485969590187701, guid: ca69a5a98ca80a4439fd58e18074f1e9, type: 3}
+  bullet_Ultra: {fileID: 7155485969590187701, guid: ca69a5a98ca80a4439fd58e18074f1e9, type: 3}
+  bulletSpawn: {fileID: 6568964240486894119}
   AttackVector: {x: 0, y: 0}
-  bulletNumber: 8
-  bulletSpeed: 10
-  ErrorBullet: {fileID: 539628993391128890, guid: e98833b1a1373d14fb6441b1caaa8a77, type: 3}
-  m_errorState: 0
-  rad: 1
-  staticTime: 1
-  animationFinished: 0
 --- !u!58 &8370909274472122640
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -209,3 +234,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!50 &1279261697566395617
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8370909274472122637}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

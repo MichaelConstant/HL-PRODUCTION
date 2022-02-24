@@ -11,6 +11,7 @@ public class Spider : CharacterControl
         Player = GameObject.FindWithTag("Player").GetComponent<PlayerControl>();
         isAlive = true;
         anim.SetBool("IsAlive", isAlive);
+        canShoot = false;
     }
     public override void FixedUpdate()
     {
@@ -25,12 +26,10 @@ public class Spider : CharacterControl
         if (rb.velocity.x > 0.01f)
         {
             sr.flipX = true;
-            transform.GetChild(0).transform.localPosition = new Vector2(0.06f, -0.07f);
         }
         else
         {
             sr.flipX = false;
-            transform.GetChild(0).transform.localPosition = new Vector2(-0.06f, -0.07f);
         }
 
         AnimatorStateInfo Info = anim.GetCurrentAnimatorStateInfo(0);

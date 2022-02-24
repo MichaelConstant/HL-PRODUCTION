@@ -7,13 +7,13 @@ public class EnemyBullet : MonoBehaviour
     public enum BulletType { CommonBullet, TerrainBullet };
     public BulletType bulletType;
 
-    private Vector2 BulletVector;
+    public Vector2 BulletVector;
 
     public int BulletDamage;
     public float BulletSpeed;
 
-    private GameObject Player;
-    void Start()
+    public GameObject Player;
+    public virtual void Start()
     {
         Player = GameObject.FindWithTag("Player");
         BulletVector = (Player.transform.position - gameObject.transform.position);
@@ -21,7 +21,7 @@ public class EnemyBullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Terrain" || collision.gameObject.GetComponent<PlayerControl>() != null)
+        if (collision.gameObject.tag == "Terrain" || collision.gameObject.GetComponent<PlayerControl>() != null || collision.gameObject.layer == 8)
         {
             if (collision.gameObject.GetComponent<PlayerControl>() != null)
             {

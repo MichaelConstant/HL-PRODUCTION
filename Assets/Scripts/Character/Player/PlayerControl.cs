@@ -81,7 +81,8 @@ public class PlayerControl : CharacterControl
     #endregion
     void Start()
     {
-
+        myBag.itemList.Clear();
+        InventoryManager.RefreshItem();
     }
     void Update()
     {
@@ -289,7 +290,6 @@ public class PlayerControl : CharacterControl
             StartCoroutine(ChangeColor(InvincibleSeconds_Range));
         }
     }
-
     IEnumerator Invincible(float KnockBackSeconds, float InvincibleSeconds)
     {
         yield return new WaitForSeconds(KnockBackSeconds);

@@ -25,7 +25,6 @@ public class RandEnco_Seller : MonoBehaviour
             Goods = LevelManager.ItemsList[goodsIndex];
         }
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<PlayerControl>() != null && transform.GetChild(1).gameObject != null)

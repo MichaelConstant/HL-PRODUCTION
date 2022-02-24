@@ -51,15 +51,19 @@ public class Door : MonoBehaviour
                 {
                     case DoorDirection.up:
                         anim.Play("Boss_Idle_Up");
+                        minimapDoor_Up.SetActive(true);
                         break;
                     case DoorDirection.down:
                         anim.Play("Boss_Idle_Down");
+                        minimapDoor_Down.SetActive(true);
                         break;
                     case DoorDirection.left:
                         anim.Play("Boss_Idle_Left");
+                        minimapDoor_Left.SetActive(true);
                         break;
                     case DoorDirection.right:
                         anim.Play("Boss_Idle_Right");
+                        minimapDoor_Right.SetActive(true);
                         break;
                 }
             }

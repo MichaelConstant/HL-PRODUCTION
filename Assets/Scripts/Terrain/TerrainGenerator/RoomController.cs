@@ -194,47 +194,17 @@ public class RoomController : MonoBehaviour
     }
     void GenerateEnemies()
     {
-        int randSpawnNum = 1;
-
-        switch (roomType)
+        if (roomType == RoomType.ProgramRoom || roomType == RoomType.DesignRoom)
         {
-            case RoomType.DesignRoom:
-                spawnNum = GetComponentInParent<LevelManager>().spawnNumForDesign;
-                randSpawnNum = Random.Range(1, spawnNum + 1);
-                break;
-            case RoomType.ProgramRoom:
-                spawnNum = GetComponentInParent<LevelManager>().spawnNumForProgram;
-                randSpawnNum = Random.Range(1, spawnNum + 1);
-                break;
-            case RoomType.BossRoom:
-                randSpawnNum = GetComponentInParent<LevelManager>().spawnNumForBoss;
-                break;
-            default:
-                randSpawnNum = 0;
-                break;
+            int randProgramSetType = Random.Range(0, LevelManager.ProgramRoomSetsList.Count);
+            GameObject randProgramSet = Instantiate(LevelManager.ProgramRoomSetsList[randProgramSetType], transform.position, Quaternion.identity);
+            randProgramSet.transform.parent = transform;
         }
-
-        for (int i = 0; i < randSpawnNum; i++)
+        else if (roomType == RoomType.BossRoom)
         {
-            if (roomType == RoomType.ProgramRoom)
-            {
-                int Enemytype = Random.Range(0, LevelManager.EnemiesList.Count);
-                Instantiate(LevelManager.EnemiesList[Enemytype], gameObject.transform.position, Quaternion.identity);
-            }
-            else if (roomType == RoomType.DesignRoom)
-            {
-                int Enemytype = Random.Range(0, LevelManager.EnemiesList.Count);
-                Instantiate(LevelManager.EnemiesList[Enemytype], gameObject.transform.position, Quaternion.identity);
-            }
-            else if (roomType == RoomType.BossRoom)
-            {
-                int Enemytype = Random.Range(0, LevelManager.BossesList.Count);
-                Instantiate(LevelManager.BossesList[Enemytype], gameObject.transform.position, Quaternion.identity);
-            }
-            else
-            {
-                break;
-            }
+            int randBossType = Random.Range(0, LevelManager.BossesList.Count);
+            GameObject randBoss = Instantiate(LevelManager.BossesList[randBossType], transform.position, Quaternion.identity);
+            LevelManager.BossesList.Remove(randBoss);
         }
     }
     void GenerateRewards()
