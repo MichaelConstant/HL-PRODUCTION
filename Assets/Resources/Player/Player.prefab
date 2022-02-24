@@ -2926,7 +2926,7 @@ MonoBehaviour:
   MeleeEnergyDecreaseAmount_Rage: 0.1
   RangeLevel: 0
   MeleeLevel: 0
-  RangeEnergyMax: 20
+  RangeEnergyMax: 30
   MeleeEnergyMax: 5
   MeleeLevelMax: 2
   RangeLevelMax: 1
