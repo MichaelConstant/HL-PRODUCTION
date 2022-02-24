@@ -15,6 +15,7 @@ TagManager:
   - GameUI
   - UltraBullet
   - Ultra
+  - MiniMapCamera
   layers:
   - Default
   - TransparentFX

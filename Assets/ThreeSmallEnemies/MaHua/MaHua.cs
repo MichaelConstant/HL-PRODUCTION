@@ -8,7 +8,7 @@ public class MaHua : CharacterControl
     public float changeMovingDirectionIntervalTime;
     int rand;
     float timer;
-
+    PlayerControl Player;
     void Start()
     {
         rb.velocity = new Vector2(0, 0);
@@ -65,9 +65,9 @@ public class MaHua : CharacterControl
         //after each period of time , it turns to a random direction
         if (timer > changeMovingDirectionIntervalTime)
         {
-            var direction = new Vector3(rand, rand, 0);
-            rand = Random.Range(-2, 2);
-            rb.velocity = direction.normalized * movementSpeed_Final;
+            Player = GameObject.FindWithTag("Player").GetComponent<PlayerControl>();
+            AttackVector = (Player.transform.position - transform.position).normalized;
+            rb.velocity = AttackVector * movementSpeed_Final;
             timer = 0;
         }
     }

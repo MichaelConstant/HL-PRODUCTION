@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class WallMap : MonoBehaviour
 {
-    GameObject mapSprite;
-    public Color32 color1;
-    public Color32 color2;
+    GameObject mapSpriteBlack;
+    GameObject mapSpriteWhite;
 
     private void OnEnable()
     {
-        mapSprite = transform.parent.GetChild(0).gameObject;
-        mapSprite.GetComponent<SpriteRenderer>().color = color1;
-     
+        mapSpriteBlack = transform.parent.GetChild(0).gameObject;
+        mapSpriteWhite = transform.parent.GetChild(1).gameObject;
+        mapSpriteBlack.SetActive(true);
+        mapSpriteWhite.SetActive(false);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            mapSprite.GetComponent<SpriteRenderer>().color = color2;        }
+            mapSpriteBlack.SetActive(false);
+            mapSpriteWhite.SetActive(true);
+        }
     }
 }
