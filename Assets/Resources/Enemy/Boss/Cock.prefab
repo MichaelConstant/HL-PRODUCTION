@@ -158,7 +158,7 @@ MonoBehaviour:
   maxHP: 100
   currentHP: 100
   movementSpeed_Final: 0
-  movementSpeed_Basic: 0.25
+  movementSpeed_Basic: 0.75
   movementSpeed_Ratio: 1
   meleeDamage_Final: 0
   meleeDamage_Basic: 1
