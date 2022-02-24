@@ -7,12 +7,11 @@ public class EnemyBullet : MonoBehaviour
     public enum BulletType { CommonBullet, TerrainBullet };
     public BulletType bulletType;
 
-    public Vector2 BulletVector;
-
+    protected Vector2 BulletVector;
     public int BulletDamage;
     public float BulletSpeed;
 
-    public GameObject Player;
+    protected GameObject Player;
     public virtual void Start()
     {
         Player = GameObject.FindWithTag("Player");
