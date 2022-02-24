@@ -483,10 +483,6 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7431250051107753080, guid: 018ffccc72c95254e963b584977181b4, type: 3}
-      propertyPath: rangeDamage_Basic
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7431250051107753080, guid: 018ffccc72c95254e963b584977181b4, type: 3}
       propertyPath: MeleeEnergyDecreaseAmount_Rage
       value: 0.1
       objectReference: {fileID: 0}

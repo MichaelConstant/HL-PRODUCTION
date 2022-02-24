@@ -44,6 +44,7 @@ public class Cock : CharacterControl
         {
             gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
             Destroy(gameObject);
+            BossHP.SetActive(true);
         }
 
         if (Info.normalizedTime > 1f && canShoot)
